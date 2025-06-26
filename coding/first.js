@@ -248,7 +248,7 @@ function multiplemissingNumber(arr, num) {
     }
     return missings;
 }
-// console.log(multiplemissingNumber([1, 2, 3, 5, 7, 6], 16));
+console.log(multiplemissingNumber([2,1,4],5));
 function swap(arr, i, j) {
     // arr[i] = arr[i] - arr[j];
     // arr[j] = arr[i] + arr[j];
@@ -270,7 +270,7 @@ function sortingArray(arr) {
     }
     return arr;
 }
-console.log(sortingArray([1,5,4,3,2]));
+// console.log(sortingArray([1,5,4,3,2]));
 
 function mergeTwoSortedArray(arr1, arr2) {
     let arr3 = arr1.concat(arr2);
@@ -345,7 +345,7 @@ function moveZeroToEnd(arr) {
     }
     return arr;
 }
-console.log(moveZeroToEnd([3, 5, 0, 0, 4, 6]));
+// console.log(moveZeroToEnd([3, 5, 0, 0, 4, 6]));
 
 function findIndex(arr,target){
     let index = 0;
@@ -357,7 +357,7 @@ function findIndex(arr,target){
     }
     // return index;
 }
-console.log(findIndex([1,4,5,6,5,6,7,8,89,6,9,4],1));
+// console.log(findIndex([1,4,5,6,5,6,7,8,89,6,9,4],1));
 
 // function reverseArray(arr){
 //     let end = arr.length-1;
@@ -381,7 +381,7 @@ function reverseArray(arr,i,j){
     }
     return arr;
 }
-console.log(reverseArray([1,2,3],0,1));
+// console.log(reverseArray([1,2,3],0,1));
 
 // function rotateArray(arr,d){
 //     for(let i = 0;i<d;++i){
@@ -400,7 +400,7 @@ function rotateArray(arr,d){
     reverseArray(arr,0,arr.length-1);
     return arr;
 }
-console.log(rotateArray([1,2,3,4,5,5,6,7,8,8,9,9,9,8,9,90,6,8,7654,4,3,7,3,],6));
+// console.log(rotateArray([1,2,3,4,5,5,6,7,8,8,9,9,9,8,9,90,6,8,7654,4,3,7,3,],6));
 
 
 //  Easy (1–20)
@@ -501,3 +501,34 @@ function minMax(arr){
     return {max,min};
 }
 console.log(minMax([2,3,1,4,6,3,8]));
+
+
+// Find the missing number from 1 to N
+function missing(arr,n){
+    let totalSum = (n*(n+1))/2;
+    let sum = 0;
+    for(let i = 0;i<arr.length;++i){
+        sum += arr[i];
+    }
+    return (totalSum-sum);
+}
+console.log(missing([1,2,4],4))
+
+function multipleMissing(arr,n){
+  let missingArray = [];
+   for(let i = 1;i<=n;++i){
+    let found = false;
+    for(let j = 0;j<arr.length;++j){
+        if(arr[j] === i){
+            found = true;
+            break;
+        }
+    }
+    if(!found){
+        missingArray.push(i);
+    }
+}
+
+    return missingArray;
+}
+console.log(multipleMissing([1,2,4,7],8))
