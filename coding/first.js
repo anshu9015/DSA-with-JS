@@ -248,7 +248,7 @@ function multiplemissingNumber(arr, num) {
     }
     return missings;
 }
-console.log(multiplemissingNumber([2,1,4],5));
+console.log(multiplemissingNumber([2, 1, 4], 5));
 function swap(arr, i, j) {
     // arr[i] = arr[i] - arr[j];
     // arr[j] = arr[i] + arr[j];
@@ -347,13 +347,13 @@ function moveZeroToEnd(arr) {
 }
 // console.log(moveZeroToEnd([3, 5, 0, 0, 4, 6]));
 
-function findIndex(arr,target){
+function findIndex(arr, target) {
     let index = 0;
-    for(let i = 0;i<arr.length;++i){
-        if(arr[i] !== target){
-            index++;            
+    for (let i = 0; i < arr.length; ++i) {
+        if (arr[i] !== target) {
+            index++;
         }
-        else{return index;}
+        else { return index; }
     }
     // return index;
 }
@@ -371,8 +371,8 @@ function findIndex(arr,target){
 // }
 // console.log(reverseArray([1,2,3,4,5,6,5,8,9,2]));
 
-function reverseArray(arr,i,j){
-    while(i<j){
+function reverseArray(arr, i, j) {
+    while (i < j) {
         let temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
@@ -391,13 +391,13 @@ function reverseArray(arr,i,j){
 // }
 // console.log(rotateArray([1,2,3,4,5],2));
 
-function rotateArray(arr,d){
-    if(d>arr.length){
-        d = d%arr.length;
+function rotateArray(arr, d) {
+    if (d > arr.length) {
+        d = d % arr.length;
     }
-    reverseArray(arr,0,d-1);
-    reverseArray(arr,d,arr.length-1);
-    reverseArray(arr,0,arr.length-1);
+    reverseArray(arr, 0, d - 1);
+    reverseArray(arr, d, arr.length - 1);
+    reverseArray(arr, 0, arr.length - 1);
     return arr;
 }
 // console.log(rotateArray([1,2,3,4,5,5,6,7,8,8,9,9,9,8,9,90,6,8,7654,4,3,7,3,],6));
@@ -487,48 +487,48 @@ function rotateArray(arr,d){
 
 
 // Find the maximum and minimum in an array
-function minMax(arr){
+function minMax(arr) {
     let max = Number.MIN_VALUE;
     let min = Number.MAX_VALUE;
-    for(let i = 0;i<arr.length;++i){
-        if(arr[i]>max){
+    for (let i = 0; i < arr.length; ++i) {
+        if (arr[i] > max) {
             max = arr[i];
         }
-        else if(arr[i]<min){
+        else if (arr[i] < min) {
             min = arr[i];
         }
     }
-    return {max,min};
+    return { max, min };
 }
-console.log(minMax([2,3,1,4,6,3,8]));
+console.log(minMax([2, 3, 1, 4, 6, 3, 8]));
 
 
 // Find the missing number from 1 to N
-function missing(arr,n){
-    let totalSum = (n*(n+1))/2;
+function missing(arr, n) {
+    let totalSum = (n * (n + 1)) / 2;
     let sum = 0;
-    for(let i = 0;i<arr.length;++i){
+    for (let i = 0; i < arr.length; ++i) {
         sum += arr[i];
     }
-    return (totalSum-sum);
+    return (totalSum - sum);
 }
-console.log(missing([1,2,4],4))
+console.log(missing([1, 2, 4], 4))
 
-function multipleMissing(arr,n){
-  let missingArray = [];
-   for(let i = 1;i<=n;++i){
-    let found = false;
-    for(let j = 0;j<arr.length;++j){
-        if(arr[j] === i){
-            found = true;
-            break;
+function multipleMissing(arr, n) {
+    let missingArray = [];
+    for (let i = 1; i <= n; ++i) {
+        let found = false;
+        for (let j = 0; j < arr.length; ++j) {
+            if (arr[j] === i) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            missingArray.push(i);
         }
     }
-    if(!found){
-        missingArray.push(i);
-    }
-}
 
     return missingArray;
 }
-console.log(multipleMissing([1,2,4,7],8))
+console.log(multipleMissing([1, 2, 4, 7], 8))
