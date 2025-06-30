@@ -3,14 +3,6 @@ function frequencyElement(arr){
     for(let i = 0;i<arr.length;++i){
         obj[arr[i]] = (obj[arr[i]] || 0)+1;
     }
-
-    // let arr2=[];
-
-    // for(let ele of Object.keys(obj)){
-    //     if(Object.values(obj)  < 1 ){
-
-    //     }
-    // }
-    return Object.keys(obj);
+    return obj;
 }
 console.log(frequencyElement([1,2,3,4,2,1,5]));
