@@ -534,23 +534,23 @@ function multipleMissing(arr, n) {
 console.log(multipleMissing([1, 2, 4, 7], 8))
 
 
-function mobileumPattern1(n){
+function mobileumPattern1(n) {
     let result = "";
     let index = 0;
-    for(let i = 0;i<n;++i){
+    for (let i = 0; i < n; ++i) {
         index++;
-        for(let j = 0;j< i+1;++j){
-            result += index+ " ";
+        for (let j = 0; j < i + 1; ++j) {
+            result += index + " ";
         }
-        result = result+"\n";
+        result = result + "\n";
     }
     return result;
 }
 console.log(mobileumPattern1(5));
 
-function findLength(s){
+function findLength(s) {
     let count = 0;
-    for(let char of s){
+    for (let char of s) {
         count++;
     }
     return count;

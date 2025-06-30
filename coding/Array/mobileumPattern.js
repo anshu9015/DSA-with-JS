@@ -1,10 +1,10 @@
-function mobileumPattern(n){
+function mobileumPattern(n) {
     let result = "";
-    for(let i = 0;i<n;++i){
-        for(let j = 0;j< i+1;++j){
-            result += j+1 + " ";
+    for (let i = 0; i < n; ++i) {
+        for (let j = 0; j < i + 1; ++j) {
+            result += j + 1 + " ";
         }
-        result = result+"\n";
+        result = result + "\n";
     }
     return result;
 }
@@ -15,12 +15,12 @@ console.log(mobileumPattern(5));
 // 3 7 10
 // 4 8 11 13
 // 5 9 12 14 15 if n=5
-function pattern(n){
+function pattern(n) {
     let result = "";
     let index = 0;
-    for(let i=0;i<n;i++){
+    for (let i = 0; i < n; i++) {
         index++;
-        for(let j=0;j<i+1;j++){
+        for (let j = 0; j < i + 1; j++) {
             result += index + " ";
             // result += i+1;
             // console.log(`${i+1} `);
@@ -33,15 +33,15 @@ function pattern(n){
 
 console.log(pattern(5));
 
-function pattern2(n){
+function pattern2(n) {
     let result = "";
-    for(let i=0;i<n;i++){
+    for (let i = 0; i < n; i++) {
         let index = i;
-        let increment = n-1;
-        for(let j=0;j<i+1;j++){
+        let increment = n - 1;
+        for (let j = 0; j < i + 1; j++) {
             result += index + 1 + " ";
             index = index + increment;
-            increment--;           
+            increment--;
         }
         result = result + "\n";
     }

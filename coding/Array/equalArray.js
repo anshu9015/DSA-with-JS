@@ -49,9 +49,9 @@
 // console.log(equalArray([0], ['0']));
 
 function sortingArray(arr) {
-    for (let i = 0; i < arr.length-1; ++i) {
+    for (let i = 0; i < arr.length - 1; ++i) {
         for (let j = i + 1; j < arr.length; ++j) {
-            if (arr[i]>arr[j]){
+            if (arr[i] > arr[j]) {
                 let temp = arr[i];
                 arr[i] = arr[j];
                 arr[j] = temp;
@@ -78,4 +78,4 @@ function equalArray(arr1, arr2) {
     return true;
 }
 
- console.log(equalArray([1,2,3,4,5,8,7], [1,2,3,4,5,7,8]));
+console.log(equalArray([1, 2, 3, 4, 5, 8, 7], [1, 2, 3, 4, 5, 7, 8]));

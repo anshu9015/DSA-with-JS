@@ -6,7 +6,7 @@ function leftRotation(arr) {
         arr[j] = temp;
         j++;
     }
-    
+
     return arr;
 }
 console.log(leftRotation([1, 2, 3, 4, 5]));

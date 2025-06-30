@@ -1,27 +1,27 @@
-function moveZeros(arr){
+function moveZeros(arr) {
     let arr1 = [];
     let zeroCount = 0;
-    for(let i = 0;i<arr.length;++i){
-        if(arr[i] === 0){
+    for (let i = 0; i < arr.length; ++i) {
+        if (arr[i] === 0) {
             zeroCount++;
         }
-        else{
+        else {
             arr1.push(arr[i]);
         }
     }
-    while(zeroCount){
+    while (zeroCount) {
         arr1.push(0);
         zeroCount--;
     }
     return arr1;
 }
-console.log(moveZeros([2,3,0,8,0,4]));
+console.log(moveZeros([2, 3, 0, 8, 0, 4]));
 
 
-function moveZeros1(arr){
+function moveZeros1(arr) {
     let index = 0;
-    for(let i = 0;i<arr.length;++i){
-        if(arr[i] !== 0){
+    for (let i = 0; i < arr.length; ++i) {
+        if (arr[i] !== 0) {
             let temp = arr[i];
             arr[i] = arr[index];
             arr[index] = temp;
@@ -30,4 +30,4 @@ function moveZeros1(arr){
     }
     return arr;
 }
-console.log(moveZeros1([2,3,0,8,6,3,0,0,4]));
+console.log(moveZeros1([2, 3, 0, 8, 6, 3, 0, 0, 4]));
