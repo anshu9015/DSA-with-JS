@@ -1,5 +1,4 @@
 function leftRotation(arr) {
-
     let j = 1;
     for (let i = 0; i < arr.length - 1; ++i) {
         let temp = arr[i];
