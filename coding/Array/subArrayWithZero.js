@@ -29,7 +29,7 @@ function consecutiveMaxSum(arr,k){
 
 //loop goes from 0 to 4
 
-console.log(consecutiveMaxSum([1,2,3,4,5,6,7,8,9,10,11,12],5));
+console.log(consecutiveMaxSum([1,2,3,4,5,6,7,8,9,10,11,12],3));
 
 
 // function subArrayWithZero(arr,k){
