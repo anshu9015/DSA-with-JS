@@ -1,15 +1,15 @@
-function consecutiveMaxSumSubArray(arr,k){
+function consecutiveMaxSumSubArray(arr, k) {
 
     let max = 0;
     let result = [];
-    for(let i = 0;i<=arr.length-k;++i){
+    for (let i = 0; i <= arr.length - k; ++i) {
         let sum = 0;
         let arr1 = [];
-        for(let j = i;j<i+k;++j){
+        for (let j = i; j < i + k; ++j) {
             sum += arr[j];
             arr1.push(arr[j]);
         }
-        if(max<sum){
+        if (max < sum) {
             max = sum;
             result = arr1;
         }
@@ -18,14 +18,14 @@ function consecutiveMaxSumSubArray(arr,k){
 }
 
 
-function consecutiveMaxSum(arr,k){
+function consecutiveMaxSum(arr, k) {
     let max = 0;
-    for(let i = 0;i<= arr.length-k;++i){
+    for (let i = 0; i <= arr.length - k; ++i) {
         let sum = 0;
-        for(let j = i;j<i+k;++j){
+        for (let j = i; j < i + k; ++j) {
             sum += arr[j];
         }
-        if(max<sum){
+        if (max < sum) {
             max = sum;
         }
     }
@@ -44,8 +44,8 @@ function consecutiveMaxSum(arr,k){
 
 //loop goes from 0 to 4
 
-console.log(consecutiveMaxSumSubArray([1,2,3,4,5,6,7,8,9,10,11,12],3));
-console.log(consecutiveMaxSum([1,2,3,4,5,6,7,8,9,10,11,12],3));
+console.log(consecutiveMaxSumSubArray([-4, -4, 68, -3, 1, 6, 56], 1));
+console.log(consecutiveMaxSum([-4, -4, 68, -3, 1, 6, 56], 1));
 
 
 
@@ -77,18 +77,46 @@ const arr = [-4, -4, -3, 1, 6];
 // prefixSum4 = [-4,-4,-3,1] = -10;
 // prefixSum5 = [-4,-4,-3,1,6] = -4;
 
-function consecutiveMaxSum1(arr,k){
-let windowSum = 0;
-for(let i = 0;i<k;++i){
-    windowSum += arr[i];
-}
-let maxSum = windowSum;
-for(let i = k;i<arr.length-1;++i){
-    windowSum = windowSum + arr[k] - arr[i-k];
-    maxSum = Math.max(maxSum,windowSum);
-}
-return maxSum;
+function consecutiveMaxSum1(arr, k) {
+    let windowSum = 0;
+    let f = 0;
+    // let l;
+    for (let i = 0; i < k; ++i) {
+        windowSum += arr[i];
+
+    }
+    let maxSum = windowSum;
+    for (let i = k; i < arr.length; i++) {
+        windowSum = windowSum + arr[i] - arr[i - k];
+        // maxSum = Math.max(maxSum, windowSum);
+        if (maxSum < windowSum) {
+            maxSum = windowSum;
+            f = i-k+1;
+            // l = f+k-1;
+        }
+    }
+    return arr.slice(f,f+k);
 }
 
-console.log(consecutiveMaxSum1([-4,-4,-3,1,6],4));
+console.log(consecutiveMaxSum1([72,-8, -4, 68, -3, 1, -6, 71], 6));
+
+
+function consecutiveMaxSum2(arr, k) {
+    let windowSum = 0,maxSum= 0,index = 0;
+    for (let i = 0; i < arr.length; i++) {
+        windowSum += arr[i];
+        if(i>=k){
+            windowSum = windowSum-arr[i-k];
+        }
+        if(i+1>=k && maxSum<windowSum){
+            maxSum = windowSum;
+            index = i-k+1;
+        }
+
+    }
+    return arr.slice(index,index+k)
+    
+}
+
+console.log(consecutiveMaxSum2([72,-8, -4, 68, -3, 1, -6, 71], 2));
 
