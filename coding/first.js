@@ -28,265 +28,247 @@
 
 // Sum of all elements in an array.
 
-
-
 // Reverse a string.
 const string1 = "ACA";
 
 function reverseString(str) {
-    let reverseStringValue = "";
-    for (let i = str.length - 1; i >= 0; i--) {
-        reverseStringValue += str[i];
-    }
-    return reverseStringValue.trim();
+  let reverseStringValue = "";
+  for (let i = str.length - 1; i >= 0; i--) {
+    reverseStringValue += str[i];
+  }
+  return reverseStringValue.trim();
 }
 
 // console.log(reverseString(string1));
 
-
 // Check if a string is a palindrome.
 function checkPallindrome(str) {
-    const value = reverseString(str);
-    if (value === str) {
-        return true;
-    }
-    return false;
+  const value = reverseString(str);
+  if (value === str) {
+    return true;
+  }
+  return false;
 }
 
 // console.log(checkPallindrome(string1));
-
-
 
 // Find the factorial of a number.
 const number = 5;
 
 function factorial(num) {
-    let factorialValue = 1;
-    for (let i = num; i > 1; i--) {
-        factorialValue *= i;
-    }
-    return factorialValue;
+  let factorialValue = 1;
+  for (let i = num; i > 1; i--) {
+    factorialValue *= i;
+  }
+  return factorialValue;
 }
 
 // console.log(factorial(number));
-
 
 // Find the largest number in an array.
 const array1 = [1, 2, 4, 6, 3, 8, 5, 6];
 
 function largestElement(arr) {
-    let max = -1;
-    for (let i = 0; i < arr.length; ++i) {
-        if (max < arr[i]) {
-            max = arr[i];
-        }
+  let max = -1;
+  for (let i = 0; i < arr.length; ++i) {
+    if (max < arr[i]) {
+      max = arr[i];
     }
-    return max;
+  }
+  return max;
 }
 // console.log(largestElement(array1));
 
-
 // Find the second largest number in an array.
 function secondLargestElement(arr) {
-    let largest = largestElement(array1);
-    let secondLargest = -1;
-    for (let i = 0; i < arr.length; ++i) {
-        if (secondLargest < arr[i] && arr[i] !== largest) {
-            secondLargest = arr[i];
-        }
+  let largest = largestElement(array1);
+  let secondLargest = -1;
+  for (let i = 0; i < arr.length; ++i) {
+    if (secondLargest < arr[i] && arr[i] !== largest) {
+      secondLargest = arr[i];
     }
-    return secondLargest;
+  }
+  return secondLargest;
 }
 // console.log(secondLargestElement(array1));
 
-
-
 // Remove duplicates from an array.
 function removeDuplicate(arr) {
-    let arr2 = [];
-    for (let i = 0; i < arr.length; ++i) {
-        let isDuplicate = false;
-        for (let j = 0; j < arr2.length; ++j) {
-            if (arr[i] === arr2[j]) {
-                // arr2.push(arr[i]);
-                isDuplicate = true;
-                break;
-            }
-        }
-        if (!isDuplicate) {
-            arr2.push(arr[i]);
-        }
+  let arr2 = [];
+  for (let i = 0; i < arr.length; ++i) {
+    let isDuplicate = false;
+    for (let j = 0; j < arr2.length; ++j) {
+      if (arr[i] === arr2[j]) {
+        // arr2.push(arr[i]);
+        isDuplicate = true;
+        break;
+      }
     }
-    return arr2;
+    if (!isDuplicate) {
+      arr2.push(arr[i]);
+    }
+  }
+  return arr2;
 }
 // console.log(removeDuplicate(array1));
 
 // alternate method
 function removeDuplicate2(arr) {
-    let arr2 = [];
-    for (let i = 0; i < arr.length; ++i) {
-        if (!arr2.includes(arr[i])) {
-            arr2.push(arr[i]);
-        }
+  let arr2 = [];
+  for (let i = 0; i < arr.length; ++i) {
+    if (!arr2.includes(arr[i])) {
+      arr2.push(arr[i]);
     }
-    return arr2;
+  }
+  return arr2;
 }
 // console.log(removeDuplicate2(array1));
 
 // Check if two strings are anagrams.
 function checkAnagram(str1, str2) {
-    let obj1 = {};
-    let obj2 = {};
-    if (str1.length !== str2.length) {
-        return false;
+  let obj1 = {};
+  let obj2 = {};
+  if (str1.length !== str2.length) {
+    return false;
+  }
+  for (let char of str1) {
+    obj1[char] = (obj1[char] || 0) + 1;
+  }
+  for (let char of str2) {
+    obj2[char] = (obj2[char] || 0) + 1;
+  }
+  for (let key in obj1) {
+    if (obj1[key] !== obj2[key]) {
+      return false;
     }
-    for (let char of str1) {
-        obj1[char] = (obj1[char] || 0) + 1;
-    }
-    for (let char of str2) {
-        obj2[char] = (obj2[char] || 0) + 1;
-    }
-    for (let key in obj1) {
-        if (obj1[key] !== obj2[key]) {
-            return false;
-        }
-    }
-    return true;
+  }
+  return true;
 }
 // console.log(checkAnagram("silent", "listen"));
 
-
 // FizzBuzz (print numbers 1 to 100 with rules).
 function printFizzBuzz() {
-    let arr = [];
-    for (let i = 1; i <= 100; i++) {
-        if (i % 3 === 0 && i % 5 === 0) {
-            arr.push("FIZZBUZZ");
-        }
-        else if (i % 3 === 0) {
-            arr.push("FIZZ");
-        }
-        else if (i % 5 === 0) {
-            arr.push("BUZZ");
-        }
-        else {
-            arr.push(i);
-        }
+  let arr = [];
+  for (let i = 1; i <= 100; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+      arr.push("FIZZBUZZ");
+    } else if (i % 3 === 0) {
+      arr.push("FIZZ");
+    } else if (i % 5 === 0) {
+      arr.push("BUZZ");
+    } else {
+      arr.push(i);
     }
-    return arr;
+  }
+  return arr;
 }
 // console.log(printFizzBuzz());
 
-
 // Count the number of vowels in a string.
 function checkVowelsNumber(str) {
-    const vowels = "aeiouAEIOU";
-    let count = 0;
-    for (let i = 0; i < str.length; ++i) {
-        if (vowels.includes(str[i])) {
-            count += 1;
-        }
+  const vowels = "aeiouAEIOU";
+  let count = 0;
+  for (let i = 0; i < str.length; ++i) {
+    if (vowels.includes(str[i])) {
+      count += 1;
     }
-    return count;
+  }
+  return count;
 }
 // console.log(checkVowelsNumber("asdfghxcvgbhsdfgheee"));
 
-
 // Flatten a nested array.
 function flatArray(arr) {
-    let arr1 = [];
-    for (let i = 0; i < arr.length; ++i) {
-        if (Array.isArray(arr[i])) {
-            let flatArray1 = flatArray(arr[i]);
-            arr1.push(...flatArray1);
-        }
-        else {
-            arr1.push(arr[i]);
-        }
+  let arr1 = [];
+  for (let i = 0; i < arr.length; ++i) {
+    if (Array.isArray(arr[i])) {
+      let flatArray1 = flatArray(arr[i]);
+      arr1.push(...flatArray1);
+    } else {
+      arr1.push(arr[i]);
     }
-    return arr1;
+  }
+  return arr1;
 }
 // console.log(flatArray([1, 2, [1, 2, 3, [4, 5]]]));
 
-
 // Find the frequency of each element in an array.
 function checkFrequency(arr) {
-    let obj = {};
-    for (let element of arr) {
-        obj[element] = (obj[element] || 0) + 1;
-    }
-    return obj;
+  let obj = {};
+  for (let element of arr) {
+    obj[element] = (obj[element] || 0) + 1;
+  }
+  return obj;
 }
 // console.log(checkFrequency(array1));
 
-
-
 // Find the missing number in an array of 1 to n.
 function onemissingNumber(arr, num) {
-    let sum = 0;
-    const totalSum = (num * (num + 1)) / 2;
-    for (let i = 0; i < arr.length; ++i) {
-        sum += arr[i];
-    }
-    return totalSum - sum;
+  let sum = 0;
+  const totalSum = (num * (num + 1)) / 2;
+  for (let i = 0; i < arr.length; ++i) {
+    sum += arr[i];
+  }
+  return totalSum - sum;
 }
 // console.log(onemissingNumber([1, 2, 3, 5, 6], 6));
 
 function multiplemissingNumber(arr, num) {
-    let missings = [];
-    for (let i = 1; i <= num; ++i) {
-        let found = false;
-        for (let j = 0; j < arr.length; ++j) {
-            if (arr[j] === i) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            missings.push(i);
-        }
+  let missings = [];
+  for (let i = 1; i <= num; ++i) {
+    let found = false;
+    for (let j = 0; j < arr.length; ++j) {
+      if (arr[j] === i) {
+        found = true;
+        break;
+      }
     }
-    return missings;
+    if (!found) {
+      missings.push(i);
+    }
+  }
+  return missings;
 }
 console.log(multiplemissingNumber([2, 1, 4], 5));
 function swap(arr, i, j) {
-    // arr[i] = arr[i] - arr[j];
-    // arr[j] = arr[i] + arr[j];
-    // arr[i] = arr[j] - arr[i];
-    let temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
+  // arr[i] = arr[i] - arr[j];
+  // arr[j] = arr[i] + arr[j];
+  // arr[i] = arr[j] - arr[i];
+  let temp = arr[i];
+  arr[i] = arr[j];
+  arr[j] = temp;
 }
-
 
 // Merge two sorted arrays.
 function sortingArray(arr) {
-    for (let i = 0; i < arr.length - 1; ++i) {
-        for (let j = i + 1; j < arr.length; ++j) {
-            if (arr[i] > arr[j]) {
-                swap(arr, i, j);
-            }
-        }
+  for (let i = 0; i < arr.length - 1; ++i) {
+    for (let j = i + 1; j < arr.length; ++j) {
+      if (arr[i] > arr[j]) {
+        swap(arr, i, j);
+      }
     }
-    return arr;
+  }
+  return arr;
 }
 // console.log(sortingArray([1,5,4,3,2]));
 
 function mergeTwoSortedArray(arr1, arr2) {
-    let arr3 = arr1.concat(arr2);
-    const concatedSortedArray = sortingArray(arr3);
-    return concatedSortedArray;
+  let arr3 = arr1.concat(arr2);
+  const concatedSortedArray = sortingArray(arr3);
+  return concatedSortedArray;
 }
 // console.log(mergeTwoSortedArray([1, 4, 5], [3, 7, 4]));
 
 function checkPrime(n) {
-    if (n < 1) { return false; }
-    for (let i = 2; i <= Math.sqrt(n); ++i) {
-        if (n % i === 0) {
-            return false;
-        }
-        return true;
+  if (n < 1) {
+    return false;
+  }
+  for (let i = 2; i <= Math.sqrt(n); ++i) {
+    if (n % i === 0) {
+      return false;
     }
+    return true;
+  }
 }
 // console.log(checkPrime(52));
 
@@ -334,28 +316,29 @@ function checkPrime(n) {
 // console.log(moveZeroToEnd([3,5,0,0,4,6]));
 
 function moveZeroToEnd(arr) {
-    let j = 0;
-    for (let i = 0; i < arr.length; ++i) {
-        if (arr[i] !== 0) {
-            let temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-            j++;
-        }
+  let j = 0;
+  for (let i = 0; i < arr.length; ++i) {
+    if (arr[i] !== 0) {
+      let temp = arr[i];
+      arr[i] = arr[j];
+      arr[j] = temp;
+      j++;
     }
-    return arr;
+  }
+  return arr;
 }
 // console.log(moveZeroToEnd([3, 5, 0, 0, 4, 6]));
 
 function findIndex(arr, target) {
-    let index = 0;
-    for (let i = 0; i < arr.length; ++i) {
-        if (arr[i] !== target) {
-            index++;
-        }
-        else { return index; }
+  let index = 0;
+  for (let i = 0; i < arr.length; ++i) {
+    if (arr[i] !== target) {
+      index++;
+    } else {
+      return index;
     }
-    // return index;
+  }
+  // return index;
 }
 // console.log(findIndex([1,4,5,6,5,6,7,8,89,6,9,4],1));
 
@@ -372,14 +355,14 @@ function findIndex(arr, target) {
 // console.log(reverseArray([1,2,3,4,5,6,5,8,9,2]));
 
 function reverseArray(arr, i, j) {
-    while (i < j) {
-        let temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
-        i++;
-        j--;
-    }
-    return arr;
+  while (i < j) {
+    let temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+    i++;
+    j--;
+  }
+  return arr;
 }
 // console.log(reverseArray([1,2,3],0,1));
 
@@ -392,16 +375,15 @@ function reverseArray(arr, i, j) {
 // console.log(rotateArray([1,2,3,4,5],2));
 
 function rotateArray(arr, d) {
-    if (d > arr.length) {
-        d = d % arr.length;
-    }
-    reverseArray(arr, 0, d - 1);
-    reverseArray(arr, d, arr.length - 1);
-    reverseArray(arr, 0, arr.length - 1);
-    return arr;
+  if (d > arr.length) {
+    d = d % arr.length;
+  }
+  reverseArray(arr, 0, d - 1);
+  reverseArray(arr, d, arr.length - 1);
+  reverseArray(arr, 0, arr.length - 1);
+  return arr;
 }
 // console.log(rotateArray([1,2,3,4,5,5,6,7,8,8,9,9,9,8,9,90,6,8,7654,4,3,7,3,],6));
-
 
 //  Easy (1–20)
 // Find the maximum and minimum in an array
@@ -485,75 +467,71 @@ function rotateArray(arr, d) {
 
 // Number of subarrays with XOR = K
 
-
 // Find the maximum and minimum in an array
 function minMax(arr) {
-    let max = Number.MIN_VALUE;
-    let min = Number.MAX_VALUE;
-    for (let i = 0; i < arr.length; ++i) {
-        if (arr[i] > max) {
-            max = arr[i];
-        }
-        else if (arr[i] < min) {
-            min = arr[i];
-        }
+  let max = Number.MIN_VALUE;
+  let min = Number.MAX_VALUE;
+  for (let i = 0; i < arr.length; ++i) {
+    if (arr[i] > max) {
+      max = arr[i];
+    } else if (arr[i] < min) {
+      min = arr[i];
     }
-    return { max, min };
+  }
+  return { max, min };
 }
 console.log(minMax([2, 3, 1, 4, 6, 3, 8]));
 
-
 // Find the missing number from 1 to N
 function missing(arr, n) {
-    let totalSum = (n * (n + 1)) / 2;
-    let sum = 0;
-    for (let i = 0; i < arr.length; ++i) {
-        sum += arr[i];
-    }
-    return (totalSum - sum);
+  let totalSum = (n * (n + 1)) / 2;
+  let sum = 0;
+  for (let i = 0; i < arr.length; ++i) {
+    sum += arr[i];
+  }
+  return totalSum - sum;
 }
-console.log(missing([1, 2, 4], 4))
+console.log(missing([1, 2, 4], 4));
 
 function multipleMissing(arr, n) {
-    let missingArray = [];
-    for (let i = 1; i <= n; ++i) {
-        let found = false;
-        for (let j = 0; j < arr.length; ++j) {
-            if (arr[j] === i) {
-                found = true;
-                break;
-            }
-        }
-        if (!found) {
-            missingArray.push(i);
-        }
+  let missingArray = [];
+  for (let i = 1; i <= n; ++i) {
+    let found = false;
+    for (let j = 0; j < arr.length; ++j) {
+      if (arr[j] === i) {
+        found = true;
+        break;
+      }
     }
+    if (!found) {
+      missingArray.push(i);
+    }
+  }
 
-    return missingArray;
+  return missingArray;
 }
-console.log(multipleMissing([1, 2, 4, 7], 8))
-
+console.log(multipleMissing([1, 2, 4, 7], 8));
 
 function mobileumPattern1(n) {
-    let result = "";
-    let index = 0;
-    for (let i = 0; i < n; ++i) {
-        index++;
-        for (let j = 0; j < i + 1; ++j) {
-            result += index + " ";
-        }
-        result = result + "\n";
+  let result = "";
+  let index = 0;
+  for (let i = 0; i < n; ++i) {
+    index++;
+    for (let j = 0; j < i + 1; ++j) {
+      result += index + " ";
     }
-    return result;
+    result = result + "\n";
+  }
+  return result;
 }
 console.log(mobileumPattern1(5));
 
 function findLength(s) {
-    let count = 0;
-    for (let char of s) {
-        count++;
-    }
-    return count;
+  let count = 0;
+  for (let char of s) {
+    count++;
+  }
+  return count;
 }
 
 console.log(findLength("anshu"));

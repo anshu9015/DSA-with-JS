@@ -33,7 +33,6 @@
 //         // }
 //         return true
 
-
 //         // for( let i=0 ;i<obj2.length;i++){
 //         //     if(obj1[])
 //         // }
@@ -49,33 +48,30 @@
 // console.log(equalArray([0], ['0']));
 
 function sortingArray(arr) {
-    for (let i = 0; i < arr.length - 1; ++i) {
-        for (let j = i + 1; j < arr.length; ++j) {
-            if (arr[i] > arr[j]) {
-                let temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
-            }
-        }
+  for (let i = 0; i < arr.length - 1; ++i) {
+    for (let j = i + 1; j < arr.length; ++j) {
+      if (arr[i] > arr[j]) {
+        let temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+      }
     }
+  }
 }
 
-
-
 function equalArray(arr1, arr2) {
-    if (arr1.length !== arr2.length) {
+  if (arr1.length !== arr2.length) {
+    return false;
+  } else {
+    sortingArray(arr1);
+    sortingArray(arr2);
+    for (let i = 0; i < arr1.length; ++i) {
+      if (arr1[i] !== arr2[i]) {
         return false;
+      }
     }
-    else {
-        sortingArray(arr1);
-        sortingArray(arr2);
-        for (let i = 0; i < arr1.length; ++i) {
-            if (arr1[i] !== arr2[i]) {
-                return false;
-            }
-        }
-    }
-    return true;
+  }
+  return true;
 }
 
 console.log(equalArray([1, 2, 3, 4, 5, 8, 7], [1, 2, 3, 4, 5, 7, 8]));
