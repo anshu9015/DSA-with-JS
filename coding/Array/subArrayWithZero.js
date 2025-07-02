@@ -67,3 +67,28 @@ console.log(consecutiveMaxSum([1,2,3,4,5,6,7,8,9,10,11,12],3));
 //     }
 //     return result;
 // }
+
+const arr = [-4, -4, -3, 1, 6];
+
+// prefixSum1 = [-4] = -4;
+
+// prefixSum2 = [-4,-4] = -8;
+// prefixSum3 = [-4,-4,-3] = -11;
+// prefixSum4 = [-4,-4,-3,1] = -10;
+// prefixSum5 = [-4,-4,-3,1,6] = -4;
+
+function consecutiveMaxSum1(arr,k){
+let windowSum = 0;
+for(let i = 0;i<k;++i){
+    windowSum += arr[i];
+}
+let maxSum = windowSum;
+for(let i = k;i<arr.length-1;++i){
+    windowSum = windowSum + arr[k] - arr[i-k];
+    maxSum = Math.max(maxSum,windowSum);
+}
+return maxSum;
+}
+
+console.log(consecutiveMaxSum1([-4,-4,-3,1,6],4));
+
