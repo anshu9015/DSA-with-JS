@@ -1,47 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
 
-  <body>
-    <!-- <h1>Responsive layout</h1> -->
-    <header>Responsive layout</header>
-    <main>
-      <section id="box-section" class="main-box">
-        <div class="box">
-          <h1>tiles 1</h1>
-          <p>
-            A paragraph is a distinct unit of writing, typically composed of
-            several sentences, that focuses on a single idea or topic.
-          </p>
-        </div>
-        <div class="box">
-          <h1>tiles 2</h1>
-          <p>
-            It serves to organize and structure written work, making it easier
-            for readers to follow the author's train of thought.
-          </p>
-        </div>
-        <div class="box">
-          <h1>tiles 3</h1>
-          <p>
-            It serves to organize and structure written work, making it easier
-            for readers to follow the author's train of thought.
-          </p>
-        </div>
-        <div class="box">
-          <h1>tiles 4</h1>
-          <p>
-            It serves to organize and structure written work, making it easier
-            for readers to follow the author's train of thought.
-          </p>
-        </div>
-      </section>
-    </main>
-    <footer class="footer">@copyright 2025</footer>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    // window.onload = function () {
+    // const el = document.getElementsByClassName("box");
+    //   const elArray = Array.from(el).map((item) => item.innerText);
+    //   console.log(elArray, "script tag in head");
+    // }
+    
+    document.addEventListener("DOMContentLoaded", function () {
+      const el = document.getElementsByClassName("box");
+      const elArray = Array.from(el).map((item) => item.innerText);
+      console.log(elArray, "script tag in head");
+    })
+  </script>
+</head>
+
+<body>
+  <!-- <h1>Responsive layout</h1> -->
+  <header>Responsive layout</header>
+  <main>
+    <section id="box-section" class="main-box">
+      <div class="box">
+        <h1>tiles 1</h1>
+        <p>
+          A paragraph is a distinct unit of writing, typically composed of
+          several sentences, that focuses on a single idea or topic.
+        </p>
+      </div>
+      <div class="box">
+        <h1>tiles 2</h1>
+        <p>
+          It serves to organize and structure written work, making it easier
+          for readers to follow the author's train of thought.
+        </p>
+      </div>
+      <div class="box">
+        <h1>tiles 3</h1>
+        <p>
+          It serves to organize and structure written work, making it easier
+          for readers to follow the author's train of thought.
+        </p>
+      </div>
+      <div class="box">
+        <h1>tiles 4</h1>
+        <p>
+          It serves to organize and structure written work, making it easier
+          for readers to follow the author's train of thought.
+        </p>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">@copyright 2025</footer>
+
+  <!-- <script>
+      const el = document.getElementsByClassName("box");
+      const elArray = Array.from(el).map((item) => item.innerText);
+      console.log(elArray,"script tag in head");
+    </script> -->
+</body>
+
 </html>
