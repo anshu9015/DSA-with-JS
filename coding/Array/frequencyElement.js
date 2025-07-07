@@ -5,4 +5,4 @@ function frequencyElement(arr) {
   }
   return obj;
 }
-console.log(frequencyElement([1, 2, 3, 4, 2, 1, 5]));
+console.log(frequencyElement([1, 2, 3, 4, 2, 1, 5])); //output: {'1': 2,'2': 2,'3': 1,'4': 1,'5':1}

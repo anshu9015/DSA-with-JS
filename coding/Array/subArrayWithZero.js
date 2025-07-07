@@ -91,32 +91,32 @@ function consecutiveMaxSum1(arr, k) {
         // maxSum = Math.max(maxSum, windowSum);
         if (maxSum < windowSum) {
             maxSum = windowSum;
-            f = i-k+1;
+            f = i - k + 1;
             // l = f+k-1;
         }
     }
-    return arr.slice(f,f+k);
+    return arr.slice(f, f + k);
 }
 
-console.log(consecutiveMaxSum1([72,-8, -4, 68, -3, 1, -6, 71], 6));
+console.log(consecutiveMaxSum1([72, -8, -4, 68, -3, 1, -6, 71], 6));
 
 
 function consecutiveMaxSum2(arr, k) {
-    let windowSum = 0,maxSum= 0,index = 0;
+    let windowSum = 0, maxSum = 0, index = 0;
     for (let i = 0; i < arr.length; i++) {
         windowSum += arr[i];
-        if(i>=k){
-            windowSum = windowSum-arr[i-k];
+        if (i >= k) {
+            windowSum = windowSum - arr[i - k];
         }
-        if(i+1>=k && maxSum<windowSum){
+        if (i + 1 >= k && maxSum < windowSum) {
             maxSum = windowSum;
-            index = i-k+1;
+            index = i - k + 1;
         }
 
     }
-    return arr.slice(index,index+k)
-    
+    return arr.slice(index, index + k)
+
 }
 
-console.log(consecutiveMaxSum2([72,-8, -4, 68, -3, 1, -6, 71], 2));
+console.log(consecutiveMaxSum2([72, -8, -4, 68, -3, 1, -6, 71], 2));
 

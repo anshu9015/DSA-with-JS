@@ -74,4 +74,4 @@ function equalArray(arr1, arr2) {
   return true;
 }
 
-console.log(equalArray([1, 2, 3, 4, 5, 8, 7], [1, 2, 3, 4, 5, 7, 8]));
+console.log(equalArray([1, 2, 3, 4, 5, 8, 7], [1, 2, 3, 4, 5, 7, 8])); //output: true

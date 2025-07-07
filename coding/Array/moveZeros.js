@@ -14,7 +14,7 @@ function moveZeros(arr) {
   }
   return arr1;
 }
-console.log(moveZeros([2, 3, 0, 8, 0, 4]));
+console.log(moveZeros([2, 3, 0, 8, 0, 4])); //output: [2,3,8,4,0,0]
 
 function moveZeros1(arr) {
   let index = 0;
@@ -28,4 +28,4 @@ function moveZeros1(arr) {
   }
   return arr;
 }
-console.log(moveZeros1([2, 3, 0, 8, 6, 3, 0, 0, 4]));
+console.log(moveZeros1([2, 3, 0, 8, 6, 3, 0, 0, 4])); //output:[2,3,8,6,3,4,0,0,0]

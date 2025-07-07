@@ -2,7 +2,7 @@ function concateArray(arr1,arr2,arr3){
     arr1.push(...arr2,...arr3);
     return arr1;
 }
-console.log(concateArray([1,2],[3,4],[5,6]));
+console.log(concateArray([1,2],[3,4],[5,6])); //output: [1,2,3,4,5,6] rail ke deebe ki tarah piche jur jana
 
 
 function flatArray(arr){
@@ -27,4 +27,4 @@ function flatArray1(arr){
 
 const arr4 = [1,2,[3,4],[5,6,7]];
 
-console.log(flatArray(arr4));
+console.log(flatArray(arr4)); //output [1,2,3,4,5,6,7] removal of square bracket
