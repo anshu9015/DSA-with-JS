@@ -21,4 +21,4 @@ function commonElement(arr1, arr2) {
   return arr3;
 }
 
-console.log(commonElement([1, 2, 3, 2], [3, 5, 6, 8, 2]));
+console.log(commonElement([1, 2, 3, 2], [3, 5, 6, 8, 2])); //output : [2,3] the common element in both the array

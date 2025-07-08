@@ -10,11 +10,13 @@ function mobileumPattern(n) {
 }
 console.log(mobileumPattern(5));
 
-// 1
-// 2 6
-// 3 7 10
-// 4 8 11 13
-// 5 9 12 14 15 if n=5
+//1
+//1 2
+//1 2 3
+//1 2 3 4 
+//1 2 3 4 5 
+
+
 function pattern(n) {
   let result = "";
   let index = 0;
@@ -32,6 +34,11 @@ function pattern(n) {
 }
 
 console.log(pattern(5));
+//1
+//2 2
+//3 3 3
+//4 4 4 4 
+//5 5 5 5 5 
 
 function pattern2(n) {
   let result = "";
@@ -49,3 +56,9 @@ function pattern2(n) {
 }
 
 console.log(pattern2(3));
+
+// 1
+// 2 6
+// 3 7 10
+// 4 8 11 13
+// 5 9 12 14 15 if n=5

@@ -9,4 +9,4 @@ function leftRotation(arr) {
 
   return arr;
 }
-console.log(leftRotation([1, 2, 3, 4, 5]));
+console.log(leftRotation([1, 2, 3, 4, 5])); //output: [2,3,4,5,1]

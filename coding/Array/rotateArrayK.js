@@ -25,4 +25,4 @@ function rotateArrayK1(arr, k) {
   reverseArray(arr, 0, arr.length - 1);
   return arr;
 }
-console.log(rotateArrayK1([1, 2, 3, 4, 5], 2));
+console.log(rotateArrayK1([1, 2, 3, 4, 5], 2)); //output: [3,4,5,1,2]

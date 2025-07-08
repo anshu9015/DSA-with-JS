@@ -12,4 +12,4 @@ function uniqueElement(arr) {
   return arr1;
 }
 
-console.log(uniqueElement([1, 2, 3, 2, 2, 4, 4, 5]));
+console.log(uniqueElement([1, 2, 3, 2, 2, 4, 4, 5]));//output:[1,2,3,4,5]

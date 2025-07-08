@@ -13,4 +13,4 @@ function minMax(arr) {
   return { max, min };
 }
 
-console.log(minMax(arr));
+console.log(minMax(arr));//output: {max: 8, min: 1}

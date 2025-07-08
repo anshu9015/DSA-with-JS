@@ -15,7 +15,7 @@ function removeDuplicate(arr) {
   return arr1;
 }
 
-console.log(removeDuplicate([2, 3, 4, 2, 5]));
+console.log(removeDuplicate([2, 3, 4, 2, 5])); //output:[3,4,2,5]
 
 // function removeDuplicate2(arr) {
 //     let j = 1;

@@ -15,7 +15,7 @@ function missingNumber(arr, n) {
   return missingArray;
 }
 
-console.log(missingNumber([2, 1, 4], 8));
+console.log(missingNumber([2, 1, 4], 8));//output: [3,5,6,7,8]
 
 //first of all we take the n , which shows that till that number which is already given n should be in the array from 1.
 //then we will iterate from 1 to n and also iterate the array which matches with iteration of 1 to n which does not found should be in the another array

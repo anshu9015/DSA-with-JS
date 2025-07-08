@@ -19,4 +19,4 @@ const arr2 = [1,2];
 const arr3 = [3,4];
 
 const result = [1,2,3,4];
-console.log(arr2+arr3);
+console.log(arr2+arr3); //output: [1,23,4]
