@@ -443,9 +443,9 @@ function rotateArray(arr, d) {
 
 // Find duplicates in an array      done
 
-// Longest subarray with sum K done
+// Longest subarray with sum K           done
 
-// Find all subarrays with a given sum done
+// Find all subarrays with a given sum     done
 
 // Minimum number of swaps to sort an array
 
@@ -459,11 +459,11 @@ function rotateArray(arr, d) {
 
 // Rearrange array in max-min form
 
-// Find all pairs with a given difference done
+// Find all pairs with a given difference      done
 
 // Count inversions in array
 
-// Maximum product subarray done
+// Maximum product subarray           done
 
 // Number of subarrays with XOR = K
 
