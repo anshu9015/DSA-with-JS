@@ -441,11 +441,11 @@ function rotateArray(arr, d) {
 
 // Product of array except self
 
-// Find duplicates in an array
+// Find duplicates in an array      done
 
-// Longest subarray with sum K
+// Longest subarray with sum K done
 
-// Find all subarrays with a given sum
+// Find all subarrays with a given sum done
 
 // Minimum number of swaps to sort an array
 
@@ -459,11 +459,11 @@ function rotateArray(arr, d) {
 
 // Rearrange array in max-min form
 
-// Find all pairs with a given difference
+// Find all pairs with a given difference done
 
 // Count inversions in array
 
-// Maximum product subarray
+// Maximum product subarray done
 
 // Number of subarrays with XOR = K
 
@@ -535,3 +535,23 @@ function findLength(s) {
 }
 
 console.log(findLength("anshu"));
+
+
+
+// *
+// **
+// ***
+// ****
+// *****
+
+// *****
+// ****
+// ***
+// **
+// *
+
+//     *
+//    ***
+//   *****
+//  *******
+// *********
