@@ -435,7 +435,7 @@ function rotateArray(arr, d) {
 
 // Longest consecutive subsequence
 
-// Equilibrium index of an array
+// Equilibrium index of an array        done
 
 // Trapping Rain Water
 
@@ -461,7 +461,7 @@ function rotateArray(arr, d) {
 
 // Find all pairs with a given difference      done
 
-// Count inversions in array
+// Count inversions in array       done
 
 // Maximum product subarray           done
 
