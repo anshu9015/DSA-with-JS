@@ -431,11 +431,11 @@ function rotateArray(arr, d) {
 
 // Sort an array of 0s, 1s, and 2s (Dutch National Flag)
 
-// Find leaders in an array
+// Find leaders in an array             done
 
 // Longest consecutive subsequence
 
-// Equilibrium index of an array
+// Equilibrium index of an array        done
 
 // Trapping Rain Water
 
@@ -443,9 +443,9 @@ function rotateArray(arr, d) {
 
 // Find duplicates in an array      done
 
-// Longest subarray with sum K done
+// Longest subarray with sum K           done
 
-// Find all subarrays with a given sum done
+// Find all subarrays with a given sum     done
 
 // Minimum number of swaps to sort an array
 
@@ -459,15 +459,15 @@ function rotateArray(arr, d) {
 
 // Rearrange array in max-min form
 
-// Find all pairs with a given difference done
+// Find all pairs with a given difference      done
 
-// Count inversions in array
+// Count inversions in array       done
 
-// Maximum product subarray done
+// Maximum product subarray           done
 
 // Number of subarrays with XOR = K
 
-// Find the maximum and minimum in an array
+// Find the maximum and minimum in an array      done
 function minMax(arr) {
   let max = Number.MIN_VALUE;
   let min = Number.MAX_VALUE;
