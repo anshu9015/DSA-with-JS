@@ -431,7 +431,7 @@ function rotateArray(arr, d) {
 
 // Sort an array of 0s, 1s, and 2s (Dutch National Flag)
 
-// Find leaders in an array
+// Find leaders in an array             done
 
 // Longest consecutive subsequence
 
@@ -467,7 +467,7 @@ function rotateArray(arr, d) {
 
 // Number of subarrays with XOR = K
 
-// Find the maximum and minimum in an array
+// Find the maximum and minimum in an array      done
 function minMax(arr) {
   let max = Number.MIN_VALUE;
   let min = Number.MAX_VALUE;
