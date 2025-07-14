@@ -12,5 +12,6 @@ function inversionArray(arr){
     return {count,res};
 }
 const arr1 = [2, 4, 1, 3, 5]
+// { count: 3, res: [ [ 2, 1 ], [ 4, 1 ], [ 4, 3 ] ] }
 
 console.log(inversionArray(arr1));
