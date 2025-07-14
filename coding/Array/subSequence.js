@@ -1,17 +1,21 @@
-function subSequence(arr){
-    let result= [[]];
-    for(const num of arr){
-        console.log("nums;;;;;;;:::>>>>",num);
+function subSequence(arr) {
+    let result = [[]];
+    for (const num of arr) {
+        console.log("num", num);
         const subSeq = [];
-        for(const ele of result){
-            console.log("ele::::::<<<<<", ele);
-            subSeq.push([...ele,num]);
-            console.log("subsequenceArray......::::::<<<>>>>>>", subSeq);
+        for (const ele of result) {
+            subSeq.push([...ele, num]);
         }
         result.push(...subSeq);
-        console.log("result/////////////", result);
     }
     return result;
 }
 
-console.log(subSequence([1,2,3]));
+console.log(subSequence([1, 2, 3]));
+
+// [
+//   [],       [ 1 ],
+//   [ 2 ],    [ 1, 2 ],
+//   [ 3 ],    [ 1, 3 ],
+//   [ 2, 3 ], [ 1, 2, 3 ]
+// ]

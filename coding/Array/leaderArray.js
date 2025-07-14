@@ -12,6 +12,7 @@ function leaderArray(arr) {
 }
 
 const arr1 = [16, 17, 4, 3, 5, 2]
+// [ 17, 5, 2 ]
 
 
 console.log(leaderArray(arr1));
