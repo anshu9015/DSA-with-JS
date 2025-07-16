@@ -437,9 +437,9 @@ function rotateArray(arr, d) {
 
 // Equilibrium index of an array        done
 
-// Trapping Rain Water
+// Trapping Rain Water       done
 
-// Product of array except self
+// Product of array except self     done
 
 // Find duplicates in an array      done
 
