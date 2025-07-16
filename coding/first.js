@@ -457,7 +457,7 @@ function rotateArray(arr, d) {
 
 // Check if array can be partitioned into two equal sum subsets
 
-// Rearrange array in max-min form
+// Rearrange array in max-min form            done
 
 // Find all pairs with a given difference      done
 
