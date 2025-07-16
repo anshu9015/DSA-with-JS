@@ -433,13 +433,13 @@ function rotateArray(arr, d) {
 
 // Find leaders in an array             done
 
-// Longest consecutive subsequence
+// Longest consecutive subsequence    done
 
 // Equilibrium index of an array        done
 
-// Trapping Rain Water
+// Trapping Rain Water       done
 
-// Product of array except self
+// Product of array except self     done
 
 // Find duplicates in an array      done
 
@@ -457,7 +457,7 @@ function rotateArray(arr, d) {
 
 // Check if array can be partitioned into two equal sum subsets
 
-// Rearrange array in max-min form
+// Rearrange array in max-min form            done
 
 // Find all pairs with a given difference      done
 
