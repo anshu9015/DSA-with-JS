@@ -433,7 +433,7 @@ function rotateArray(arr, d) {
 
 // Find leaders in an array             done
 
-// Longest consecutive subsequence
+// Longest consecutive subsequence    done
 
 // Equilibrium index of an array        done
 
