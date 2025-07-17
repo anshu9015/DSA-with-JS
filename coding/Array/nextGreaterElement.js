@@ -4,7 +4,7 @@ function nextGreaterElement(arr) {
         let largest = arr[i];
         for (let j = i + 1; j < arr.length; ++j) {
             largest = Math.max(largest, arr[j]);
-            if(largest>arr[i]){
+            if (largest > arr[i]) {
                 break;
             }
         }
