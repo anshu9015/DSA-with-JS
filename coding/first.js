@@ -437,7 +437,7 @@ function rotateArray(arr, d) {
 
 // Equilibrium index of an array        done
 
-// Trapping Rain Water       done
+// Trapping Rain Water             done
 
 // Product of array except self     done
 
@@ -449,11 +449,11 @@ function rotateArray(arr, d) {
 
 // Minimum number of swaps to sort an array
 
-// Smallest subarray with sum ≥ target
+// Smallest subarray with sum ≥ target      DONE
 
-// Longest increasing subarray
+// Longest increasing subarray    done
 
-// Next greater element
+// Next greater element          done
 
 // Check if array can be partitioned into two equal sum subsets
 
