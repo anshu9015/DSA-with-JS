@@ -14,6 +14,7 @@ function moveZeros(arr) {
   }
   return arr1;
 }
+
 console.log(moveZeros([2, 3, 0, 8, 0, 4])); //output: [2,3,8,4,0,0]
 
 function moveZeros1(arr) {
