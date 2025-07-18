@@ -46,5 +46,5 @@ function targetSubset(arr, target) {
   return res;
 }
 
-console.log(targetSubset(Input, 11));
-console.log(targetSubset(arr1, 6));
+// console.log(targetSubset(Input, 11));
+// console.log(targetSubset(arr1, 6));
