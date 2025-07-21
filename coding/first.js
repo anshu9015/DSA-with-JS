@@ -455,7 +455,7 @@ function rotateArray(arr, d) {
 
 // Next greater element          done
 
-// Check if array can be partitioned into two equal sum subsets
+// Check if array can be partitioned into two equal sum subsets     done
 
 // Rearrange array in max-min form            done
 
