@@ -74,3 +74,48 @@ console.log(star4(5));
 //   *****
 //  *******
 // *********
+
+
+
+//     1
+//    12
+//   123
+//  1234
+// 12345
+
+function patternNumber(n){
+    let str = "";
+    for(let i = n;i>0;i--){
+        for(let j = 0;j<n-1;++j){
+            str += "";
+        }
+    }
+     for(let i = 0;i<n;i++){
+        for(let j = 0;j<i+1;++j){
+            str += j+1
+        }
+        str = str + "\n";
+    }
+    return str;
+}
+
+
+console.log(patternNumber(5))
+
+
+
+function patternNumber2(n){
+    let str = "";
+    for(let i = 0;i<n;++i){
+        for(let space = 0;space<n-i-1;++space){
+            str += " ";
+        }
+        for(let j = 0;j<i+1;++j){
+            str += j+1;
+        }
+        str += "\n";
+    }
+    return str;
+}
+
+console.log(patternNumber2(5));
