@@ -17,16 +17,9 @@ function removeDuplicate(arr) {
 
 console.log(removeDuplicate([2, 3, 4, 2, 5])); //output:[3,4,2,5]
 
-// function removeDuplicate2(arr) {
-//     let j = 1;
-//     for (let i = 0; i < arr.length - 1; ++i) {
-//         if (arr[i] === arr[j]) {
-//             arr.pop();
-//             j++;
-//         }
-//     }
+function removeDuplicate2(arr) {
+  const uniqueArray = new Set(arr);
+  return [...uniqueArray];
+}
 
-//     return arr;
-// }
-
-// console.log(removeDuplicate2([1,2,2,3,4]));
+console.log(removeDuplicate2([1,2,2,3,4]));

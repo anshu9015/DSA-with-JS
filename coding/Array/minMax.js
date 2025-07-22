@@ -14,3 +14,20 @@ function minMax(arr) {
 }
 
 console.log(minMax(arr));//output: {max: 8, min: 1}
+
+
+function minMax1(arr){
+  if(arr.length === 0) return{max:null,min:null}
+  let max = arr[0];
+  let min = arr[0];
+  for(let i = 1;i<arr.length;++i){
+    if(arr[i]>max){
+      max = arr[i];
+    }
+    else if(arr[i]<min){
+      min = arr[i];
+    }
+  }
+  return {max,min}
+}
+console.log(minMax1(arr));

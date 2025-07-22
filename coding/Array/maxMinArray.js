@@ -14,3 +14,8 @@ function maxMinArray(arr) {
 
 
 console.log(maxMinArray([1, 2, 3, 4, 54, 5, 4, 2]));
+
+
+//   123
+//  1234
+// 12345
