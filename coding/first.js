@@ -386,19 +386,19 @@ function rotateArray(arr, d) {
 // console.log(rotateArray([1,2,3,4,5,5,6,7,8,8,9,9,9,8,9,90,6,8,7654,4,3,7,3,],6));
 
 //  Easy (1–20)
-// Find the maximum and minimum in an array
+// Find the maximum and minimum in an array      done
 
-// Find the missing number from 1 to N
+// Find the missing number from 1 to N           done
 
-// Remove duplicates from a sorted array
+// Remove duplicates from a sorted array         done
 
-// Move all zeroes to the end
+// Move all zeroes to the end                    done
 
-// Reverse an array
+// Reverse an array                              done
 
-// Find the second largest element
+// Find the second largest element               done
 
-// Check if an array is sorted
+// Check if an array is sorted     
 
 // Left rotate the array by one
 
@@ -455,7 +455,7 @@ function rotateArray(arr, d) {
 
 // Next greater element          done
 
-// Check if array can be partitioned into two equal sum subsets
+// Check if array can be partitioned into two equal sum subsets     done
 
 // Rearrange array in max-min form            done
 
