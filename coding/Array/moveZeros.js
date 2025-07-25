@@ -21,9 +21,10 @@ function moveZeros1(arr) {
   let index = 0;
   for(let i = 0;i<arr.length;++i){
     if(arr[i] !== 0){
-      let temp = arr[i];
-      arr[i] = arr[index];
-      arr[index] = temp;
+      // let temp = arr[i];
+      // arr[i] = arr[index];
+      // arr[index] = temp;
+      [arr[i],arr[index]] = [arr[index],arr[i]];
       index++;
     }
   }
