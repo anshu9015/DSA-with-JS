@@ -429,7 +429,7 @@ function rotateArray(arr, d) {
 // 🔁 Medium (21–40)
 // Kadane's Algorithm (max subarray sum)
 
-// Sort an array of 0s, 1s, and 2s (Dutch National Flag)
+// Sort an array of 0s, 1s, and 2s (Dutch National Flag)  done
 
 // Find leaders in an array             done
 
@@ -467,7 +467,7 @@ function rotateArray(arr, d) {
 
 // Number of subarrays with XOR = K
 
-// Find the maximum and minimum in an array      done
+// Find the maximum and minimum in an array     done
 function minMax(arr) {
   let max = Number.MIN_VALUE;
   let min = Number.MAX_VALUE;
@@ -535,8 +535,6 @@ function findLength(s) {
 }
 
 console.log(findLength("anshu"));
-
-
 
 // *
 // **
