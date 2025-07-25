@@ -23,3 +23,7 @@ function merge(left, right) {
 }
 
 console.log(mergeSort([2, 1, 3, 4, 65, 6, 8, 2, 3]));
+
+// Type	Complexity
+// Time	O(n log n)
+// Space	O(n)
