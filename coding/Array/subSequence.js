@@ -11,7 +11,6 @@ function subSequence(arr) {
     return result;
 }
 
-console.log(subSequence([1, 2, 3]));
 
 // [
 //   [],       [ 1 ],
@@ -19,3 +18,17 @@ console.log(subSequence([1, 2, 3]));
 //   [ 3 ],    [ 1, 3 ],
 //   [ 2, 3 ], [ 1, 2, 3 ]
 // ]
+
+function subsequence1(arr){
+    const result = [[]];
+    for(const num of arr){
+        const subsequenceq = [];
+        for(const ele of result){
+            subsequenceq.push([...ele,num]);
+        }
+        result.push(...subsequenceq);
+    }
+    return result;
+}
+
+console.log(subsequence1([1, 2, 3]));

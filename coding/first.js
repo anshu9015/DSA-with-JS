@@ -386,6 +386,8 @@ function rotateArray(arr, d) {
 // console.log(rotateArray([1,2,3,4,5,5,6,7,8,8,9,9,9,8,9,90,6,8,7654,4,3,7,3,],6));
 
 //  Easy (1–20)
+
+
 // Find the maximum and minimum in an array      done
 
 // Find the missing number from 1 to N           done
@@ -426,7 +428,9 @@ function rotateArray(arr, d) {
 
 // Merge two sorted arrays
 
+
 // 🔁 Medium (21–40)
+
 // Kadane's Algorithm (max subarray sum)
 
 // Sort an array of 0s, 1s, and 2s (Dutch National Flag)  done
@@ -468,6 +472,9 @@ function rotateArray(arr, d) {
 // Number of subarrays with XOR = K
 
 // Find the maximum and minimum in an array     done
+
+
+
 function minMax(arr) {
   let max = Number.MIN_VALUE;
   let min = Number.MAX_VALUE;
@@ -512,6 +519,18 @@ function multipleMissing(arr, n) {
 }
 console.log(multipleMissing([1, 2, 4, 7], 8));
 
+function multiplemissing(arr,n){
+  const multiple = [];
+  const set = new Set(arr);
+  for(let i = 1;i<=n;++i){
+    if(!set.has(i)){
+      multiple.push(i);
+    }
+  }
+  return multiple;
+}
+console.log(multiplemissing([1, 2, 4, 7], 8))
+
 function mobileumPattern1(n) {
   let result = "";
   let index = 0;
@@ -553,3 +572,31 @@ console.log(findLength("anshu"));
 //   *****
 //  *******
 // *********
+
+// In DSA
+//Pattern
+//Mathematics
+//Array   40
+//String   40
+//Object
+//Binary Search  30
+//Recursion  30
+//Stack  30
+//Queue   30
+//LinkedList   30
+//Tree basics  30
+
+
+//IN FRONTEND
+//History of WEB DEVELOPMENT
+//How internet works
+//HTML
+//CSS
+//Material UI
+//JavaScript Basics
+//JavaScript Adavanced
+//ReactJs
+//How to live on production
+//How to deploy
+//Optimization Technique
+
