@@ -34,7 +34,7 @@ function subArray1(arr) {
         }
     }
     let response = res.filter(item => item.reduce((acc, curr) => acc + curr, 0) === 0);
-    // console.log(response);
+    console.log(response);
     let maxLength = -1;
     let max = -1;
     for (let i = 0; i < response.length; ++i) {

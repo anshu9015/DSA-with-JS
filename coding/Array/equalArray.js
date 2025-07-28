@@ -75,3 +75,21 @@ function equalArray(arr1, arr2) {
 }
 
 console.log(equalArray([1, 2, 3, 4, 5, 8, 7], [1, 2, 3, 4, 5, 7, 8])); //output: true
+
+
+
+function equalarray(arr1,arr2){
+  if(arr1.length !== arr2.length) return false;
+  let obj = {};
+  for(let ele of arr1){
+    obj[ele] = (obj[ele] || 0) + 1;
+  }
+  for(let ele of arr2){
+    if(!obj[ele]){
+      return false;
+    }
+    obj[ele]--;
+  }
+  return true;
+}
+console.log(equalarray([1, 2, 3, 4, 5, 8, 7], [1, 2, 3, 4, 5, 7, 8]))

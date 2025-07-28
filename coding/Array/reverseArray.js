@@ -27,3 +27,15 @@ function reverseArray1(arr) {
 }
 
 console.log(reverseArray1([1,2,3,4,5]))
+
+function reverseArray2(arr){
+  let start = 0;
+  let end = arr.length-1;
+  while(start<end){
+    [arr[start],arr[end]] = [arr[end],arr[start]];
+    start++;
+    end--;
+  }
+  return arr;
+}
+console.log(reverseArray2([1,3,2,7,4]))
