@@ -48,3 +48,32 @@ function subArray1(arr) {
 }
 
 console.log(subArray1([1, 2, -3, 2, -2])) //output: [1,2,-3,2,-2]
+
+
+function prefixSum(arr){
+    let prefixSum = [];
+    prefixSum[0] = arr[0];
+    for(let i = 1;i<arr.length;++i){
+        prefixSum[i] = prefixSum[i-1] + arr[i];
+    }
+    return prefixSum;
+}
+
+console.log(prefixSum([2, 4, -3, 5]))
+
+
+function rangeSum(arr,start,end){
+    let prefixsum = [];
+    prefixsum[0] = arr[0];
+    for(let i = 1;i<arr.length;++i){
+        prefixsum[i] = prefixsum[i-1] + arr[i];
+    } 
+    if(start === 0){
+        return prefixsum[end]
+    } else{
+        return prefixsum[end] - prefixsum[start-1]    
+    }
+    
+}
+
+console.log(rangeSum([2, 4, -3, 5],1,3))
