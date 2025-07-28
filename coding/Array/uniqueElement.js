@@ -13,3 +13,15 @@ function uniqueElement(arr) {
 }
 
 console.log(uniqueElement([1, 2, 3, 2, 2, 4, 4, 5]));//output:[1,2,3,4,5]
+
+
+function unique(arr){
+  let obj = {}
+  for(let ele of arr){
+    obj[ele] = (obj[ele] || 0) + 1;
+  }
+  return arr.filter((num) => obj[num] === 1)
+}
+
+
+console.log(unique([1, 2, 3, 2, 2, 4, 4, 5]))

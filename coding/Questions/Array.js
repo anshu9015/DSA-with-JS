@@ -13,23 +13,23 @@
 
 // Find the second largest element               done
 
-// Check if an array is sorted     
+// Check if an array is sorted                   done
 
-// Left rotate the array by one
+// Left rotate the array by one                  done
 
-// Rotate array by K positions
+// Rotate array by K positions                   done
 
-// Find the frequency of elements
+// Find the frequency of elements                done
 
-// Count occurrences of a number
+// Count occurrences of a number                 done
 
-// Sum of array elements
+// Sum of array elements                         done
 
-// Find the unique element (appears once, rest twice)
+// Find the unique element (appears once, rest twice)          done
 
-// Find common elements in two arrays
+// Find common elements in two arrays                          done
 
-// Check if two arrays are equal
+// Check if two arrays are equal                               done
 
 // Check if a subarray with sum 0 exists
 

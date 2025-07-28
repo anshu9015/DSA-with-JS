@@ -6,3 +6,14 @@ function frequencyElement(arr) {
   return obj;
 }
 console.log(frequencyElement([1, 2, 3, 4, 2, 1, 5])); //output: {'1': 2,'2': 2,'3': 1,'4': 1,'5':1}
+
+
+function frequency(arr) {
+  let obj = {};
+  for (ele of arr) {
+    obj[ele] = (obj[ele] || 0) + 1;
+  }
+  return obj;
+}
+
+console.log(frequency([1, 2, 3, 4, 2, 1, 5]))

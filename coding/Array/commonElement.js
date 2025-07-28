@@ -22,3 +22,18 @@ function commonElement(arr1, arr2) {
 }
 
 console.log(commonElement([1, 2, 3, 2], [3, 5, 6, 8, 2])); //output : [2,3] the common element in both the array
+
+
+
+function common(arr1,arr2){
+  let set1 = new Set(arr2);
+  let result = new Set();
+  for(let ele of arr1){
+    if(set1.has(ele)){
+      result.add(ele);
+    }
+  }
+  return [...result];
+}
+
+console.log(common([1, 2, 3, 2], [3, 5, 6, 8, 2]))
