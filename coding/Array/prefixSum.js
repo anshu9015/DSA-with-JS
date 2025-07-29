@@ -44,7 +44,7 @@ function rest(...args){
 console.log(rest("sreya","prince"))
 
 var a=10
-
+// () execution context created
 {
 var a=100;
 }
