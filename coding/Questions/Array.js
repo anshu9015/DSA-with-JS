@@ -31,9 +31,9 @@
 
 // Check if two arrays are equal                               done
 
-// Check if a subarray with sum 0 exists
+// Check if a subarray with sum 0 exists                       done
 
-// Maximum sum of a subarray of size K (sliding window)
+// Maximum sum of a subarray of size K (sliding window)        done
 
 // Find the majority element (>n/2)
 
