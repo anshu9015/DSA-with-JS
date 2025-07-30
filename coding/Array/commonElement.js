@@ -36,4 +36,4 @@ function common(arr1,arr2){
   return [...result];
 }
 
-console.log(common([1, 2, 3, 2], [3, 5, 6, 8, 2]))
+console.log(common([1, 2, 3, 2,2], [3, 5, 6, 8, 2]))

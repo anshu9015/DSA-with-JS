@@ -51,3 +51,17 @@ function missingNumber2(arr, n) {
 }
 
 console.log(missingNumber2(arr,7))
+
+
+function missingNumber3(arr,n){
+  let set = new Set(arr);
+  let set1 = new Set();
+  for(let i = 1;i<=n;++i){
+    if(!set.has(i)){
+      set1.add(i);
+    }
+  }
+  return [...set1]
+}
+
+console.log(missingNumber3(arr,7))

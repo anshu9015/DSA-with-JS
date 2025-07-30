@@ -77,3 +77,40 @@ function rangeSum(arr,start,end){
 }
 
 console.log(rangeSum([2, 4, -3, 5],1,3))
+
+
+function maximumSubArraySum(arr){
+    let sum = 0;
+    let maxi= arr[0];
+    for(let i = 0;i<arr.length;++i){
+        sum += arr[i];
+        maxi = Math.max(maxi,sum);
+        if(sum<0){
+            sum = 0;
+        }
+    }
+    return maxi;
+}
+
+console.log(maximumSubArraySum([1,2,3,-2]))
+
+
+function targetsum(arr,k){
+    let result = 0;
+    let currsum = 0;
+    let prefixSum = new Map();
+    for(let ele of arr){
+    currsum += ele;
+    if(currsum === k){
+        result++;
+    }
+    prefixSum.set(currsum,(prefixSum.get(currsum-k) || 0) +1);
+    if(prefixSum.has(currsum-k)){
+        result += prefixSum.get(currsum-k)
+    }
+   
+    }
+    return result;
+}
+
+console.log(targetsum([1,2,3,4],5))
