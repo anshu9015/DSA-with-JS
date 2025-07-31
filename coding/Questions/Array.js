@@ -37,9 +37,13 @@
 
 // Find the majority element (>n/2)                            done
 
+// Find all elements that appear more than ⌊n/3⌋ times.
+
+// Find all elements that appear more than ⌊n/k⌋ times (generalized version).
+
 // Check for pair with a given sum                             done
 
-// Merge two sorted arrays
+// Merge two sorted arrays                                     done
 
 
 // 🔁 Medium (21–40)
