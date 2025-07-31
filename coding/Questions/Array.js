@@ -35,16 +35,16 @@
 
 // Maximum sum of a subarray of size K (sliding window)        done
 
-// Find the majority element (>n/2)
+// Find the majority element (>n/2)                            done
 
-// Check for pair with a given sum
+// Check for pair with a given sum                             done
 
 // Merge two sorted arrays
 
 
 // 🔁 Medium (21–40)
 
-// Kadane's Algorithm (max subarray sum)
+// Kadane's Algorithm (max subarray sum)                         done       
 
 // Sort an array of 0s, 1s, and 2s (Dutch National Flag)  done
 

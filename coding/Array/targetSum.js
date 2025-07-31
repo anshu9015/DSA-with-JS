@@ -20,3 +20,19 @@ const arr3 = [3,4];
 
 const result = [1,2,3,4];
 console.log(arr2+arr3); //output: [1,23,4]
+
+
+function targetSum(arr,target){
+    let targetSeen = new Map();
+    let res = [];
+    for(let val of arr){
+        let getValue = target - val;
+        if(targetSeen.has(getValue)){
+            res.push([val,getValue]);
+        }
+        targetSeen.set(val,true);
+    }
+    return res;
+}
+
+console.log(targetSum([3, 5, 1, 7, 9], 10))
