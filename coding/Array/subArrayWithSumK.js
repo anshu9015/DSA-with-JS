@@ -39,7 +39,7 @@ console.log(subArrayWithSumK1([1,2,3],3))
 
 
 function subArrayOptimizeSumK(arr,k){
-    let prefixSum = new Map();
+    let prefixSum = new Map(0,1);
     let currSum = 0;
     let result = 0;
     for(let val of arr){
@@ -47,13 +47,29 @@ function subArrayOptimizeSumK(arr,k){
         if(currSum === k){
             result++;
         }
-        prefixSum.set(currSum,(prefixSum.get(currSum-k) || 0) + 1);
         if(prefixSum.has(currSum-k)){
             result += prefixSum.get(currSum-k);
         }
+        prefixSum.set(currSum,(prefixSum.get(currSum) || 0) + 1);
     }
     return result
 }
 
 
 console.log(subArrayOptimizeSumK([1,2,3],3))
+
+
+function subArraySum(arr,k){
+    const prefixSum = new Map();
+    let currSum = 0;
+    let count = 0;
+    prefixSum.set(0,1);
+    for(let val of arr){
+        currSum += val;
+        if(prefixSum.has(currSum-k)){
+            count += prefixSum.get(currSum-k);
+        }
+        prefixSum.set(currSum,(prefixSum.get(currSum) || 0) +1)
+    }
+    return count;    
+}

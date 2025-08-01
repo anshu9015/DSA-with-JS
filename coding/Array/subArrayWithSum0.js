@@ -29,3 +29,18 @@ function checkSubArrayWithSum0(arr){
 }
 
 console.log(checkSubArrayWithSum0([15,15,1,2,-3]))
+
+
+function subarrayzero(arr){
+    const prefixSum = new Set();
+    let prefixSum1 = 0;
+    prefixSum.add(0);
+    for(let val of arr){
+        prefixSum1 += val;
+        if(prefixSum.has(prefixSum1)){
+            return true;
+        }
+        prefixSum.add(prefixSum1)
+    }
+    return false;
+}

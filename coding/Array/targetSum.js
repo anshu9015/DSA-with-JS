@@ -36,3 +36,18 @@ function targetSum(arr,target){
 }
 
 console.log(targetSum([3, 5, 1, 7, 9], 10))
+
+
+function target(arr,target){
+    const setsum = new Set();
+    const res = [];
+    
+    for(let val of arr){
+        const getvalue = target-val;
+        if(setsum.has(getvalue)){
+            res.push([getvalue,val]);
+        }
+        setsum.add(val);
+    }
+    return res;
+}
