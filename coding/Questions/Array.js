@@ -37,9 +37,9 @@
 
 // Find the majority element (>n/2)                            done
 
-// Find all elements that appear more than ⌊n/3⌋ times.
+// Find all elements that appear more than ⌊n/3⌋ times.         done
 
-// Find all elements that appear more than ⌊n/k⌋ times (generalized version).
+// Find all elements that appear more than ⌊n/k⌋ times (generalized version).     done
 
 // Check for pair with a given sum                             done
 
