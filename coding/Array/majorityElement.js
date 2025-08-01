@@ -38,7 +38,7 @@ function majorityEle(arr){
     return null;
 }
 
-console.log(majorityEle([2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5]))
+// console.log(majorityEle([2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5]))
 
 
 
@@ -70,5 +70,7 @@ function majorelement(arr){
     }
     return -1;
 }
+const arr = [1,2,1,1,3,3,4]
+console.log(majorelement(arr))
 
-console.log(majorelement([2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5]))
+// console.log(majorelement([2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5]))
