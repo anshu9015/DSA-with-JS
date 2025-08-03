@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Application Form</title>
+  </head>
+  <body>
+    <h1>Job Application</h1>
+    <form>
+      <label for="name">Name :</label>
+      <input type="text" id="name" name="name" />
+      <br />
+      <br />
+      <label for="email">Email :</label>
+      <input type="email" id="email" name="email" />
+      <br />
+      <br />
+      <label for="Phone">Phone: </label>
+      <input type="tel" id="Phone" name="phone" />
+      <br />
+      <br />
+      <label for="file1">Resume:</label>
+      <input type="file" id="file1" name="file1" />
+      <br />
+      <br />
+      <label for="experience">Experience(Years):</label>
+      <input type="number" id="experience" name="experience" min="0" max="40" />
+      <br />
+      <br />
+      <fieldset>
+        <legend>Skills</legend>
+        <input type="checkbox" id="checkbox1" name="checkbox1" />
+        <label for="checkbox1">HTML</label>
+        <input type="checkbox" id="checkbox2" name="checkbox2" />
+        <label for="checkbox2">CSS</label>
+        <input type="checkbox" id="checkbox3" name="checkbox3" />
+        <label for="checkbox3">JavaScript</label>
+      </fieldset>
+      <br />
+      <br />
+      <label for="dropdown1">Highest Education: </label>
+      <select name="dropdown1" id="dropdown1">
+        <option value="" disabled selected>Enter Your Education</option>
+        <option value="High School">High School</option>
+        <option value="Diploma">Diploma</option>
+        <option value="Bachelors">Bachelors</option>
+      </select>
+      <br />
+      <br />
+
+      <p>Availability:</p>
+      <input type="radio" id="availability" name="availability" />
+      <label for="availability">Full Time</label>
+      <input type="radio" id="availability1" name="availability" />
+      <label for="availability1">Part Time</label>
+      <br />
+      <br />
+      <label for="textarea1">Additional Comments</label>
+      <br />
+      <textarea name="textarea1" id="textarea1" cols="30" rows="20"></textarea>
+      <br />
+      <br />
+      <input type="submit" value="submit karo" />
+    </form>
+    <h3>Frequently Added Questions</h3>
+    <details>
+      <summary>What is your name?</summary>
+      <p>My name is Anshu</p>
+    </details>
+    <details>
+      <summary>What is your name?</summary>
+      <p>My name is Anshu</p>
+    </details>
+    <details>
+      <summary>What is your name?</summary>
+      <p>My name is Anshu</p>
+    </details>
+  </body>
+</html>

@@ -6,8 +6,8 @@
     <title>Document</title>
   </head>
   <body>
-    <legend>Form type Data</legend>
     <fieldset>
+      <legend>Form type Data</legend>
       <form>
         <label for="text1">Enter Your Name :</label>
         <input type="text" id="text1" name="text1" />
@@ -19,8 +19,12 @@
         <br />
         <br />
 
-        <label for="number">Enter your Phone Number : </label>
+        <label for="number">Enter Any Favourite Number : </label>
         <input type="number" id="number" name="number" />
+        <br />
+        <br />
+        <label for="Pnumber">Enter Mobile Number : </label>
+        <input type="tel" id="Pnumber" name="Pnumber" />
         <br />
         <br />
         <label for="password">Enter Your Password :</label>
@@ -38,7 +42,8 @@
         <br />
         <!-- dropdown -->
         <label for="dropdown1">Choose Your Gender</label>
-        <select id="dropdown1">
+        <select id="dropdown1" name="dropdown1">
+          <option value="" disabled selected>Select Your Gender</option>
           <option value="male">Male</option>
           <option value="female">FeMale</option>
           <option value="others">Others</option>
