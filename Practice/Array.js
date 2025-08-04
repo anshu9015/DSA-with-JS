@@ -276,71 +276,148 @@ function rotu1(arr, k) {
   return arr;
 }
 
-
 // Find all elements that appear more than ⌊n/k⌋ times (generalized version).     done
-function majorElementK(arr,k){
-    let obj = {};
-    for(let i = 0;i<arr.length;++i){
-        obj[arr[i]] = (obj[arr[i]] || 0) + 1;
+function majorElementK(arr, k) {
+  let obj = {};
+  for (let i = 0; i < arr.length; ++i) {
+    obj[arr[i]] = (obj[arr[i]] || 0) + 1;
+  }
+  let result = [];
+  for (let key in obj) {
+    if (obj[key] > Math.floor(arr.length / k)) {
+      result.push(Number(key));
     }
-    let result = [];
-    for(let key in obj){
-        if(obj[key]>Math.floor(arr.length/k)){
-            result.push(Number(key));
-        }
-    }
-    return result;
+  }
+  return result;
 }
 
-
 // Check for pair with a given sum                             done
-function targetSum(arr,target){
-    const targetPair = new Set();
-    let result = []
-    for(let val of arr){
-        const getValue = target-val;
-        if(targetPair.has(getValue)){
-            result.push([getValue,val]);
-        }
-        targetPair.add(val);
+function targetSum(arr, target) {
+  const targetPair = new Set();
+  let result = [];
+  for (let val of arr) {
+    const getValue = target - val;
+    if (targetPair.has(getValue)) {
+      result.push([getValue, val]);
     }
-    return result
+    targetPair.add(val);
+  }
+  return result;
 }
 
 // Merge two sorted arrays                                     done
-function mergeTwoSortedArray(arr1,arr2){
-    const arr3 = arr1.concat(arr2);
-    arr3.sort((a,b) => a-b);
-    return arr3;
+function mergeTwoSortedArray(arr1, arr2) {
+  const arr3 = arr1.concat(arr2);
+  arr3.sort((a, b) => a - b);
+  return arr3;
 }
-
 
 // Find the unique element (appears once, rest twice)          done
-function uniqueElement(arr){
-    let obj = {}
-    let result = [];
-    for(let val of arr){
-        obj[val] = (obj[val] || 0) +1;
+function uniqueElement(arr) {
+  let obj = {};
+  let result = [];
+  for (let val of arr) {
+    obj[val] = (obj[val] || 0) + 1;
+  }
+  for (let key in obj) {
+    if (obj[key] === 1) {
+      result.push(Number(key));
     }
-    for(let key in obj){
-        if(obj[key] === 1){
-            result.push(Number(key))
-        }
-    }
-    return result;
+  }
+  return result;
 }
 
-function countSubArraySumK(arr,k){
-    const prefixSum = new Map();
-    prefixSum.set(0,1)
-    let prefix = 0;
-    let count = 0;
-    for(let val of arr){
-        prefix += val;
-        if(prefixSum.get(prefix-k)){
-            count = count + prefixSum.get(prefix-k) ;
-        }
-        prefixSum.set(prefix,(prefixSum.get(prefix)||0)+1);
+function countSubArraySumK(arr, k) {
+  const prefixSum = new Map();
+  prefixSum.set(0, 1);
+  let prefix = 0;
+  let count = 0;
+  for (let val of arr) {
+    prefix += val;
+    if (prefixSum.get(prefix - k)) {
+      count = count + prefixSum.get(prefix - k);
     }
-    return count;
+    prefixSum.set(prefix, (prefixSum.get(prefix) || 0) + 1);
+  }
+  return count;
+}
+
+function buuble(arr) {
+  for (let i = 0; i < arr.length - 1; ++i) {
+    let swapped = false;
+    for (let j = 0; j < arr.length - i - 1; ++j) {
+      if (arr[j] > arr[j + 1]) {
+        swapped = true;
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+      }
+    }
+    if (!swapped) break;
+  }
+  return arr;
+}
+
+function selection(arr) {
+  for (let i = 0; i < arr.length - 1; ++i) {
+    let minIndex = i;
+    for (let j = i + 1; j < arr.length; ++j) {
+      if (arr[minIndex] > arr[j]) {
+        minIndex = j;
+      }
+    }
+    if (minIndex !== i) {
+      [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+    }
+  }
+  return arr;
+}
+
+function insertion(arr) {
+  for (let i = 0; i < arr.length; ++i) {
+    for (let j = i; j > 0; --j) {
+      if (arr[j] < arr[j - 1]) {
+        [arr[j], arr[j - 1]] = [arr[j - 1], arr[j]];
+      }
+    }
+  }
+  return arr;
+}
+
+function quick(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+  let pivot = arr[0];
+  let left = [];
+  let right = [];
+  for (let i = 1; i < arr.length; ++i) {
+    if (arr[i] < pivot) {
+      left.push(arr[i]);
+    } else {
+      right.push(arr[i]);
+    }
+  }
+  return [...quick(left), pivot, ...quick(right)];
+}
+
+function mergesort(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+  let mid = Math.floor(arr.length / 2);
+  let left = mergesort(arr.slice(0, mid));
+  let right = mergesort(arr.slice(mid));
+  return merge(left, right);
+}
+function merge(left, right) {
+  let i = 0;
+  let j = 0;
+  let result = [];
+  while (i < left.length && j < right.length) {
+    if (left[i] < right[j]) {
+      result.push(left[i++]);
+    } else {
+      result.push(right[j++]);
+    }
+  }
+  return result.concat(left.slice(i)).concat(right.slice(j));
 }
