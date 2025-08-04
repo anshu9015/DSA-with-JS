@@ -1,14 +1,16 @@
 function secondLargest(arr){
+    if(arr.length<2) return null;
     let largest = arr[0];
-    let secondLargest = Number.MIN_VALUE;
-    for(let i = 1;i<arr.length;++i){
+    let secondLargest = -Infinity;
+    for(let i = 0;i<arr.length;++i){
         if(arr[i]>largest){
+            secondLargest = largest
             largest = arr[i];
-        }if(arr[i]>secondLargest && arr[i] !== largest){
+        }else if(arr[i]>secondLargest && arr[i] !== largest){
             secondLargest = arr[i];
         }
     }
-    return secondLargest;
+    return secondLargest === -Infinity ? null : secondLargest;
 }
 
 
