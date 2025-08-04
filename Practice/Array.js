@@ -421,3 +421,15 @@ function merge(left, right) {
   }
   return result.concat(left.slice(i)).concat(right.slice(j));
 }
+
+function subset(arr) {
+  let result = [[]];
+  for (let num of arr) {
+    let subseq = [];
+    for (let ele of result) {
+      subseq.push([...ele, num]);
+    }
+    result.push(...subseq);
+  }
+  return result;
+}
