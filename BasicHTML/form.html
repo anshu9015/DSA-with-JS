@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <base href="https://www.geeksforgeeks.org" />
   </head>
   <body>
     <fieldset>
       <legend>Form type Data</legend>
-      <form>
+      <form action="/submit-form" method="post" enctype="multipart/form-data">
         <label for="text1">Enter Your Name :</label>
         <input type="text" id="text1" name="text1" />
         <br />
@@ -87,5 +88,11 @@
           cols="30"></textarea>
       </form>
     </fieldset>
+    <label for="browser">choose your browswer</label>
+    <input list="browsers" id="browser" name="browser" />
+    <datalist id="browsers">
+      <option value="chrome"></option>
+      <option value="safari">ption></option>
+    </datalist>
   </body>
 </html>
