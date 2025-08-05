@@ -433,3 +433,16 @@ function subset(arr) {
   }
   return result;
 }
+
+function maxArraySum(arr){
+    let sum = 0;
+    let maxi = -Infinity;
+    for(let i = 0;i<arr.length;++i){
+        sum += arr[i];
+        maxi = Math.max(maxi,sum);
+        if(sum<0){
+            sum = 0;
+        }
+    }
+    return maxi;
+}
