@@ -55,3 +55,30 @@ function pattern4(n){
 }
 console.log(pattern4(5));
 
+function pattern5(n){
+    let str = "";
+    for(let i = 0;i<n;++i){
+        for(let j = 0;j<n-i-1;++j){
+            str += " ";
+        }
+        for(let j = 0;j<i+1;++j){
+            str += String.fromCharCode(64+j+1);
+        }
+        if(i>0){
+            for(let j = i-1;j>=0;--j){
+                str += String.fromCharCode(64+j+1);
+            }
+        }
+        str += "\n"
+    }
+    return str;
+}
+console.log(pattern5(5))
+
+console.log("A"+2)
+
+//     A
+//    ABA
+//   ABCBA
+//  ABCDCBA
+// ABCDEDCBA
