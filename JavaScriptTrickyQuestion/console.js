@@ -1,14 +1,16 @@
 console.log("begins");
-setTimeout(() => {
+setTimeout(() => {//microtasks queue
   console.log("settimeout 1");
-  Promise.resolve().then(() => {
+  Promise.resolve().then(() => {//macrotasks (highest priority)
     console.log("promise 1");
   });
 }, 0);
-new Promise(function (resolve, reject) {
+new Promise(function (resolve, reject) { //macrotaskqueue (highest priority)
   console.log("promise 2");
 });
+
 //begins
-//promise2
+//promise 2
 //settimeout 1
-//promise1
+//promise 1
+
