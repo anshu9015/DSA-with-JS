@@ -11,6 +11,12 @@ function pattern1(n){
 
 console.log(pattern1(5))
 
+// *****
+// ****
+// ***
+// **
+// *
+
 function pattern2(n){
     let str = "";
     for(let i = n;i>0;--i){
@@ -23,6 +29,12 @@ function pattern2(n){
 }
 
 console.log(pattern2(5))
+
+// 12345
+// 1234
+// 123
+// 12
+// 1
 
 function pattern3(n){
     let str = "";
@@ -39,6 +51,12 @@ function pattern3(n){
 }
 console.log(pattern3(5))
 
+//     *
+//    ***
+//   *****
+//  *******
+// *********
+
 function pattern4(n){
     let str = "";
     for(let i = n;i>0;--i){
@@ -54,3 +72,9 @@ function pattern4(n){
 }
 
 console.log(pattern4(5))
+
+// *********
+//  *******
+//   *****
+//    ***
+//     *

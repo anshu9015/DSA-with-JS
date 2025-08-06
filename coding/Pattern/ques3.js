@@ -112,3 +112,18 @@ console.log(pattern4(4));
 // 1 2         2 1
 // 1 2 3     3 2 1
 // 1 2 3 4 4 3 2 1
+
+function pattern5(n){
+    let str = "";
+    for(let i = 0;i<n;++i){
+        for(let j = 0;j<n-i-1;++j){
+            str += " ";
+        }
+        for(let j = i+1;j>0;--j){
+            str += j;
+        }
+        str += "\n";
+    }
+    return str;
+}
+console.log(pattern5(5));
