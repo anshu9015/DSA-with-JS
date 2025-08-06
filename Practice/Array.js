@@ -446,3 +446,21 @@ function maxArraySum(arr){
     }
     return maxi;
 }
+
+
+function targetSumIndex(arr,target){
+  let newset = new Map();
+  let result = [];
+  for(let i = 0;i<arr.length;++i){
+    let getvalue = target - arr[i];
+    if(newset.has(getvalue)){
+      result.push([newset.get(getvalue),i]);
+    } 
+    newset.set(arr[i],i);
+  }
+  return result;
+}
+console.log(targetSumIndex([2,7,5,6],9))
+
+
+
