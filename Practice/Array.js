@@ -312,6 +312,26 @@ function mergeTwoSortedArray(arr1, arr2) {
   return arr3;
 }
 
+function mergeTwoSorted(arr1, arr2) {
+  let result = [];
+  let i = 0;
+  let j = 0;
+  while (i < arr1.length && j < arr2.length) {
+    if (arr1[i] < arr2[j]) {
+      result.push(arr1[i++]);
+    } else {
+      result.push(arr2[j++]);
+    }
+  }
+  while(i<arr1.length){
+    result.push(arr1[i++]);
+  }
+   while(j<arr2.length){
+    result.push(arr2[j++]);
+  }
+  return result;
+}
+
 // Find the unique element (appears once, rest twice)          done
 function uniqueElement(arr) {
   let obj = {};
@@ -419,7 +439,13 @@ function merge(left, right) {
       result.push(right[j++]);
     }
   }
-  return result.concat(left.slice(i)).concat(right.slice(j));
+  while(i<left.length){
+    result.push(left[i++]);
+  }
+    while(j<right.length){
+    result.push(right[j++]);
+  }
+  return result;
 }
 
 function subset(arr) {
@@ -434,33 +460,29 @@ function subset(arr) {
   return result;
 }
 
-function maxArraySum(arr){
-    let sum = 0;
-    let maxi = -Infinity;
-    for(let i = 0;i<arr.length;++i){
-        sum += arr[i];
-        maxi = Math.max(maxi,sum);
-        if(sum<0){
-            sum = 0;
-        }
+function maxArraySum(arr) {
+  let sum = 0;
+  let maxi = -Infinity;
+  for (let i = 0; i < arr.length; ++i) {
+    sum += arr[i];
+    maxi = Math.max(maxi, sum);
+    if (sum < 0) {
+      sum = 0;
     }
-    return maxi;
+  }
+  return maxi;
 }
 
-
-function targetSumIndex(arr,target){
+function targetSumIndex(arr, target) {
   let newset = new Map();
   let result = [];
-  for(let i = 0;i<arr.length;++i){
+  for (let i = 0; i < arr.length; ++i) {
     let getvalue = target - arr[i];
-    if(newset.has(getvalue)){
-      result.push([newset.get(getvalue),i]);
-    } 
-    newset.set(arr[i],i);
+    if (newset.has(getvalue)) {
+      result.push([newset.get(getvalue), i]);
+    }
+    newset.set(arr[i], i);
   }
   return result;
 }
-console.log(targetSumIndex([2,7,5,6],9))
-
-
-
+console.log(targetSumIndex([2, 7, 5, 6], 9));
