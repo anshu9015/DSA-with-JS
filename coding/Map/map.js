@@ -34,3 +34,8 @@ map.forEach((key,value) => {
 })
 console.log(map.clear())//undefined
 console.log(map.size)
+
+
+const arr = [1,2,3,4,5];
+const newArray = arr.map((el) => (el*2));
+console.log(newArray)
