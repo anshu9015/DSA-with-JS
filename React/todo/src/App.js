@@ -4,11 +4,11 @@ import "./App.css";
 function App() {
   const [input, setInput] = useState("");
   const [status, setStatus] = useState("");
-  const [todo, setTodo] = useState([]);
+  // const [todo, setTodo] = useState([]);
   const [filter, setFilter] = useState("ALL");
   const PENDING = "PENDING";
   function handleClick() {
-    if (!input.trim() && !status) {
+    if (!input.trim() || !status) {
       alert(`Please enter both todo work and status`);
       return;
     }
@@ -17,24 +17,54 @@ function App() {
       work: input,
       status: status,
     };
-    setTodo([...todo, newTodo]);
+    // let updatedArray = [...localStorageDataArray, newTodo];
+    let updatedArray = [...sessionStorageDataArray, newTodo];
+    // localStorage.setItem("filteredArray", JSON.stringify([...updatedArray]));
+    sessionStorage.setItem("sessionArray", JSON.stringify([...updatedArray]));
+    // setTodo([...todo, newTodo]);
+    // setTodo((prev) => {
+    //   let updatedArray = [...prev,newTodo]
+    //   localStorage.setItem("filteredArray",JSON.stringify([...updatedArray]));
+    //   return updatedArray;
+    // })
     setInput("");
     setStatus("");
   }
+  // const localStorageDataArray = localStorage.getItem("filteredArray")
+  //   ? JSON.parse(localStorage.getItem("filteredArray"))
+  //   : [];
+  const sessionStorageDataArray = sessionStorage.getItem("sessionArray")
+    ? JSON.parse(sessionStorage.getItem("sessionArray"))
+    : [];
+  console.log(
+    "localstorageData-------->mmmmmmmmm",
+    sessionStorage.getItem("sessionArray")
+  );
   function handleFilter(e) {
     setFilter(e.target.value);
   }
+  console.log(">>>>>>>>>>", sessionStorageDataArray);
+  // function filteredStatus() {
+  //   if (filter === "COMPLETED") {
+  //     return localStorageDataArray.filter((el) => el.status === "COMPLETED");
+  //   } else if (filter === "PENDING") {
+  //     return localStorageDataArray.filter((el) => el.status === "PENDING");
+  //   } else {
+  //     return localStorageDataArray;
+  //   }
+  // }
   function filteredStatus() {
     if (filter === "COMPLETED") {
-      return todo.filter((el) => el.status === "COMPLETED");
+      return sessionStorageDataArray.filter((el) => el.status === "COMPLETED");
     } else if (filter === "PENDING") {
-      return todo.filter((el) => el.status === "PENDING");
+      return sessionStorageDataArray.filter((el) => el.status === "PENDING");
     } else {
-      return todo;
+      return sessionStorageDataArray;
     }
   }
   console.log("filtered data---->", filter);
   const filteredArray = filteredStatus();
+  console.log("filteredArray", filteredArray);
   return (
     <div className="App">
       <h1>TODO LIST</h1>
@@ -79,7 +109,8 @@ function App() {
       <select
         title="select your status"
         value={status}
-        onChange={(e) => setStatus(e.target.value)}>
+        onChange={(e) => setStatus(e.target.value)}
+      >
         <option value="" disabled>
           Enter your status:
         </option>
