@@ -2,158 +2,111 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  // const [input, setInput] = useState("");
-  // const [status, setStatus] = useState("");
-  // // const [todo, setTodo] = useState([]);
-  // const [filter, setFilter] = useState("ALL");
-  // const PENDING = "PENDING";
-  // function handleClick() {
-  //   if (!input.trim() || !status) {
-  //     alert(`Please enter both todo work and status`);
-  //     return;
-  //   }
-  //   const newTodo = {
-  //     id: Date.now(),
-  //     work: input,
-  //     status: status,
-  //   };
-  //   // let updatedArray = [...localStorageDataArray, newTodo];
-  //   let updatedArray = [...sessionStorageDataArray, newTodo];
-  //   // localStorage.setItem("filteredArray", JSON.stringify([...updatedArray]));
-  //   sessionStorage.setItem("sessionArray", JSON.stringify([...updatedArray]));
-  //   // setTodo([...todo, newTodo]);
-  //   // setTodo((prev) => {
-  //   //   let updatedArray = [...prev,newTodo]
-  //   //   localStorage.setItem("filteredArray",JSON.stringify([...updatedArray]));
-  //   //   return updatedArray;
-  //   // })
-  //   setInput("");
-  //   setStatus("");
-  // }
-  // // const localStorageDataArray = localStorage.getItem("filteredArray")
-  // //   ? JSON.parse(localStorage.getItem("filteredArray"))
-  // //   : [];
-  // const sessionStorageDataArray = sessionStorage.getItem("sessionArray")
-  //   ? JSON.parse(sessionStorage.getItem("sessionArray"))
-  //   : [];
-  // console.log(
-  //   "localstorageData-------->mmmmmmmmm",
-  //   sessionStorage.getItem("sessionArray")
-  // );
-  // function handleFilter(e) {
-  //   setFilter(e.target.value);
-  // }
-  // console.log(">>>>>>>>>>", sessionStorageDataArray);
-  // // function filteredStatus() {
-  // //   if (filter === "COMPLETED") {
-  // //     return localStorageDataArray.filter((el) => el.status === "COMPLETED");
-  // //   } else if (filter === "PENDING") {
-  // //     return localStorageDataArray.filter((el) => el.status === "PENDING");
-  // //   } else {
-  // //     return localStorageDataArray;
-  // //   }
-  // // }
-  // function filteredStatus() {
-  //   if (filter === "COMPLETED") {
-  //     return sessionStorageDataArray.filter((el) => el.status === "COMPLETED");
-  //   } else if (filter === "PENDING") {
-  //     return sessionStorageDataArray.filter((el) => el.status === "PENDING");
-  //   } else {
-  //     return sessionStorageDataArray;
-  //   }
-  // }
-  // console.log("filtered data---->", filter);
-  // const filteredArray = filteredStatus();
-  // console.log("filteredArray", filteredArray);
-  // return (
-  //   <div className="App">
-  //     <h1>TODO LIST</h1>
-  //     <input
-  //       type="radio"
-  //       id="radio1"
-  //       name="filter"
-  //       title="radio button"
-  //       value="ALL"
-  //       onChange={handleFilter}
-  //     />
-  //     <label htmlFor="radio1">ALL</label>
-  //     <input
-  //       type="radio"
-  //       id="radio2"
-  //       name="filter"
-  //       title="radio button"
-  //       value="COMPLETED"
-  //       onChange={handleFilter}
-  //     />
-  //     <label htmlFor="radio2">COMPLETED</label>
-  //     <input
-  //       type="radio"
-  //       id="radio3"
-  //       name="filter"
-  //       title="radio button"
-  //       value={PENDING}
-  //       onChange={handleFilter}
-  //     />
-  //     <label htmlFor="radio3">PENDING</label>
-  //     <br />
-  //     <br />
-  //     <label htmlFor="todo">Enter your TODO: </label>
-  //     <input
-  //       type="text"
-  //       id="todo"
-  //       name="todo"
-  //       title="Enter your todo"
-  //       value={input}
-  //       onChange={(e) => setInput(e.target.value)}
-  //     />
-  //     <select
-  //       title="select your status"
-  //       value={status}
-  //       onChange={(e) => setStatus(e.target.value)}
-  //     >
-  //       <option value="" disabled>
-  //         Enter your status:
-  //       </option>
-  //       <option value="COMPLETED">COMPLETED </option>
-  //       <option value="PENDING">PENDING </option>
-  //     </select>
-  //     <button type="submit" title="submit button" onClick={handleClick}>
-  //       ADD TODO
-  //     </button>
-  //     <ul>
-  //       {filteredArray.length
-  //         ? filteredArray.map((todos) => (
-  //             <li key={todos.id}>
-  //               {todos.work} ---- {todos.status}
-  //             </li>
-  //           ))
-  //         : null}
-  //     </ul>
-  // </div>
-  const[list,setList] = useState([{id:Date.now()}])
-  function handleClick(){
-    const newList = {
-      id:Date.now(),
-    }
-    setList([...list,newList])
+  const [input, setInput] = useState("");
+  const [status, setStatus] = useState("");
+  const [filtered, setFiltered] = useState("ALL");
+
+  const storedValue = localStorage.getItem("setValue");
+  let localStorageDataArray;
+  try {
+    localStorageDataArray = storedValue ? JSON.parse(storedValue) : [];
+  } catch (err) {
+    console.error("error in storing data", err);
+    localStorageDataArray = [];
   }
-  // function handleRemove(item){
-  //   setList(list.filter((el) => el.id !== item.id))
-  // }//this code is correct
+  function handleClick() {
+    if (!input || !status) {
+      alert(`PLEASE MARK BOTH INPUT FIELD`);
+      return;
+    }
+    const newTodo = {
+      id: Date.now(),
+      work: input,
+      status: status,
+    };
+    const updatedArray = [...localStorageDataArray, newTodo];
+    localStorage.setItem("setValue", JSON.stringify(updatedArray));
+    setInput("");
+    setStatus("");
+  }
+  function handleFilter(e) {
+    setFiltered(e.target.value);
+  }
+  function filteredStatus() {
+    if (filtered === "COMPLETED") {
+      return localStorageDataArray.filter((el) => el.status === "COMPLETED");
+    } else if (filtered === "PENDING") {
+      return localStorageDataArray.filter((el) => el.status === "PENDING");
+    } else {
+      return localStorageDataArray;
+    }
+  }
+  const filteredArray = filteredStatus();
+  console.log("filteredArray---->>><<<<", filteredArray);
   return (
     <div className="App">
-      <h1>DYNAMIC INPUT BOX</h1>
-      {list.map((item) => (
-        <>
-        <input type="text" name="text1" value={item.id}/>
-        <button onClick={()=>{
-          // console.log("elele", el)
-          setList(list.filter((ele) => ele.id !== item.id))}}>-</button>
-          {/* <button onClick={() => handleRemove(item)}>-</button> */}
-          {/* the above line is also correct */}
-        </>
-      ))}
-      <button onClick={handleClick}>+</button>
+      <h1>TODO LIST</h1>
+      <label htmlFor="radio1">ALL</label>
+      <input
+        type="radio"
+        id="radio1"
+        name="status"
+        value="ALL"
+        onChange={handleFilter}
+      />
+      <label htmlFor="radio2">COMPLETED</label>
+      <input
+        type="radio"
+        id="radio2"
+        name="status"
+        value="COMPLETED"
+        onChange={handleFilter}
+      />
+      <label htmlFor="radio3">PENDING</label>
+      <input
+        type="radio"
+        id="radio3"
+        name="status"
+        value="PENDING"
+        onChange={handleFilter}
+      />
+      <br />
+      <br />
+      <div style={{ paddingRight: "10px", display: "inline" }}>
+        <label htmlFor="input1">ENTER YOUR TODO: </label>
+        <input
+          type="text"
+          id="input1"
+          name="input1"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+        />
+      </div>
+      <div style={{ paddingRight: "5px", display: "inline" }}>
+        <select
+          id="select"
+          name="select"
+          value={status}
+          onChange={(e) => setStatus(e.target.value)}>
+          <option value="" disabled>
+            ENTER YOUR STATUS
+          </option>
+          <option value="COMPLETED">COMPLETED</option>
+          <option value="PENDING">PENDING</option>
+        </select>
+      </div>
+      <button type="submit" title="submit button" onClick={handleClick}>
+        ADD TODO
+      </button>
+      <ul>
+        {filteredArray.length
+          ? filteredArray.map((todos) => (
+              <li key={todos.id}>
+                {todos.work} ---- {todos.status}
+              </li>
+            ))
+          : null}
+      </ul>
     </div>
   );
 }
