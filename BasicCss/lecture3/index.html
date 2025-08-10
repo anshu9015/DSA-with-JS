@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        box-sizing: border-box;
+        border: 5px solid green;
+        background-color: aquamarine;
+      }
+      .container {
+        box-sizing: border-box;
+        border: 5px solid green;
+        height: 4000px;
+        position: relative;
+      }
+      img {
+        width: 200px;
+      }
+      .image1 {
+        position: sticky;
+        top: 100px;
+      }
+      .image2 {
+        position: relative;
+        top: 100px;
+      }
+      .image3 {
+        position: absolute;
+        top: 100px;
+      }
+      .image4 {
+        position: fixed;
+      }
+      .box {
+        height: 4000px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>LEARN POSITIONING PROPERTY</h1>
+    <div class="container">
+      <img src="img.jpg" alt="photo1" class="image1" />
+      <img src="img.jpg" alt="photo1" class="image2" />
+      <img src="img.jpg" alt="photo1" class="image3" />
+      <img src="img.jpg" alt="photo1" class="image4" />
+    </div>
+    <div class="box"></div>
+  </body>
+</html>
