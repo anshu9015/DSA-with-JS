@@ -231,19 +231,29 @@ function appearOnce(arr) {
 }
 console.log(appearOnce([4, 1, 2, 1, 2]));
 
-function NumberSubArraySumK(arr,k){
-    let prefixSum = 0;
-    let res = 0;
-    let newSet = new Map();
-    newSet.set(0,1);
-    for(let val of arr){
-        prefixSum += val;
-        if(newSet.has(prefixSum-k)){
-            res +=newSet.get(prefixSum-k) ;
-        }
-        newSet.set(prefixSum,(newSet.get(prefixSum) || 0) + 1);
-    }
-    return res;
+function appearOnce1(arr) {
+  let XORR = 0;
+  for (let i = 0; i < arr.length; ++i) {
+    XORR = XORR ^ arr[i];
+  }
+  return XORR;
 }
-console.log(NumberSubArraySumK([2,3,5],5))
-console.log(NumberSubArraySumK([2,3,5,1,9],10))
+
+console.log(appearOnce1([4, 1, 2, 1, 2]));
+
+function NumberSubArraySumK(arr, k) {
+  let prefixSum = 0;
+  let res = 0;
+  let newSet = new Map();
+  newSet.set(0, 1);
+  for (let val of arr) {
+    prefixSum += val;
+    if (newSet.has(prefixSum - k)) {
+      res += newSet.get(prefixSum - k);
+    }
+    newSet.set(prefixSum, (newSet.get(prefixSum) || 0) + 1);
+  }
+  return res;
+}
+console.log(NumberSubArraySumK([2, 3, 5], 5));
+console.log(NumberSubArraySumK([2, 3, 5, 1, 9], 10));
