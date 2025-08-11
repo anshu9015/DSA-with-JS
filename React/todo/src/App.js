@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-
+import DynamicInput from "./dynamicInput";
 function App() {
   const [input, setInput] = useState("");
   const [status, setStatus] = useState("");
@@ -107,7 +107,8 @@ function App() {
             ))
           : null}
       </ul>
-    </div>
+      <DynamicInput />
+    </div>    
   );
 }
 
