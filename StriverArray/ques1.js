@@ -438,3 +438,27 @@ function generateLongestSubArray(arr, k) {
   return end !== -1 ? arr.slice(start, end + 1) : [];
 }
 console.log(generateLongestSubArray([2, 3, 5, 1, 9], 10));
+
+function generateAllSubArrayK(arr, k) {
+  let currentSum = 0;
+  let newMap = new Map();
+  let start = 0;
+  let end = -1;
+  let res = [];
+  for (let i = 0; i < arr.length; ++i) {
+    currentSum += arr[i];
+    if (currentSum === k) {
+      start = 0;
+      end = i;
+      res.push(arr.slice(start, end + 1));
+    }
+    if (newMap.has(currentSum - k)) {
+      start = newMap.get(currentSum - k) + 1;
+      end = i;
+      res.push(arr.slice(start, end + 1));
+    }
+    newMap.set(currentSum, i);
+  }
+  return res;
+}
+console.log(generateAllSubArrayK([2, 3, 5, 1, 9], 10))
