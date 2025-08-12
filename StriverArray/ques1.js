@@ -257,3 +257,184 @@ function NumberSubArraySumK(arr, k) {
 }
 console.log(NumberSubArraySumK([2, 3, 5], 5));
 console.log(NumberSubArraySumK([2, 3, 5, 1, 9], 10));
+
+//Generate All SubArrays
+function generateAllSubArrays(arr) {
+  let res = [];
+  for (let i = 0; i < arr.length; ++i) {
+    for (let j = i; j < arr.length; ++j) {
+      res.push(arr.slice(i, j + 1));
+    }
+  }
+  return res;
+}
+console.log(generateAllSubArrays([1, 2, 3]));
+
+function longestSubArraySumK(arr, k) {
+  let length = 0;
+  for (let i = 0; i < arr.length; ++i) {
+    for (let j = i; j < arr.length; ++j) {
+      let sum = 0;
+      for (let k = i; k <= j; ++k) {
+        sum += arr[k];
+      }
+      if (sum === k) {
+        length = Math.max(length, j - i + 1);
+      }
+    }
+  }
+  return length;
+}
+console.log(longestSubArraySumK([2, 3, 5, 1, 9], 10));
+
+function longestSubArrayK(arr, k) {
+  let length = 0;
+  for (let i = 0; i < arr.length; ++i) {
+    let sum = 0;
+    for (let j = i; j < arr.length; ++j) {
+      sum += arr[j];
+      if (sum === k) {
+        length = Math.max(length, j - i + 1);
+      }
+    }
+  }
+  return length;
+}
+
+console.log(longestSubArrayK([2, 3, 5, 1, 9], 10));
+
+function longestSubArraykLength(arr, k) {
+  let newMap = new Map();
+  let length = 0;
+  let currSum = 0;
+  for (let i = 0; i < arr.length; ++i) {
+    currSum += arr[i];
+    if (currSum === k) {
+      length = Math.max(length, i + 1);
+    }
+    if (newMap.has(currSum - k)) {
+      length = Math.max(length, i - newMap.get(currSum - k));
+    }
+    if (!newMap.has(currSum)) {
+      //beacause i have to give the output of the longest subarray
+      newMap.set(currSum, i);
+    }
+  }
+  return length;
+}
+console.log(longestSubArraykLength([1, -2, 3, 2, -2], 1));
+
+function countSubArrayK(arr, k) {
+  let newMap = new Map();
+  let currSum = 0;
+  let count = 0;
+  for (let i = 0; i < arr.length; ++i) {
+    currSum += arr[i];
+    if (currSum === k) {
+      count = count + 1;
+    }
+    if (newMap.has(currSum - k)) {
+      count += newMap.get(currSum - k);
+    }
+    newMap.set(currSum, (newMap.get(currSum) || 0) + 1);
+  }
+  return count;
+}
+console.log(countSubArrayK([2, 3, 5, 1, 9], 10));
+
+function printlongestSubArrayk(arr, k) {
+  let newMap = new Map();
+  let length = 0;
+  let currSum = 0;
+  let start = 0;
+  let end = -1;
+  for (let i = 0; i < arr.length; ++i) {
+    currSum += arr[i];
+    if (currSum === k && i + 1 > length) {
+      length = i + 1;
+      start = 0;
+      end = i;
+    }
+    if (newMap.has(currSum - k)) {
+      let prevIndex = newMap.get(currSum - k);
+      if (i - prevIndex > length) {
+        length = i - prevIndex;
+        start = prevIndex + 1;
+        end = i;
+      }
+    }
+    if (!newMap.has(currSum)) {
+      //beacause i have to give the output of the longest subarray
+      newMap.set(currSum, i);
+    }
+  }
+  return end !== -1 ? arr.slice(start, end + 1) : [];
+}
+console.log(printlongestSubArrayk([1, -2, 3, 2, -2], 1));
+
+function longSubArrayK(arr, k) {
+  let newMap = new Map();
+  let current = 0;
+  let length = 0;
+  for (let i = 0; i < arr.length; ++i) {
+    current += arr[i];
+    if (current === k) {
+      length = Math.max(length, i + 1);
+    }
+    if (newMap.has(current - k)) {
+      length = Math.max(length, i - newMap.get(current - k));
+    }
+    if (!newMap.has(current)) {
+      newMap.set(current, i);
+    }
+  }
+  return length;
+}
+console.log(longSubArrayK([1, -2, 3, 2, -2], 1));
+
+function countSubArray(arr, k) {
+  let newMap = new Map();
+  let currentSum = 0;
+  let count = 0;
+  for (let i = 0; i < arr.length; ++i) {
+    currentSum += arr[i];
+    if (currentSum === k) {
+      count += 1;
+    }
+    if (newMap.has(currentSum - k)) {
+      count += newMap.get(currentSum - k);
+    }
+    newMap.set(currentSum, (newMap.get(currentSum) || 0) + 1);
+  }
+  return count;
+}
+console.log(countSubArray([2, 3, 5, 1, 9], 10));
+
+function generateLongestSubArray(arr, k) {
+  let newMap = new Map();
+  let current = 0;
+  let length = 0;
+  let start = 0;
+  let end = -1;
+  for (let i = 0; i < arr.length; ++i) {
+    current += arr[i];
+    if (current === k && i + 1 > length) {
+      length = i + 1;
+      start = 0;
+      end = i;
+    }
+    if (newMap.has(current - k)) {
+      let previousIndex = newMap.get(current - k);
+      if (i - previousIndex > length) {
+        length = i - previousIndex;
+        start = previousIndex + 1;
+        end = i;
+      }
+    }
+    if (!newMap.has(current)) {
+      newMap.set(current, i);
+    }
+  }
+  return end !== -1 ? arr.slice(start, end + 1) : [];
+}
+console.log(generateLongestSubArray([2, 3, 5, 1, 9], 10));
