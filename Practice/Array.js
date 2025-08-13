@@ -486,3 +486,5 @@ function targetSumIndex(arr, target) {
   return result;
 }
 console.log(targetSumIndex([2, 7, 5, 6], 9));
+
+
