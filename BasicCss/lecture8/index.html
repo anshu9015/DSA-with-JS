@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Media Query</title>
+    <style>
+      .container {
+        border: 2px solid black;
+        background-color: beige;
+        display: flex;
+        width: 30vw;
+        margin: 15px;
+        padding: 23px;
+      }
+      .first1 {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+      }
+      .box1,
+      .box2 {
+        border: 2px solid green;
+        background-color: rgb(156, 51, 65);
+        height: 40px;
+        margin: 15px;
+      }
+      .first2 {
+        border: 2px solid violet;
+        background-color: aliceblue;
+        width: 50%;
+      }
+      /* img {
+        width: 50%;
+      } */
+      @media (max-width: 900px) {
+        .container {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="first1">
+        <div class="box1">A</div>
+        <div class="box2">B</div>
+      </div>
+      <div class="first2">
+        <img src="../lecture8/BGS.jpg" alt="image of bhagat ji" />
+      </div>
+    </div>
+  </body>
+</html>
