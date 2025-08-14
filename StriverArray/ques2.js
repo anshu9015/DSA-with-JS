@@ -436,5 +436,60 @@ function majorityElementN3(arr) {
   return null;
 }
 
-console.log(majorityElementN3([11,33,33,11,33,11]))
-console.log(majorityElementN3([1,2,2,3,2]))
+console.log(majorityElementN3([11, 33, 33, 11, 33, 11]));
+console.log(majorityElementN3([1, 2, 2, 3, 2]));
+
+function longestSubbArrayZero(arr) {
+  let newMap = new Map();
+  let currentSum = 0;
+  let start = 0;
+  let end = -1;
+  for (let i = 0; i < arr.length; ++i) {
+    currentSum += arr[i];
+    if (currentSum === 0) {
+      start = 0;
+      end = i + 1;
+    }
+    if (newMap.has(currentSum)) {
+      start = newMap.get(currentSum);
+      end = i;
+    }
+    if (!newMap.has(currentSum)) {
+      newMap.set(currentSum, i);
+    }
+  }
+  return end - start;
+}
+console.log(longestSubbArrayZero([9, -3, 3, -1, 6, -5]));
+console.log(longestSubbArrayZero([6, -2, 2, -8, 1, 7, 4, -10]));
+
+function maximumPositiveProductSubArray(arr) {
+  let product = 1;
+  let maxi = 0;
+  for (let i = 0; i < arr.length; ++i) {
+    product = product * arr[i];
+    maxi = Math.max(product, maxi);
+    if (product < 0) {
+      product = 1;
+    }
+  }
+  return maxi;
+}
+console.log(maximumPositiveProductSubArray([1, 2, 3, 4, 5, 0]));
+
+function triplet(arr) {
+  let res = [];
+  for (let i = 0; i < arr.length - 2; ++i) {
+    for (let j = i + 1; j < arr.length - 1; ++j) {
+      let sum = 0;
+      for (let k = j + 1; k < arr.length; ++k) {
+        sum += arr[i] + arr[j] + arr[k];
+        if (sum === 0) {
+          res.push(arr[i], arr[j], arr[k]);
+        }
+      }
+    }
+  }
+  return res;
+}
+console.log(triplet([-1, 0, 1, 2, -1, -4]));
