@@ -269,7 +269,50 @@ console.log(pattern18(5));
 function pattern19(n) {
   let str = "";
   for (let i = 0; i < n; ++i) {
-    for (let j = 0; j < n - i; ++i) {
+    for (let j = 0; j < n - i; ++j) {
+      str += "*";
+    }
+    for (let j = 0; j < 2 * i; ++j) {
+      str += " ";
+    }
+    for (let j = 0; j < n - i; ++j) {
+      str += "*";
+    }
+    str += "\n";
+  }
+  for (let i = 0; i < n; ++i) {
+    for (let j = 0; j < i + 1; ++j) {
+      str += "*";
+    }
+    for (let j = 0; j < 2 * (n - i - 1); ++j) {
+      str += " ";
+    }
+    for (let j = 0; j < i + 1; ++j) {
+      str += "*";
+    }
+    str += "\n";
+  }
+  return str;
+}
+
+console.log(pattern19(4));
+
+function pattern20(n) {
+  let str = "";
+  for (let i = 0; i < n; ++i) {
+    for (let j = 0; j < i + 1; ++j) {
+      str += "*";
+    }
+    for (let j = 0; j < 2 * (n - i - 1); ++j) {
+      str += " ";
+    }
+    for (let j = 0; j < i + 1; ++j) {
+      str += "*";
+    }
+    str += "\n";
+  }
+  for (let i = 0; i < n; ++i) {
+    for (let j = 0; j < n - i; ++j) {
       str += "*";
     }
     for (let j = 0; j < 2 * i; ++j) {
@@ -282,5 +325,20 @@ function pattern19(n) {
   }
   return str;
 }
+console.log(pattern20(5));
 
-console.log(pattern19(5));
+function pattern21(n) {
+  let str = "";
+  for (let i = 0; i < n; ++i) {
+    for (let j = 0; j < n; ++j) {
+      if (i === 0 || j === 0 || i === n - 1 || j === n - 1) {
+        str += "*";
+      } else {
+        str += " ";
+      }
+    }
+    str += "\n";
+  }
+  return str;
+}
+console.log(pattern21(5));
