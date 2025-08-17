@@ -90,3 +90,188 @@ function primeNumber(n) {
   return true;
 }
 console.log(primeNumber(21));
+
+function bubble(arr) {
+  for (let i = 0; i < arr.length - 1; ++i) {
+    let swapped = false;
+    for (let j = 0; j < arr.length - i - 1; ++j) {
+      if (arr[j] > arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+        swapped = true;
+      }
+    }
+    if (!swapped) {
+      break;
+    }
+  }
+  return arr;
+}
+console.log(bubble([1, 4, 2, 5, 3]));
+
+function selection(arr) {
+  for (let i = 0; i < arr.length - 1; ++i) {
+    let minIndex = i;
+    for (let j = i + 1; j < arr.length; ++j) {
+      if (arr[minIndex] > arr[j]) {
+        minIndex = j;
+      }
+    }
+    if (minIndex !== i) {
+      [arr[minIndex], arr[i]] = [arr[i], arr[minIndex]];
+    }
+  }
+  return arr;
+}
+console.log(selection([1, 4, 2, 5, 3]));
+
+function insertion(arr) {
+  for (let i = 0; i < arr.length; ++i) {
+    for (j = i; j >= 0; --j) {
+      if (arr[j - 1] > arr[j]) {
+        [arr[j - 1], arr[j]] = [arr[j], arr[j - 1]];
+      }
+    }
+  }
+  return arr;
+}
+console.log(insertion([1, 4, 2, 5, 3]));
+
+function quick(arr) {
+  let left = [];
+  let right = [];
+  if (arr.length <= 1) return arr;
+  let pivot = arr[0];
+  for (let i = 1; i < arr.length; ++i) {
+    if (arr[i] < pivot) {
+      left.push(arr[i]);
+    } else {
+      right.push(arr[i]);
+    }
+  }
+  return [...quick(left), pivot, ...quick(right)];
+}
+console.log(quick([1, 4, 2, 5, 3]));
+
+function mergeSort(arr) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+  let mid = Math.floor(arr.length / 2);
+  let left = mergeSort(arr.slice(0, mid));
+  let right = mergeSort(arr.slice(mid));
+  return merge(left, right);
+}
+function merge(left, right) {
+  let result = [];
+  let i = 0;
+  let j = 0;
+  while (i < left.length && j < right.length) {
+    if (left[i] < right[j]) {
+      result.push(left[i++]);
+    } else {
+      result.push(right[j++]);
+    }
+  }
+  while (i < left.length) {
+    result.push(left[i++]);
+  }
+  while (j < right.length) {
+    result.push(right[j++]);
+  }
+  return result;
+}
+console.log(mergeSort([1, 4, 2, 5, 3]));
+
+function anagram(str1, str2) {
+  if (str1.length !== str2.length) {
+    return false;
+  }
+  let newMap1 = new Map();
+  for (let i = 0; i < str1.length; ++i) {
+    newMap1.set(str1[i], (newMap1.get(str1[i]) || 0) + 1);
+  }
+  for (let i = 0; i < str2.length; ++i) {
+    if (!newMap1.has(str2[i])) {
+      return false;
+    }
+    newMap1.set(str2[i], newMap1.get(str2[i] - 1));
+    if (newMap1.get(str2[i]) < 0) {
+      return false;
+    }
+  }
+  return true;
+}
+console.log(anagram("silent", "listen"));
+
+function reverseWord(str) {
+  return str.split("").reverse().join("");
+}
+console.log(reverseWord("anshu"));
+
+function reverseWord1(str) {
+  let reversed = "";
+  for (let i = str.length - 1; i >= 0; --i) {
+    reversed += str[i];
+  }
+  return reversed;
+}
+console.log(reverseWord1("anshu"));
+
+function reverseEveryWord(sentence) {
+  let words = sentence.split(" ");
+  for (let i = 0; i < words.length; ++i) {
+    let word = words[i];
+    let reversed = "";
+    for (let j = word.length - 1; j >= 0; --j) {
+      reversed += word[j];
+    }
+    words[i] = reversed;
+  }
+  return words.join(" ");
+}
+console.log(reverseEveryWord("this is anshu"));
+
+function reverseEveryWordInSentence(sentence) {
+  let result = "";
+  let word = "";
+  for (let i = 0; i < sentence.length; ++i) {
+    const char = sentence[i];
+    if (char === " ") {
+      for (let j = word.length - 1; j >= 0; --j) {
+        result += word[j];
+      }
+      result += " ";
+      word = "";
+    } else {
+      word += char;
+    }
+  }
+  for (let i = word.length - 1; i >= 0; --i) {
+    result += word[i];
+  }
+  return result;
+}
+
+console.log(reverseEveryWordInSentence("this is anshu coding"));
+
+function abc(sentence) {
+  let result = "";
+  let word = "";
+  for (let i = sentence.length - 1; i >= 0; --i) {
+    const char = sentence[i];
+    if (char === " ") {
+      for (let j = word.length - 1; j >= 0; --j) {
+        result += word[j];
+      }
+      result += " ";
+      word = "";
+    } else {
+      word += char;
+    }
+  }
+  for (let i = word.length - 1; i >= 0; --i) {
+    result += word[i];
+  }
+  return result;
+}
+console.log(abc("this is anshu string"));
