@@ -28,16 +28,31 @@ function maxProduct1(arr) {
 console.log(maxProduct1([1, 2, 3, 4, 5, 0]));
 console.log(maxProduct1([1, 2, -3, 0, -4, -5]));
 
+function subSequence(arr) {
+  let res = [[]];
+  for (let num of arr) {
+    let subSequence = [];
+    for (let ele of res) {
+      subSequence.push([...ele, num]);
+    }
+    res.push(...subSequence);
+  }
+  return res;
+}
 
-// [ 1, 2, 3, 4, 5 ]
-// [ 1, 2, 3, 4, 5 ]
-// [ 1, 2, 100, 4, 5 ]
-// [ 1, 2, 3, 4, 5 ]
-// [ 1, 2, 3, 4, [ 1, 2, 3 ] ]
-// [ 1, 2, 3, 4, [ 1, 2, 3 ] ]
-// [ 1, 2, 200, 4, [ 1, 2, 3 ] ]
-// [ 1, 2, 3, 4, [ 1, 2, 3 ] ]
-// [ 1, 2, 200, 4, [ 1, 300, 3 ] ]
-// [ 1, 2, 3, 4, [ 1, 300, 3 ] ]
-// [ 1, 2, 3, 4, [ 1, 400, 3 ] ]
-// [ 1, 2, 3, 4, [ 1, 300, 3 ] ]
+// console.log(subSequence([1, 2, 3]));
+
+function maxiProduct(arr) {
+  let pre = 1;
+  let suff = 1;
+  let ans = -Infinity;
+  for (let i = 0; i < arr.length; ++i) {
+    if (pre === 0) pre = 1;
+    if (suff === 0) suff = 1;
+    pre = pre * arr[i];
+    suff = suff * arr[arr.length-i-1];
+    ans = Math.max(ans, Math.max(pre, suff));
+  }
+  return ans;
+}
+console.log(maxiProduct([1, 2, -3, 0, -4, -5]));
