@@ -108,7 +108,7 @@ function App() {
           : null}
       </ul>
       <DynamicInput />
-    </div>    
+    </div>
   );
 }
 
