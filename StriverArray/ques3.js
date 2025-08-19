@@ -231,16 +231,77 @@ console.log(merge1([1, 4, 8, 10], [2, 3, 9]));
 function merging(arr1, arr2) {
   let n = arr1.length;
   let m = arr2.length;
-  let gap = Math.ceil(n + m / 2);
+  let gap = Math.ceil((n + m) / 2);
   while (gap > 0) {
     let left = 0;
     let right = gap;
     while (right < n + m) {
-      if (arr1[left] > arr2[right]) {
-        if (left < n && right < m) {
-          [arr1[left], arr2[right]] = [arr2[right], arr1[left]];
+      if (left < n && right >= n) {
+        if (arr1[left] > arr2[right - n]) {
+          [arr1[left], arr2[right - n]] = [arr2[right - n], arr1[left]];
+        }
+      } else if (left < n && right < n) {
+        if (arr1[left] > arr1[right]) {
+          [arr1[left], arr1[right]] = [arr1[right], arr1[left]];
+        }
+      } else {
+        if (arr2[left - n] > arr2[right - n]) {
+          [arr2[left - n], arr2[right - n]] = [arr2[right - n], arr2[left - n]];
+        }
+      }
+      right++;
+      left++;
+    }
+    gap = gap === 1 ? 0 : Math.ceil(gap / 2);
+  }
+  return [...arr1, ...arr2];
+}
+console.log(merging([1, 4, 8, 10], [2, 3, 9]));
+
+function mergeTwoSortedArraying(arr3, arr4) {
+  let a = arr3.length;
+  let b = arr4.length;
+  let gap = Math.ceil((a + b) / 2);
+  while (gap > 0) {
+    let pre = 0;
+    let post = gap;
+    while (post < a + b) {
+      if (pre < a && post < a) {
+        if (arr3[pre] > arr3[post]) {
+          [arr3[pre], arr3[post]] = [arr3[post], arr3[pre]];
+        }
+      } else if (pre < a && post >= a) {
+        if (arr3[pre] > arr4[post - a]) {
+          [arr3[pre], arr4[post - a]] = [arr4[post - a], arr3[pre]];
+        }
+      } else {
+        if (arr4[pre - a] > arr4[post - a]) {
+          [arr4[pre - a], arr4[post - a]] = [arr4[pre - a], arr4[post - a]];
+        }
+      }
+      pre++;
+      post++;
+    }
+    gap = gap === 1 ? 0 : Math.ceil(gap / 2);
+  }
+  return [...arr3, ...arr4];
+}
+
+console.log(mergeTwoSortedArraying([1, 3, 5, 7], [0, 2, 6, 8, 9]));
+
+function triplet(arr) {
+  let res = [];
+  for (let i = 0; i < arr.length - 2; ++i) {
+    for (let j = i + 1; j < arr.length - 1; ++j) {
+      for (let k = j + 1; k < arr.length; ++k) {
+        let sum = arr[i] + arr[j] + arr[k];
+        if (sum === 0) {
+          let temp = [arr[i], arr[j], arr[k]];
+          res.push(temp);
         }
       }
     }
   }
+  return res;
 }
+console.log(triplet([-1, 0, 1, 2, -1, -4]));
