@@ -370,3 +370,116 @@ function removeDuplicate(arr) {
   return res;
 }
 console.log(removeDuplicate([1, 3, 2, 1, 5, 3]));
+
+function reverse(arr, start, end) {
+  while (start < end) {
+    [arr[start], arr[end]] = [arr[end], arr[start]];
+    start++;
+    end--;
+  }
+  return arr;
+}
+console.log(reverse([1, 2, 3, 4, 5], 0, 4));
+
+function nextPermutation(arr) {
+  let index = -1;
+  let n = arr.length;
+  for (let i = n - 2; i >= 0; --i) {
+    if (arr[i] < arr[i + 1]) {
+      index = i;
+      break;
+    }
+  }
+  if (index === -1) {
+    const arr1 = reverse(arr, 0, n - 1);
+    return arr1;
+  }
+  for (let i = n - 1; i > index; --i) {
+    if (arr[i] > arr[index]) {
+      [arr[i], arr[index]] = [arr[index], arr[i]];
+      break;
+    }
+  }
+  reverse(arr, index + 1, n - 1);
+  return arr;
+}
+console.log(nextPermutation([2, 1, 5, 4, 3, 0, 0]));
+console.log(nextPermutation([3, 2, 1]));
+
+function fourSum(arr) {
+  let res = new Set();
+  for (let i = 0; i < arr.length - 3; ++i) {
+    for (let j = i + 1; j < arr.length - 2; ++j) {
+      for (let k = j + 1; k < arr.length - 1; ++k) {
+        for (let l = k + 1; l < arr.length; ++l) {
+          if (arr[i] + arr[j] + arr[k] + arr[l] === 0) {
+            let temp = [arr[i], arr[j], arr[k], arr[l]];
+            temp.sort((a, b) => a - b);
+            res.add(temp.join(","));
+          }
+        }
+      }
+    }
+  }
+  return [...res].map((s) => s.split(",").map(Number));
+}
+
+console.log(fourSum([1, 0, -1, 0, -2, 2]));
+
+function fourSum1(arr) {
+  let newSet = new Set();
+  for (let i = 0; i < arr.length; ++i) {
+    for (let j = i + 1; j < arr.length; ++j) {
+      let hashSet = new Set();
+      for (let k = j + 1; k < arr.length; ++k) {
+        let fourth = -(arr[i] + arr[j] + arr[k]);
+        if (hashSet.has(fourth)) {
+          let temp = [arr[i], arr[j], arr[k], fourth];
+          temp.sort((a, b) => a - b);
+          newSet.add(temp.join(","));
+        }
+        hashSet.add(arr[k]);
+      }
+    }
+  }
+  return [...newSet].map((s) => s.split(",").map(Number));
+}
+console.log(fourSum1([1, 0, -1, 0, -2, 2]));
+
+function fourSum2(arr) {
+  arr.sort((a, b) => a - b);
+  let res = [];
+  for (let i = 0; i < arr.length; ++i) {
+    if (i > 0 && arr[i] === arr[i - 1]) {
+      continue;
+    }
+    for (let j = i + 1; j < arr.length; ++j) {
+      if (j > 0 && arr[j] === arr[j - 1]) {
+        continue;
+      }
+      let k = j + 1;
+      let l = arr.length - 1;
+      while (k < l) {
+        if (arr[i] + arr[j] + arr[k] + arr[l] > 0) {
+          l--;
+        } else if (arr[i] + arr[j] + arr[k] + arr[l] < 0) {
+          k++;
+        } else {
+          let temp = [arr[i], arr[j], arr[k], arr[l]];
+          res.push(temp);
+          k++;
+          l--;
+          while (k < l && arr[k] === arr[k - 1]) {
+            k++;
+          }
+          while (k < l && arr[l] === arr[l + 1]) {
+            l--;
+          }
+        }
+      }
+    }
+  }
+  return res;
+}
+
+console.log(fourSum2([1, 0, -1, 0, -2, 2]));
