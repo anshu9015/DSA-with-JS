@@ -19,7 +19,7 @@
 
 // Convert a string to a character array
 
-// Count the frequency of each character in a string
+// Count the frequency of each character in a string                                                  done
 
 // Replace all spaces in a string with %20
 
@@ -29,7 +29,7 @@
 
 // Toggle case of each character in a string
 
-// Check if a string has all unique characters
+// Check if a string has all unique characters                                                            done
 
 // Print all substrings of a string
 

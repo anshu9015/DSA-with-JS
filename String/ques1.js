@@ -205,3 +205,46 @@ function wordLength(str) {
 }
 
 console.log(wordLength("anshu"));
+
+// Check if a string has all unique characters
+function checkAllUnique(str) {
+  let uniqueString = "";
+  for (let val of str) {
+    if (!uniqueString.includes(val)) {
+      uniqueString += val;
+    }
+  }
+  if (uniqueString.length === str.length) {
+    return true;
+  }
+  return false;
+}
+console.log(checkAllUnique("abcda"));
+
+function checkAllUniqueCharacter(str) {
+  const freq = new Array(256).fill(0);
+  for (let i = 0; i < str.length; ++i) {
+    let code = str.charCodeAt(i);
+    if (freq[code] === 1) {
+      return false;
+    }
+    freq[code] = 1;
+  }
+  return true;
+}
+console.log(checkAllUniqueCharacter("abcd"));
+
+// Count the frequency of each character in a string
+
+function frequencyCharacter(str) {
+  let newMap = new Map();
+  let str1 = "";
+  for (let val of str) {
+    newMap.set(val, (newMap.get(val) || 0) + 1);
+  }
+  for (let [key, value] of newMap.entries()) {
+    str1 += `${key} - ${value}` + " ";
+  }
+  return str1;
+}
+console.log(frequencyCharacter("anshu"));
