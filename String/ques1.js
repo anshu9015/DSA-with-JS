@@ -135,7 +135,7 @@ function countVowelsConsonants(str) {
   }
   return { count_vowels, count_consonants };
 }
-console.log(countVowelsConsonants("examinationAA RAHA HAI"));
+console.log(countVowelsConsonants("examinationAA RAHA HAIi"));
 
 // Check if two strings are anagrams
 
