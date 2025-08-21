@@ -1,10 +1,24 @@
 {
   "posts": [
-    { "id": 1, "title": "Hello World", "author": "Anshu" },
-    { "id": 2, "title": "Learning JSON Server", "author": "You" }
+    {
+      "id": 1,
+      "title": "Hello World",
+      "author": "Anshu"
+    },
+    {
+      "title": "Testing data update",
+      "author": "patch",
+      "id": 2
+    }
   ],
   "comments": [
-    { "id": 1, "body": "Nice post!", "postId": 1 }
+    {
+      "id": 1,
+      "body": "Nice post!",
+      "postId": 1
+    }
   ],
-  "profile": { "name": "Anshu Kumar" }
+  "profile": {
+    "name": "Anshu Kumar"
+  }
 }

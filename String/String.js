@@ -1,19 +1,19 @@
 // Easy Level (1–20)
-// Reverse a string
+// Reverse a string                                                                   done
 
-// Check if a string is a palindrome
+// Check if a string is a palindrome                                                    done
 
-// Count vowels and consonants in a string
+// Count vowels and consonants in a string                                                   done
 
-// Check if two strings are anagrams
+// Check if two strings are anagrams                                                           done
 
-// Remove duplicate characters from a string
+// Remove duplicate characters from a string                                                      done
 
-// Find the first non-repeating character
+// Find the first non-repeating character                                                            done
 
 // Check if two strings are rotations of each other
 
-// Count the number of words in a string
+// Count the number of words in a string                                                             done
 
 // Capitalize the first letter of each word
 
