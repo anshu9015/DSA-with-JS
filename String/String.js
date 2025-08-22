@@ -11,13 +11,13 @@
 
 // Find the first non-repeating character                                                            done
 
-// Check if two strings are rotations of each other
+// Check if two strings are rotations of each other                                                 not in optimized way but done
 
 // Count the number of words in a string                                                             done
 
 // Capitalize the first letter of each word
 
-// Convert a string to a character array
+// Convert a string to a character array                                                            done
 
 // Count the frequency of each character in a string                                                  done
 
@@ -31,13 +31,13 @@
 
 // Check if a string has all unique characters                                                            done
 
-// Print all substrings of a string
+// Print all substrings of a string                                                                         done
 
 // Find the length of the shortest and longest word in a string
 
 // Count number of uppercase and lowercase letters
 
-// Find the most frequent character in a string
+// Find the most frequent character in a string                                                              done
 
 // ⚙️ Medium Level (21–40)
 // Group anagrams from an array of strings

@@ -248,3 +248,100 @@ function frequencyCharacter(str) {
   return str1;
 }
 console.log(frequencyCharacter("anshu"));
+
+// Check if two strings are rotations of each other
+function checkTwoStringRotation(str1, str2) {
+  if (str1.length !== str2.length) {
+    return false;
+  }
+  let doubledString = str1 + str1;
+  return doubledString.includes(str2);
+}
+
+console.log(checkTwoStringRotation("abcd", "dabc"));
+
+function checkROtation(str1, str2) {
+  if (str1.length !== str2.length) {
+    return false;
+  }
+  let doubledString = str1 + str1;
+  for (let i = 0; i < doubledString.length - str1.length; ++i) {
+    let match = true;
+    for (let j = 0; j < str2.length; ++j) {
+      if (doubledString[i + j] !== str2[j]) {
+        match = false;
+        break;
+      }
+    }
+    if (match) return true;
+  }
+  return false;
+}
+console.log(checkROtation("abcd", "bcda"));
+console.log(checkROtation("abcd", "dcba"));
+
+function checkSubSequence(str1, str2) {
+  let count = 0;
+  for (let i = 0; i < str1.length; ++i) {
+    if (str1[i] === str2[count]) {
+      count++;
+    }
+  }
+  return count === str2.length;
+}
+
+console.log(checkSubSequence("abcda", "bcd"));
+
+// Print all substrings of a string
+function printSubString(str) {
+  const arr = str.split("");
+  let res = [];
+  for (let i = 0; i < arr.length; ++i) {
+    for (let j = i; j < arr.length; ++j) {
+      let temp = arr.slice(i, j + 1);
+      res.push(temp.join(""));
+    }
+  }
+  return res;
+}
+
+console.log(printSubString("abc"));
+
+// Find the most frequent character in a string
+
+function mostFrequentCharacter(str) {
+  let newMap = new Map();
+  let max = -Infinity;
+  let ans = null;
+  for (let i = 0; i < str.length; ++i) {
+    let value = (newMap.get(str[i]) || 0) + 1;
+    newMap.set(str[i], value);
+    if (value > max) {
+      max = value;
+      ans = str[i];
+    }
+  }
+  //   let max = -Infinity;
+  //   let ans = null;
+  //   for (let [key, value] of newMap.entries()) {
+  //     if (value > max) {
+  //       max = value;
+  //       ans = key;
+  //     }
+  //   }
+  return ans;
+}
+
+console.log(mostFrequentCharacter("abcas"));
+
+// Convert a string to a character array
+
+function convertStringToArray(str) {
+  let res = [];
+  for (let val of str) {
+    res.push(val);
+  }
+  return res;
+}
+
+console.log(convertStringToArray("abcs"));
