@@ -15,7 +15,7 @@
 
 // Count the number of words in a string                                                             done
 
-// Capitalize the first letter of each word
+// Capitalize the first letter of each word                                                         DONE
 
 // Convert a string to a character array                                                            done
 
@@ -35,7 +35,7 @@
 
 // Find the length of the shortest and longest word in a string
 
-// Count number of uppercase and lowercase letters
+// Count number of uppercase and lowercase letters                                                        DONE
 
 // Find the most frequent character in a string                                                              done
 
