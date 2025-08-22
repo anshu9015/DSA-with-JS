@@ -345,3 +345,40 @@ function convertStringToArray(str) {
 }
 
 console.log(convertStringToArray("abcs"));
+
+// Capitalize the first letter of each word
+
+function toUpperCase(str) {
+  let result = "";
+  //   for (let i = 0; i < str.length; ++i) {
+  let code = str.charCodeAt(0);
+  if (code >= 97 && code <= 122) {
+    let char = String.fromCharCode(code - 32);
+    result += char;
+  }
+  for (let i = 1; i < str.length; ++i) {
+    result += str[i];
+  }
+  //   }
+  return result;
+}
+
+console.log(toUpperCase("anshu"));
+
+// Count number of uppercase and lowercase letters
+
+function countUpperLower(str) {
+  let count_lower = 0;
+  let count_upper = 0;
+  for (let i = 0; i < str.length; ++i) {
+    let code = str.charCodeAt(i);
+    if (code >= 97 && code <= 122) {
+      count_lower++;
+    } else {
+      count_upper++;
+    }
+  }
+  return { count_lower, count_upper };
+}
+
+console.log(countUpperLower("anshudfAASGSDSDWS"));
