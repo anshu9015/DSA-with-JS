@@ -427,8 +427,13 @@ console.log(checkOnlyDigit("1234ee")); // but this code fails in space punctuati
 
 //the ascii code for digit is 0-48 and 9-57
 function checkDigit(str) {
-  // for(let val of str){
-  //   let code =
-  //   if(val<)
-  // }
+  for (let i = 0; i < str.length; ++i) {
+    let code = str.charCodeAt(i);
+    if (code < 48 || code > 57) {
+      return false;
+    }
+  }
+  return true;
 }
+
+console.log(checkDigit("1234567rr"));

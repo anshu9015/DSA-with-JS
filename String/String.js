@@ -23,7 +23,7 @@
 
 // Replace all spaces in a string with %20
 
-// Check if a string contains only digits
+// Check if a string contains only digits                                                           done
 
 // Remove all occurrences of a given character from string
 
