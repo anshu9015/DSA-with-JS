@@ -33,7 +33,7 @@
 
 // Print all substrings of a string                                                                         done
 
-// Find the length of the shortest and longest word in a string
+// Find the length of the shortest and longest word in a string                                             done
 
 // Count number of uppercase and lowercase letters                                                        DONE
 

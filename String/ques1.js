@@ -382,3 +382,53 @@ function countUpperLower(str) {
 }
 
 console.log(countUpperLower("anshudfAASGSDSDWS"));
+
+// Find the length of the shortest and longest word in a string
+
+function longestShortestWord(sentence) {
+  let max = -Infinity;
+  let min = Infinity;
+  let count = 0;
+  for (let i = 0; i <= sentence.length; ++i) {
+    const char = sentence[i] || " ";
+    if (char === " ") {
+      if (count > max) {
+        max = count;
+      }
+      if (count < min) {
+        min = count;
+      }
+      count = 0;
+    } else {
+      count++;
+    }
+  }
+  return { max, min };
+}
+
+console.log(longestShortestWord("this is anshu s"));
+
+// Check if a string contains only digits
+function checkOnlyDigit(str) {
+  let count = 0;
+  for (let i = 0; i < str.length; ++i) {
+    let code = str.charCodeAt(i);
+    if (!(code >= 65 && code <= 122)) {
+      count++;
+    }
+  }
+  if (count === str.length) {
+    return true;
+  }
+  return false;
+}
+
+console.log(checkOnlyDigit("1234ee")); // but this code fails in space punctuations and any other character
+
+//the ascii code for digit is 0-48 and 9-57
+function checkDigit(str) {
+  // for(let val of str){
+  //   let code =
+  //   if(val<)
+  // }
+}
