@@ -21,13 +21,13 @@
 
 // Count the frequency of each character in a string                                                  done
 
-// Replace all spaces in a string with %20
+// Replace all spaces in a string with %20                                                            done
 
 // Check if a string contains only digits                                                           done
 
-// Remove all occurrences of a given character from string
+// Remove all occurrences of a given character from string                                             done
 
-// Toggle case of each character in a string
+// Toggle case of each character in a string                                                            DONE
 
 // Check if a string has all unique characters                                                            done
 

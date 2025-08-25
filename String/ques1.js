@@ -437,3 +437,50 @@ function checkDigit(str) {
 }
 
 console.log(checkDigit("1234567rr"));
+
+// Replace all spaces in a string with %20
+function replaceSpaceWith20(sentence) {
+  let result = "";
+  for (let i = 0; i < sentence.length; ++i) {
+    const char = sentence[i];
+    if (char === " ") {
+      result += "%20";
+    } else {
+      result += char;
+    }
+  }
+  return result;
+}
+console.log(replaceSpaceWith20("this is anshu"));
+
+// Remove all occurrences of a given character from string
+function removeCharacter(str, target) {
+  let result = "";
+  for (let i = 0; i < str.length; ++i) {
+    const char = str[i];
+    if (char === target) {
+      continue;
+    }
+    result += char;
+  }
+  return result;
+}
+
+console.log(removeCharacter("programming", "m"));
+
+// Toggle case of each character in a string
+function toggleString(str) {
+  let result = "";
+  for (let i = 0; i < str.length; ++i) {
+    let code = str.charCodeAt(i);
+    if (code >= 65 && code <= 90) {
+      result += String.fromCharCode(code + 32);
+    } else if (code >= 97 && code <= 122) {
+      result += String.fromCharCode(code - 32);
+    } else {
+      result += " ";
+    }
+  }
+  return result;
+}
+console.log(toggleString("anshu KUMAR"));
