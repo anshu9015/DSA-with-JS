@@ -1,14 +1,14 @@
 console.log("begins");
 setTimeout(() => {
-  //microtasks queue
+  //macrotasks queue
   console.log("settimeout 1");
   Promise.resolve().then(() => {
-    //macrotasks (highest priority)
+    //microtasks (highest priority)
     console.log("promise 1");
   });
 }, 0);
 new Promise(function (resolve, reject) {
-  //macrotaskqueue (highest priority)
+  //microtaskqueue (highest priority)
   console.log("promise 2");
 });
 
@@ -80,8 +80,3 @@ const animal = {
 };
 const cat = Object.create(animal);
 console.log(cat.name);
-
-
-
-
-
