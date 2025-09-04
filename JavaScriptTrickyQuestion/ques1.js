@@ -61,3 +61,14 @@ console.log(8);
 // First macrotask: setTimeout(..., 0) → prints 6
 
 // Next macrotask: setTimeout(..., 100) → prints 5
+
+// ✅ Key Difference
+
+// IIFE: You explicitly invoke a function right after defining it.
+
+// Promise executor: You pass a function into new Promise, and JavaScript automatically invokes it immediately.
+
+// So you can say:
+
+// 👉 The executor of a Promise behaves like an IIFE — it runs immediately.
+// But the Promise itself is not an IIFE, it’s a constructor that uses an IIFE-like behavior for its executor.
