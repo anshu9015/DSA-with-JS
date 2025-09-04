@@ -99,3 +99,16 @@ function recursiveBubbleSort(arr, n) {
   return recursiveBubbleSort(arr, n - 1);
 }
 console.log(recursiveBubbleSort([1, 3, 2, 5, 3, 6, 4], 7));
+
+function recursiveInsertion(arr, n) {
+  if (n === arr.length) {
+    return arr;
+  }
+  for (let i = 0; i < arr.length; ++i) {
+    if (arr[i - 1] > arr[i]) {
+      [arr[i - 1], arr[i]] = [arr[i], arr[i - 1]];
+    }
+  }
+  return recursiveInsertion(arr, n + 1);
+}
+console.log(recursiveInsertion([1, 3, 2, 5, 3, 6, 4], 1));
