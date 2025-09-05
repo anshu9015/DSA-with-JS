@@ -171,3 +171,142 @@ function missingNumber(arr, n) {
   return sum - sum1;
 }
 console.log(missingNumber([1, 2, 3], 4));
+
+function multipleMissing(arr, n) {
+  let set = new Set(arr);
+  let set1 = new Set();
+  for (let i = 1; i <= n; ++i) {
+    if (!set.has(i)) {
+      set1.add(i);
+    }
+  }
+  return [...set1];
+}
+console.log(multipleMissing([1, 3, 4, 2], 8));
+
+function maximumConsecutiveOnes(arr) {
+  let max = -Infinity;
+  let count = 0;
+  for (let i = 0; i < arr.length; ++i) {
+    if (arr[i] === 1) {
+      count++;
+      max = Math.max(max, count);
+    } else {
+      count = 0;
+    }
+  }
+  return max;
+}
+console.log(maximumConsecutiveOnes([1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2]));
+
+function appearOnce(arr) {
+  let map = new Map();
+  let result;
+  for (let i = 0; i < arr.length; ++i) {
+    map.set(arr[i], (map.get(arr[i]) || 0) + 1);
+  }
+  for (let [key, values] of map.entries()) {
+    if (values === 1) {
+      result = key;
+    }
+  }
+  return result;
+}
+console.log(appearOnce([4, 1, 2, 1, 2]));
+
+function appearOnce1(arr) {
+  let XORR = 0;
+  for (let val of arr) {
+    XORR = XORR ^ val;
+  }
+  return XORR;
+}
+console.log(appearOnce1([4, 1, 2, 1, 2]));
+
+function subArray(arr) {
+  let res = [];
+  for (let i = 0; i < arr.length; ++i) {
+    for (let j = i; j < arr.length; ++j) {
+      res.push(arr.slice(i, j + 1));
+    }
+  }
+  return res;
+}
+console.log(subArray([1, 2, 3]));
+
+function longestSubArrayK(arr, k) {
+  let length = -Infinity;
+  for (let i = 0; i < arr.length; ++i) {
+    for (let j = i; j < arr.length; ++j) {
+      let sum = 0;
+      for (let k = i; k <= j; ++k) {
+        sum += arr[k];
+      }
+      if (sum === k) {
+        length = Math.max(length, j - i + 1);
+      }
+    }
+  }
+  return length;
+}
+console.log(longestSubArrayK([1, -2, 3, 2, -2], 1));
+
+function longestSubArraySumK(arr, k) {
+  let length = -Infinity;
+  for (let i = 0; i < arr.length; ++i) {
+    let sum = 0;
+    for (let j = i; j < arr.length; ++j) {
+      sum += arr[j];
+      if (sum === k) {
+        length = Math.max(length, j - i + 1);
+      }
+    }
+  }
+  return length;
+}
+console.log(longestSubArraySumK([1, -2, 3, 2, -2], 1));
+
+function longSubarrayK(arr, k) {
+  let prefixSum = 0;
+  let length = 0;
+  let map = new Map();
+  for (let i = 0; i < arr.length; ++i) {
+    prefixSum += arr[i];
+    if (prefixSum === k) {
+      length = Math.max(length, i + 1);
+    }
+    if (map.has(prefixSum - k)) {
+      length = Math.max(length, i - map.get(prefixSum - k));
+    }
+    if (!map.has(prefixSum)) {
+      map.set(prefixSum, i);
+    }
+  }
+  return length;
+}
+
+console.log(longSubarrayK([1, -2, 3, 2, -2], 1));
+
+function longestSubArraykSum(arr, k) {
+  let map = new Map();
+  let currentSum = 0;
+  let length = 0;
+  let start = 0;
+  let end = -1;
+  for (let i = 0; i < arr.length; ++i) {
+    currentSum += arr[i];
+    if (currentSum === k && i + 1 > length) {
+      length = i + 1;
+      start = 0;
+      end = i;
+    }
+    if (map.has(currentSum - k)) {
+      let prevIndex = map.get(currentSum - k);
+      if (i - prevIndex > length) {
+        length = prevIndex + 1;
+        start = i + 1;
+        end = prevIndex + 1;
+      }
+    }
+  }
+}
