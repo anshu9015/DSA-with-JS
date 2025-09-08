@@ -293,20 +293,120 @@ function longestSubArraykSum(arr, k) {
   let length = 0;
   let start = 0;
   let end = -1;
+  let res = [];
   for (let i = 0; i < arr.length; ++i) {
     currentSum += arr[i];
     if (currentSum === k && i + 1 > length) {
       length = i + 1;
       start = 0;
-      end = i;
+      end = i + 1;
     }
     if (map.has(currentSum - k)) {
-      let prevIndex = map.get(currentSum - k);
-      if (i - prevIndex > length) {
-        length = prevIndex + 1;
-        start = i + 1;
-        end = prevIndex + 1;
+      let startIndex = map.get(currentSum - k) + 1;
+      if (startIndex > length) {
+        length = Math.max(length, i - startIndex - 1);
+        start = startIndex;
+        end = i;
       }
     }
+    if (!map.has(currentSum)) {
+      map.set(currentSum, i);
+    }
   }
+  if (end !== -1) {
+    res.push(arr.slice(start, end));
+  }
+  return res;
 }
+
+console.log(longestSubArraykSum([2, 3, 5, 0, 0, 1, 9], 10));
+
+function generateAllSubArraySumK(arr, k) {
+  let map = new Map();
+  let currentSum = 0;
+  let start = 0;
+  let end = -1;
+  let res = [];
+  for (let i = 0; i < arr.length; ++i) {
+    currentSum += arr[i];
+    if (currentSum === k) {
+      start = 0;
+      end = i + 1;
+      res.push(arr.slice(start, end));
+    }
+    if (map.has(currentSum - k)) {
+      for (let startIndex of map.get(currentSum - k)) {
+        start = startIndex + 1;
+        end = i + 1;
+        res.push(arr.slice(start, end));
+      }
+    }
+    if (!map.has(currentSum)) {
+      map.set(currentSum, []);
+    }
+    map.get(currentSum).push(i);
+  }
+  return res;
+}
+
+console.log(generateAllSubArraySumK([2, 3, 5, 0, 0, 1, 9], 10));
+console.log(generateAllSubArraySumK([1, 2, 1, 2, 1], 3));
+console.log(generateAllSubArraySumK([1, 2, 3, -2, 5], 6));
+
+function generateAllSubArraySumK1(arr, k) {
+  let map = new Map();
+  let currentSum = 0;
+  let start = 0;
+  let end = -1;
+  let res = [];
+  for (let i = 0; i < arr.length; ++i) {
+    currentSum += arr[i];
+    if (currentSum === k) {
+      start = 0;
+      end = i + 1;
+      res.push(arr.slice(start, end));
+    }
+    if (map.has(currentSum - k)) {
+      for (let startIndex of map.get(currentSum - k)) {
+        start = startIndex + 1;
+        end = i + 1;
+        res.push(arr.slice(start, end));
+      }
+    }
+    if (!map.has(currentSum - k)) {
+      map.set(currentSum, []);
+    }
+    map.get(currentSum).push(i);
+    // console.log("map---->", map);
+  }
+  return res;
+}
+
+// console.log(generateAllSubArraySumK1([2, 3, 5, 0, 0, 1, 9], 10));
+// console.log(generateAllSubArraySumK1([1, 2, 1, 2, 1], 3));
+// console.log(generateAllSubArraySumK1([1, 2, 3, -2, 5], 6));
+console.log(generateAllSubArraySumK1([9, -3, 3, -1, 6, -5], 0));
+console.log(generateAllSubArraySumK1([6, -2, 2, -8, 1, 7, 4, -10], 0));
+
+function twoSum(arr, target) {
+  let map = new Map();
+  // let start = -1;
+  // let end = -1;
+  let res = [];
+  for (let i = 0; i < arr.length; ++i) {
+    let getValue = target - arr[i];
+    if (map.has(getValue)) {
+      for (let index of map.get(getValue)) {
+        res.push([index, i]);
+      }
+    }
+    if (!map.has(arr[i])) {
+      map.set(arr[i], []);
+    }
+    map.get(arr[i]).push(i);
+  }
+  return res;
+}
+
+console.log(twoSum([2, 6, 5, 8, 11], 14));
+console.log(twoSum([1, 3, 2, 4], 5));
