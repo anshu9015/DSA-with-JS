@@ -246,3 +246,70 @@ function merging(arr1, arr2) {
   return [...arr1, ...arr2];
 }
 console.log(merging([1, 2, 3], [4, 6, 7, 8]));
+
+function threeSum(arr) {
+  let set = new Set();
+  for (let i = 0; i < arr.length; ++i) {
+    for (let j = i + 1; j < arr.length; ++j) {
+      for (let k = j + 1; k < arr.length; ++k) {
+        if (arr[i] + arr[j] + arr[k] === 0) {
+          let temp = [arr[i], arr[j], arr[k]];
+          temp.sort((a, b) => a - b);
+          set.add(temp.join(","));
+        }
+      }
+    }
+  }
+  return [...set].map((s) => s.split(",").map(Number));
+}
+console.log(threeSum([-1, 0, 1, 2, -1, -4]));
+
+function triplet1(arr) {
+  let set = new Set();
+  for (let i = 0; i < arr.length; ++i) {
+    let set1 = new Set();
+    for (let j = i + 1; j < arr.length; ++j) {
+      let third = -(arr[i] + arr[j]);
+      if (set1.has(third)) {
+        let temp = [arr[i], arr[j], third];
+        temp.sort((a, b) => a - b);
+        set.add(temp.join(","));
+      }
+      set1.add(arr[j]);
+    }
+  }
+  return [...set].map((s) => s.split(",").map(Number));
+}
+console.log(triplet1([-1, 0, 1, 2, -1, -4]));
+
+function triplet2(arr) {
+  let res = [];
+  arr.sort((a, b) => a - b);
+  for (let i = 0; i < arr.length; ++i) {
+    if (i > 0 && arr[i] === arr[i - 1]) {
+      continue;
+    }
+    let j = i + 1;
+    let k = arr.length - 1;
+    while (j < k) {
+      if (arr[i] + arr[j] + arr[k] > 0) {
+        k--;
+      } else if (arr[i] + arr[j] + arr[k] < 0) {
+        j++;
+      } else {
+        let temp = [arr[i], arr[j], arr[k]];
+        res.push(temp);
+        j++;
+        k--;
+        while (j < k && arr[j] === arr[j - 1]) {
+          j++;
+        }
+        while (j < k && arr[k] === arr[k + 1]) {
+          k--;
+        }
+      }
+    }
+  }
+  return res;
+}
+console.log(triplet2([-1, 0, 1, 2, -1, -4]));
