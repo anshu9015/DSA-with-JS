@@ -454,7 +454,7 @@ function fourSum2(arr) {
       continue;
     }
     for (let j = i + 1; j < arr.length; ++j) {
-      if (j > 0 && arr[j] === arr[j - 1]) {
+      if (j > i + 1 && arr[j] === arr[j - 1]) {
         continue;
       }
       let k = j + 1;
@@ -466,7 +466,7 @@ function fourSum2(arr) {
           k++;
         } else {
           let temp = [arr[i], arr[j], arr[k], arr[l]];
-          res.push(temp);
+          res.push(temp.join(","));
           k++;
           l--;
           while (k < l && arr[k] === arr[k - 1]) {
@@ -479,7 +479,9 @@ function fourSum2(arr) {
       }
     }
   }
-  return res;
+  return [...res].map((s) => s.split(",").map(Number));
 }
 
+// console.log(fourSum2([1, 0, -1, 0, -2, 2]));
 console.log(fourSum2([1, 0, -1, 0, -2, 2]));
+console.log(fourSum2([2, 2, 2, 2, 2])); // [[2,2,2,2]]
