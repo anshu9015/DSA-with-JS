@@ -484,3 +484,10 @@ function toggleString(str) {
   return result;
 }
 console.log(toggleString("anshu KUMAR"));
+
+
+
+function abx() {
+  console.log("sghdjvsxc");
+}
+console.log("abb", abx())
