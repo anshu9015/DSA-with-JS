@@ -313,3 +313,81 @@ function triplet2(arr) {
   return res;
 }
 console.log(triplet2([-1, 0, 1, 2, -1, -4]));
+
+function fourSum(arr) {
+  let res = new Set();
+  for (let i = 0; i < arr.length; ++i) {
+    for (let j = i + 1; j < arr.length; ++j) {
+      for (let k = j + 1; k < arr.length; ++k) {
+        for (let l = k + 1; l < arr.length; ++l) {
+          if (arr[i] + arr[j] + arr[k] + arr[l] === 0) {
+            let temp = [arr[i], arr[j], arr[k], arr[l]];
+            temp.sort((a, b) => a - b);
+            res.add(temp.join(","));
+          }
+        }
+      }
+    }
+  }
+  return [...res].map((s) => s.split(",").map(Number));
+}
+console.log(fourSum([1, 0, -1, 0, -2, 2]));
+
+function fourSum1(arr) {
+  let res = new Set();
+  for (let i = 0; i < arr.length; ++i) {
+    for (let j = i + 1; j < arr.length; ++j) {
+      let set1 = new Set();
+      for (let k = j + 1; k < arr.length; ++k) {
+        let fourth = -(arr[i] + arr[j] + arr[k]);
+        if (set1.has(fourth)) {
+          let temp = [arr[i], arr[j], arr[k], fourth];
+          temp.sort((a, b) => a - b);
+          res.add(temp.join(","));
+        }
+        set1.add(arr[k]);
+      }
+    }
+  }
+  return [...res].map((s) => s.split(",").map(Number));
+}
+console.log(fourSum1([1, 0, -1, 0, -2, 2]));
+
+function fourSum2(arr) {
+  let res = new Set();
+  arr.sort((a, b) => a - b);
+  for (let i = 0; i < arr.length; ++i) {
+    if (i > 0 && arr[i] === arr[i - 1]) {
+      continue;
+    }
+    for (let j = i + 1; j < arr.length; ++j) {
+      if (j > i + 1 && arr[j] === arr[j - 1]) {
+        continue;
+      }
+      let k = j + 1;
+      let l = arr.length - 1;
+      while (k < l) {
+        if (arr[i] + arr[j] + arr[k] + arr[l] > 0) {
+          l--;
+        } else if (arr[i] + arr[j] + arr[k] + arr[l] < 0) {
+          k++;
+        } else {
+          let temp = [arr[i], arr[j], arr[k], arr[l]];
+          res.add(temp.join(","));
+          k++;
+          l--;
+          while (k < l && arr[k] === arr[k - 1]) {
+            k++;
+          }
+          while (k < l && arr[l] === arr[l + 1]) {
+            l--;
+          }
+        }
+      }
+    }
+  }
+  return [...res].map((s) => s.split(",").map(Number));
+}
+// console.log(fourSum2([1, 0, -1, 0, -2, 2]));
+console.log(fourSum2([1, 0, -1, 0, -2, 2]));
+console.log(fourSum2([2, 2, 2, 2, 2])); // [[2,2,2,2]]
