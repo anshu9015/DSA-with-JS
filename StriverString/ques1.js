@@ -152,3 +152,70 @@ function longestCommonPrefix(str) {
   return ans;
 }
 console.log(longestCommonPrefix(["flower", "flow", "flight"]));
+
+// Input: s = "(()())(())"
+// Output: "()()()"
+// Explanation:
+// The input string is "(()())(())", with primitive decomposition "(()())" + "(())".
+// After removing outer parentheses of each part, this is "()()" + "()" = "()()()".
+// Example 2:
+
+// Input: s = "(()())(())(()(()))"
+// Output: "()()()()(())"
+// Explanation:
+// The input string is "(()())(())(()(()))", with primitive decomposition "(()())" + "(())" + "(()(()))".
+// After removing outer parentheses of each part, this is "()()" + "()" + "()(())" = "()()()()(())".
+// Example 3:
+
+// Input: s = "()()"
+// Output: ""
+// Explanation:
+// The input string is "()()", with primitive decomposition "()" + "()".
+// After removing outer parentheses of each part, this is "" + "" = "".
+
+function outerMostParanthesis(str) {
+  let res = "";
+  let counter = 0;
+  for (let ch of str) {
+    if (ch === ")") {
+      counter--;
+    }
+    if (counter !== 0) {
+      res += ch;
+    }
+    if (ch === "(") {
+      counter++;
+    }
+  }
+  return res;
+}
+console.log(outerMostParanthesis("(()())(())"));
+
+function removeOuterParanthesis(str) {
+  let ans = "";
+  let counter = 0;
+  for (let ch of str) {
+    if (ch === "(") {
+      if (counter > 0) {
+        ans += ch;
+      }
+      counter++;
+    } else {
+      counter--;
+      if (counter > 0) {
+        ans += ch;
+      }
+    }
+  }
+  return ans;
+}
+console.log(removeOuterParanthesis("(()())(())"));
+
+function leapYear(year) {
+  if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+    return true;
+  }
+  return false;
+}
+console.log(leapYear(1900));
+console.log(leapYear(2020));
