@@ -1,24 +1,13 @@
 {
-  "posts": [
-    {
-      "id": 1,
-      "title": "Hello World",
-      "author": "Anshu"
-    },
-    {
-      "title": "Testing data update",
-      "author": "patch",
-      "id": 2
-    }
+  "orders": [
+    { "id": 1, "customerId": 101, "pickupAddress": "Shop A", "deliveryAddress": "Home B", "status": "Pending", "assignedAgentId": 201, "timestamp": "2025-09-11T10:00:00Z" }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "Nice post!",
-      "postId": 1
-    }
+  "users": [
+    { "id": 101, "name": "Anshu", "email": "anshu@test.com", "role": "Customer", "phone": "9999999999" },
+    { "id": 201, "name": "Ravi", "email": "ravi@test.com", "role": "Agent", "phone": "8888888888" },
+    { "id": 301, "name": "Admin", "email": "admin@test.com", "role": "Admin", "phone": "7777777777" }
   ],
-  "profile": {
-    "name": "Anshu Kumar"
-  }
+  "notifications": [
+    { "id": 1, "userId": 101, "message": "Your order is picked up!", "timestamp": "2025-09-11T10:15:00Z" }
+  ]
 }
