@@ -297,3 +297,37 @@ console.log(integerToRoman(1994));
 // C             100
 // D             500
 // M             1000
+
+function sortCharacterByFrequency(str) {
+  let map = new Map();
+  for (let i = 0; i < str.length; ++i) {
+    map.set(str[i], (map.get(str[i]) || 0) + 1);
+  }
+  let ans = "";
+  let res = [...map.entries()].sort((a, b) => b[1] - a[1]);
+  for (let [ch, freq] of res) {
+    ans += ch.repeat(freq);
+  }
+  return ans;
+}
+console.log(sortCharacterByFrequency("tree"));
+
+function sortCharacterByFrequency1(str) {
+  let map = new Map();
+  for (let i = 0; i < str.length; ++i) {
+    map.set(str[i], (map.get(str[i]) || 0) + 1);
+  }
+  let ans = "";
+  let buckets = new Array(str.length + 1).fill(null).map(() => []);
+  for (let [key, value] of map.entries()) {
+    buckets[value].push(key);
+  }
+  console.log(buckets);
+  for (let i = buckets.length - 1; i >= 0; --i) {
+    for (let ch of buckets[i]) {
+      ans += ch.repeat(i);
+    }
+  }
+  return ans;
+}
+console.log(sortCharacterByFrequency1("tree"));
