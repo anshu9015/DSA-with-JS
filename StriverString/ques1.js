@@ -219,3 +219,81 @@ function leapYear(year) {
 }
 console.log(leapYear(1900));
 console.log(leapYear(2020));
+
+function romanToInteger(str) {
+  let map = new Map();
+  map.set("I", 1);
+  map.set("V", 5);
+  map.set("X", 10);
+  map.set("L", 50);
+  map.set("C", 100);
+  map.set("D", 500);
+  map.set("M", 1000);
+  let ans = 0;
+  for (let i = 0; i < str.length; ++i) {
+    if (map.get(str[i]) < map.get(str[i + 1])) {
+      ans -= map.get(str[i]);
+    } else {
+      ans += map.get(str[i]);
+    }
+  }
+  return ans;
+}
+console.log(romanToInteger("MCMXCIV"));
+
+function romanToInteger1(str) {
+  let map = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  };
+  let ans = 0;
+  for (let i = 0; i < str.length; ++i) {
+    if (map[str[i]] < map[str[i + 1]]) {
+      ans -= map[str[i]];
+    } else {
+      ans += map[str[i]];
+    }
+  }
+  return ans;
+}
+console.log(romanToInteger1("MCMXCIV"));
+
+function integerToRoman(num) {
+  const values = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+  const symbols = [
+    "M",
+    "CM",
+    "D",
+    "CD",
+    "C",
+    "XC",
+    "L",
+    "XL",
+    "X",
+    "IX",
+    "V",
+    "IV",
+    "I",
+  ];
+  let ans = "";
+  for (let i = 0; i < values.length; ++i) {
+    while (num >= values[i]) {
+      num -= values[i];
+      ans += symbols[i];
+    }
+  }
+  return ans;
+}
+console.log(integerToRoman(1994));
+// I             1
+// V             5
+// X             10
+// L             50
+// C             100
+// D             500
+// M             1000

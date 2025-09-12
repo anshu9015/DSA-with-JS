@@ -1,13 +1,113 @@
 {
+  "products": [
+    {
+      "id": 1,
+      "name": "Laptop"
+    },
+    {
+      "id": 2,
+      "name": "Mobile Phone"
+    },
+    {
+      "id": 3,
+      "name": "Headphones"
+    },
+    {
+      "id": 4,
+      "name": "Smartwatch"
+    }
+  ],
   "orders": [
-    { "id": 1, "customerId": 101, "pickupAddress": "Shop A", "deliveryAddress": "Home B", "status": "Pending", "assignedAgentId": 201, "timestamp": "2025-09-11T10:00:00Z" }
+    {
+      "id": "1",
+      "customerId": 101,
+      "pickupAddress": "Shop A",
+      "deliveryAddress": "Home B",
+      "status": "Delivered",
+      "assignedAgentId": 201,
+      "timestamp": "2025-09-11T10:00:00Z"
+    },
+    {
+      "id": "78b5",
+      "customerId": 1,
+      "pickupAddress": "Main Warehouse, City Center",
+      "deliveryAddress": "dfd",
+      "status": "Delivered",
+      "assignedAgentId": 201,
+      "timestamp": "2025-09-12T06:57:06.659Z"
+    },
+    {
+      "id": "e09b",
+      "customerId": 1,
+      "pickupAddress": "Main Warehouse, City Center",
+      "deliveryAddress": "ASDFGH",
+      "products": [
+        "Laptop"
+      ],
+      "status": "Picked Up",
+      "assignedAgentId": 201,
+      "timestamp": "2025-09-12T09:07:21.877Z"
+    },
+    {
+      "id": "5e62",
+      "customerId": 1,
+      "pickupAddress": "Main Warehouse, City Center",
+      "deliveryAddress": "SDFGHJ",
+      "products": [
+        "Laptop"
+      ],
+      "status": "Delivered",
+      "assignedAgentId": 201,
+      "timestamp": "2025-09-12T09:43:42.919Z"
+    }
   ],
   "users": [
-    { "id": 101, "name": "Anshu", "email": "anshu@test.com", "role": "Customer", "phone": "9999999999" },
-    { "id": 201, "name": "Ravi", "email": "ravi@test.com", "role": "Agent", "phone": "8888888888" },
-    { "id": 301, "name": "Admin", "email": "admin@test.com", "role": "Admin", "phone": "7777777777" }
+    {
+      "id": "101",
+      "name": "Anshu",
+      "email": "anshu@test.com",
+      "role": "Customer",
+      "phone": "9999999999"
+    },
+    {
+      "id": "201",
+      "name": "Ravi",
+      "email": "ravi@test.com",
+      "role": "Agent",
+      "phone": "8888888888"
+    },
+    {
+      "id": "301",
+      "name": "Admin",
+      "email": "admin@test.com",
+      "role": "Admin",
+      "phone": "7777777777"
+    }
   ],
   "notifications": [
-    { "id": 1, "userId": 101, "message": "Your order is picked up!", "timestamp": "2025-09-11T10:15:00Z" }
+    {
+      "id": "1",
+      "userId": 101,
+      "message": "Your order is picked up!",
+      "timestamp": "2025-09-11T10:15:00Z"
+    },
+    {
+      "id": "8268",
+      "userId": "agent",
+      "message": "New order #78b5 placed. Pickup from warehouse.",
+      "timestamp": "2025-09-12T06:57:06.678Z"
+    },
+    {
+      "id": "be1a",
+      "userId": "agent",
+      "message": "New order #e09b placed with Laptop",
+      "timestamp": "2025-09-12T09:07:21.898Z"
+    },
+    {
+      "id": "c12d",
+      "userId": "agent",
+      "message": "New order #5e62 placed with Laptop",
+      "timestamp": "2025-09-12T09:43:42.939Z"
+    }
   ]
 }
