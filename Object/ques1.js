@@ -1,36 +1,36 @@
 //  Easy Level Object Questions
 
-// Count frequency of characters in a string using an object
+// Count frequency of characters in a string using an object                                    done
 // Input: "apple"
 // Output: { a: 1, p: 2, l: 1, e: 1 }
 
-// Check if two objects are shallowly equal
+// Check if two objects are shallowly equal                                                      done
 // Input: { a: 1, b: 2 }, { a: 1, b: 2 }
 // Output: true
 
-// Remove a property from an object
+// Remove a property from an object                                                               done
 // Input: { a: 1, b: 2, c: 3 }, remove key: "b"
 // Output: { a: 1, c: 3 }
 
-// Convert an object to an array of key-value pairs
+// Convert an object to an array of key-value pairs                                                done
 // Input: { a: 1, b: 2 }
 // Output: [['a', 1], ['b', 2]]
 
-// Convert an array of key-value pairs to an object
+// Convert an array of key-value pairs to an object                                                done
 // Input: [['a', 1], ['b', 2]]
 // Output: { a: 1, b: 2 }
 
-// Clone a simple object
+// Clone a simple object                                                                            done
 // Input: { a: 1, b: 2 }
 // Output: Shallow copy using `{...obj}` or `Object.assign()`
 
 // ⚙️ Medium Level Object Questions
 
-// Flatten a nested object (1-level depth)
+// Flatten a nested object (1-level depth)                                                        done
 // Input: { a: 1, b: { c: 2, d: 3 } }
 // Output: { a: 1, 'b.c': 2, 'b.d': 3 }
 
-// Deep clone an object (without using JSON.parse/stringify)
+// Deep clone an object (without using JSON.parse/stringify)                                        done
 // Asked in: Google, Amazon
 // Input: { a: 1, b: { c: 2 } }
 // Output: Deep copy without losing methods or Date objects
@@ -43,11 +43,11 @@
 //   vegetable: [{...}]
 // }
 
-// Find the property with the highest value
+// Find the property with the highest value                                                                     done
 // Input: { a: 10, b: 25, c: 15 }
 // Output: b
 
-// Count number of occurrences of values in array using object
+// Count number of occurrences of values in array using object                                                  done
 // Asked in: Amazon, Paytm
 // Input: ['apple', 'banana', 'apple', 'orange', 'banana']
 // Output: { apple: 2, banana: 2, orange: 1 }
