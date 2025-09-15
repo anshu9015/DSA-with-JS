@@ -100,3 +100,181 @@ function cloneObject1(obj) {
   return Object.assign(obj);
 }
 console.log(cloneObject1({ a: 1, b: 2 }));
+
+// Flatten a nested object (1-level depth)
+// Input: { a: 1, b: { c: 2, d: 3 } }
+// Output: { a: 1, 'b.c': 2, 'b.d': 3 }
+function nestedObject(obj) {
+  let result = {};
+  for (let key in obj) {
+    if (
+      typeof obj[key] === "object" &&
+      obj[key] !== null &&
+      !Array.isArray(obj[key])
+    ) {
+      for (let subkey in obj[key]) {
+        result[`${key}.${subkey}`] = obj[key][subkey];
+      }
+    } else {
+      result[key] = obj[key];
+    }
+  }
+  return result;
+}
+console.log(nestedObject({ a: 1, b: { c: 2, d: 3 } }));
+
+// Deep clone an object (without using JSON.parse/stringify)
+// Asked in: Google, Amazon
+// Input: { a: 1, b: { c: 2 } }
+// Output: Deep copy without losing methods or Date objects
+const obj = { a: 1, b: { c: 2 } };
+const obj2 = { a: 1, b: { c: 2, e: 4 }, f: { g: { h: 8 } } };
+function deepCopy(obj) {
+  const obj1 = JSON.parse(JSON.stringify(obj));
+  return obj1;
+}
+// console.log(deepCopy({ a: 1, b: { c: 2 } }));
+//for only 1 nested loop
+function deepCopy1(obj) {
+  let result = {};
+  for (let key in obj) {
+    if (typeof obj[key] === "object" && obj[key] !== null) {
+      result[key] = {};
+      for (let subkey in obj[key]) {
+        result[key][subkey] = obj[key][subkey];
+      }
+    } else {
+      result[key] = obj[key];
+    }
+  }
+  return result;
+}
+// let copy = deepCopy(obj);
+// let copy1 = deepCopy1(obj2);
+// // let copy = { ...obj };
+// copy1.f.g.h = 99;
+// copy.b.c = 9;
+// // console.log("main object----->", obj);
+// // console.log("copy object======>", copy);
+// console.log("main object----->", obj2);
+// console.log("copy object======>", copy1);
+// console.log(deepCopy1({ a: 1, b: { c: 2, e: 4 }, f: { g: { h: 8 } } }));
+
+// Find the property with the highest value
+// Input: { a: 10, b: 25, c: 15 }
+// Output: b
+function highestFrequency(obj) {
+  let max = -Infinity;
+  let ans;
+  for (let key in obj) {
+    if (obj[key] > max) {
+      max = obj[key];
+      ans = key;
+    }
+  }
+
+  return ans;
+}
+console.log(highestFrequency({ a: 10, b: 25, c: 15 }));
+
+// Count number of occurrences of values in array using object
+// Asked in: Amazon, Paytm
+// Input: ['apple', 'banana', 'apple', 'orange', 'banana']
+// Output: { apple: 2, banana: 2, orange: 1 }
+
+function countArrayElementFrequency(arr) {
+  let obj = {};
+  for (let val of arr) {
+    obj[val] = (obj[val] || 0) + 1;
+  }
+  return obj;
+}
+console.log(
+  countArrayElementFrequency(["apple", "banana", "apple", "orange", "banana"])
+);
+//for multiple nested loop
+function nestedDeepCopyClone(obj) {
+  if (typeof obj !== "object" || obj === null) {
+    return obj;
+  }
+  const result = {};
+  for (let key in obj) {
+    if (obj[key]) {
+      result[key] = nestedDeepCopyClone(obj[key]);
+    }
+  }
+  return result;
+}
+let copy3 = nestedDeepCopyClone(obj2);
+// let copy = { ...obj };
+copy3.f.g.h = 99;
+// copy.b.c = 9;
+// console.log("main object----->", obj);
+// console.log("copy object======>", copy);
+console.log("main object----->", obj2);
+console.log("copy object======>", copy3);
+console.log(nestedDeepCopyClone(obj2));
+
+function flattendArray(arr) {
+  const result = [];
+  for (let i = 0; i < arr.length; ++i) {
+    if (Array.isArray(arr[i])) {
+      let flatArray = flattendArray(arr[i]);
+      result.push(...flatArray);
+    } else {
+      result.push(arr[i]);
+    }
+  }
+  return result;
+}
+console.log(flattendArray([1, [2, 3, [4, 5, 6]]]));
+
+function deepCloning(obj) {
+  if (typeof obj !== "object" || obj === null) {
+    return obj;
+  }
+  if (obj instanceof Date) {
+    return new Date(obj);
+  }
+  if (Array.isArray(obj)) {
+    return obj.map((item) => deepCloning(item));
+  }
+  if (obj instanceof Map) {
+    const map = new Map();
+    for (let [key, value] of obj.entries()) {
+      map.set(key, deepCloning(value));
+      return map;
+    }
+  }
+  if (obj instanceof Set) {
+    const map = new Set();
+    for (let item of obj.values()) {
+      map.add(deepCloning(item));
+    }
+    return map;
+  }
+  const map = {};
+  for (let key in obj) {
+    if (obj[key]) {
+      map[key] = deepCloning(obj[key]);
+    }
+  }
+  return map;
+}
+const obj4 = {
+  a: 1,
+  b: { c: 2 },
+  d: new Date(),
+  e: function () {
+    return "hi";
+  },
+  f: [1, 2, { g: 3 }],
+  g: new Map([["x", 10]]),
+  h: new Set([1, 2, 3]),
+};
+
+const copy4 = deepCloning(obj4);
+copy4.b.c = 99;
+
+console.log(copy4); // Deep cloned object
+console.log(obj4);
