@@ -278,3 +278,12 @@ copy4.b.c = 99;
 
 console.log(copy4); // Deep cloned object
 console.log(obj4);
+
+function customObjectEntries(obj) {
+  const res = [];
+  for (let key in obj) {
+    res.push([key, obj[key]]);
+  }
+  return res;
+}
+console.log(customObjectEntries({ a: 1, b: 2 }));
