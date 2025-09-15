@@ -52,7 +52,7 @@
 // Input: ['apple', 'banana', 'apple', 'orange', 'banana']
 // Output: { apple: 2, banana: 2, orange: 1 }
 
-// Implement a custom Object.entries() function
+// Implement a custom Object.entries() function                                                                 done
 // Input: { a: 1, b: 2 }
 // Output: [['a', 1], ['b', 2]]
 
