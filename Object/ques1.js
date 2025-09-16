@@ -35,7 +35,7 @@
 // Input: { a: 1, b: { c: 2 } }
 // Output: Deep copy without losing methods or Date objects
 
-// Group array of objects by a key
+// Group array of objects by a key                                                                                             done
 // Asked in: Flipkart, Zomato
 // Input: [{type: 'fruit', name: 'apple'}, {type: 'vegetable', name: 'carrot'}, {type: 'fruit', name: 'banana'}]
 // Output: {
@@ -56,29 +56,29 @@
 // Input: { a: 1, b: 2 }
 // Output: [['a', 1], ['b', 2]]
 
-// Check if a given object is empty
+// Check if a given object is empty                                                                              done
 // Input: {}
 // Output: true
 
-// Merge two objects
+// Merge two objects                                                                                           done
 // Asked in: Razorpay, Groww
 // Input: { a: 1 }, { b: 2, a: 3 }
 // Output: { a: 3, b: 2 }
 
-// Convert object values to uppercase (if string)
+// Convert object values to uppercase (if string)                                                               done
 // Input: { name: 'anshu', age: 25 }
 // Output: { name: 'ANSHU', age: 25 }
 
 // 🧠 Bonus Real-World Challenge (Medium Level)
-// Create a function that picks specific keys from an object
+// Create a function that picks specific keys from an object                                                      done
 // pick({ name: 'Anshu', age: 25, city: 'Delhi' }, ['name', 'city'])
 // // Output: { name: 'Anshu', city: 'Delhi' }
 
-// Create a function that omits specific keys from an object
+// Create a function that omits specific keys from an object                                                     done
 // omit({ name: 'Anshu', age: 25, city: 'Delhi' }, ['age'])
 // // Output: { name: 'Anshu', city: 'Delhi' }
 
-// Check if two objects are deeply equal
+// Check if two objects are deeply equal                                                                        done
 // Asked in: Adobe, PhonePe
 // Input: { a: 1, b: { c: 2 } } and { a: 1, b: { c: 2 } }
 // Output: true
