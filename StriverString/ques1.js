@@ -331,3 +331,92 @@ function sortCharacterByFrequency1(str) {
   return ans;
 }
 console.log(sortCharacterByFrequency1("tree"));
+
+function maximumNestedParanthesis(str) {
+  let max = 0;
+  let curr = 0;
+  for (let char of str) {
+    if (char === "(") {
+      curr += 1;
+      max = Math.max(max, curr);
+    }
+    if (char === ")") {
+      curr -= 1;
+    }
+  }
+  return max;
+}
+console.log(maximumNestedParanthesis("(1)+((2))+(((3)))"));
+
+// First, ignore any leading whitespace characters ' ' until the first non-whitespace character is found.
+// Check the next character to determine the sign. If it’s a '-', the number should be negative. If it’s a '+', the number should be positive. If neither is found, assume the number is positive.
+// Read the digits and convert them into a number. Stop reading once a non-digit character is encountered or the end of the string is reached. Leading zeros should be ignored during conversion.
+// The result should be clamped within the 32-bit signed integer range: [-2147483648, 2147483647]. If the computed number is outside this range, return -2147483648 if the number is less than -2147483648, or return 2147483647 if the number is greater than 2147483647.
+// Finally, return the computed number after applying all the above steps.
+
+function implementAtoi(str) {
+  let i = 0;
+  let num = 0;
+  let sign = 1;
+  const INT_MAX = 2147483647; // 2^31 - 1
+  const INT_MIN = -2147483648;
+  while (i < str.length && str.charAt(i) === " ") {
+    i = i + 1;
+  }
+  if (i < str.length) {
+    if (str.charAt(i) === "-") {
+      sign = -1;
+      i = i + 1;
+    } else if (str.charAt(i) === "+") {
+      i = i + 1;
+    }
+  }
+  while (i < str.length && str.charCodeAt(i) >= 48 && str.charCodeAt(i) <= 57) {
+    let digit = Number(str.charAt(i));
+    if (num === Math.floor(INT_MAX / 10)) {
+      if (sign === 1 && digit >= 7) {
+        return INT_MAX;
+      }
+      if (sign === -1 && digit >= 8) {
+        return INT_MIN;
+      }
+    }
+    if (num > Math.floor(INT_MAX / 10)) {
+      if (sign === 1) {
+        return INT_MAX;
+      } else {
+        return INT_MIN;
+      }
+    }
+    num = num * 10 + digit;
+    i = i + 1;
+  }
+  return sign * num;
+}
+console.log(implementAtoi(" -12345"));
+
+// The beauty of a string is the difference in frequencies between the most frequent and least frequent characters.
+
+// For example, the beauty of "abaacc" is 3 - 1 = 2.
+// Given a string s, return the sum of beauty of all of its substrings.
+
+// Example 1:
+
+// Input: s = "aabcb"
+// Output: 5
+// Explanation: The substrings with non-zero beauty are ["aab","aabc","aabcb","abcb","bcb"], each with beauty equal to 1.
+// Example 2:
+
+// Input: s = "aabcbaa"
+// Output: 17
+
+function countSubString(str) {
+  let res = [];
+  for (let i = 0; i < str.length; ++i) {
+    for (let j = i; j < str.length; ++j) {
+      res.push(str.slice(i, j + 1));
+    }
+  }
+  return res.length;
+}
+console.log(countSubString("abc"));
