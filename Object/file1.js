@@ -287,3 +287,163 @@ function customObjectEntries(obj) {
   return res;
 }
 console.log(customObjectEntries({ a: 1, b: 2 }));
+
+function objectFromEntries(arr) {
+  const obj = {};
+  for (let [key, value] of arr) {
+    obj[key] = value;
+  }
+  return obj;
+}
+console.log(
+  objectFromEntries([
+    ["a", 1],
+    ["b", 2],
+  ])
+);
+
+// Check if a given object is empty
+// Input: {}
+// Output: true
+function checkEmpty(obj) {
+  let keys = Object.keys(obj);
+  if (keys.length === 0) {
+    return true;
+  }
+  return false;
+}
+console.log(checkEmpty({ a: 1, b: 2 }));
+console.log(checkEmpty({}));
+
+// Create a function that omits specific keys from an object
+// omit({ name: 'Anshu', age: 25, city: 'Delhi' }, ['age'])
+// // Output: { name: 'Anshu', city: 'Delhi' }
+
+function omitSpecificKeys(obj, keys) {
+  let obj1 = {};
+  for (let key in obj) {
+    if (keys.includes(key)) {
+      continue;
+    }
+    obj1[key] = obj[key];
+  }
+  return obj1;
+}
+console.log(
+  omitSpecificKeys({ name: "Anshu", age: 25, city: "Delhi" }, ["age"])
+);
+
+// Create a function that picks specific keys from an object
+// pick({ name: 'Anshu', age: 25, city: 'Delhi' }, ['name', 'city'])
+// // Output: { name: 'Anshu', city: 'Delhi' }
+function pickSpecificKey(obj, keys) {
+  const obj1 = {};
+  const set = new Set(keys);
+  for (let key in obj) {
+    if (set.has(key)) {
+      obj1[key] = obj[key];
+    }
+  }
+  return obj1;
+}
+console.log(
+  pickSpecificKey({ name: "Anshu", age: 25, city: "Delhi" }, ["name", "city"])
+);
+
+// Convert object values to uppercase (if string)
+// Input: { name: 'anshu', age: 25 }
+// Output: { name: 'ANSHU', age: 25 }
+
+function converStringToUpperCase(obj) {
+  for (let key in obj) {
+    if (typeof obj[key] === "string") {
+      let newString = "";
+      for (let i = 0; i < obj[key].length; ++i) {
+        const code = obj[key].charCodeAt(i);
+        if (code >= 97 && code <= 122) {
+          newString += String.fromCharCode(code - 32);
+        } else {
+          newString += obj[key][i];
+        }
+      }
+      obj[key] = newString;
+    }
+  }
+  return obj;
+}
+console.log(converStringToUpperCase({ name: "anshu", age: 25 }));
+
+// Check if two objects are deeply equal
+// Asked in: Adobe, PhonePe
+// Input: { a: 1, b: { c: 2 } } and { a: 1, b: { c: 2 } }
+// Output: true
+function checkDeeplyEqual(obj1, obj2) {
+  if (obj1 === obj2) {
+    return true;
+  }
+  if (
+    typeof obj1 !== "object" ||
+    typeof obj2 !== "object" ||
+    obj1 === null ||
+    obj2 === null
+  ) {
+    return false;
+  }
+  let key1 = Object.keys(obj1);
+  let key2 = Object.keys(obj2);
+  if (key1.length !== key2.length) {
+    return false;
+  }
+  for (let key of key1) {
+    if (!checkDeeplyEqual(obj1[key], obj2[key])) {
+      return false;
+    }
+  }
+  return true;
+}
+console.log(checkDeeplyEqual({ a: 1, b: { c: 2 } }, { a: 1, b: { c: 2 } }));
+
+// Merge two objects
+// Asked in: Razorpay, Groww
+// Input: { a: 1 }, { b: 2, a: 3 }
+// Output: { a: 3, b: 2 }
+function mergeTwoObject(obj1, obj2) {
+  let result = {};
+  for (let key in obj1) {
+    result[key] = obj1[key];
+  }
+  for (let key in obj2) {
+    result[key] = obj2[key];
+  }
+  return result;
+}
+console.log(mergeTwoObject({ a: 1 }, { b: 2, a: 3 }));
+
+// Group array of objects by a key
+// Asked in: Flipkart, Zomato
+// Input: [{type: 'fruit', name: 'apple'}, {type: 'vegetable', name: 'carrot'}, {type: 'fruit', name: 'banana'}]
+// Output: {
+//   fruit: [{...}, {...}],
+//   vegetable: [{...}]
+// }
+function groupByKey(arr, key) {
+  const result = {};
+  for (let obj of arr) {
+    const groupKey = obj[key];
+    if (!result[groupKey]) {
+      result[groupKey] = [];
+    }
+    result[groupKey].push(obj);
+  }
+  return result;
+}
+console.log(
+  groupByKey(
+    [
+      { type: "fruit", name: "apple" },
+      { type: "vegetable", name: "carrot" },
+      { type: "fruit", name: "banana" },
+    ],
+    "type"
+  )
+);
