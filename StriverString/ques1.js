@@ -420,3 +420,29 @@ function countSubString(str) {
   return res.length;
 }
 console.log(countSubString("abc"));
+
+function beautyString(str) {
+  let ans = 0;
+  for (let i = 0; i < str.length; ++i) {
+    const freq = new Array(26).fill(0);
+    for (let j = i; j < str.length; ++j) {
+      let c = str.charCodeAt(j) - 97;
+      freq[c]++;
+      let maxFrequency = 0;
+      let minFrequency = Infinity;
+      for (let k = 0; k < 26; ++k) {
+        if (freq[k] > 0) {
+          if (freq[k] > maxFrequency) {
+            maxFrequency = freq[k];
+          }
+          if (freq[k] < minFrequency) {
+            minFrequency = freq[k];
+          }
+        }
+      }
+      ans += maxFrequency - minFrequency;
+    }
+  }
+  return ans;
+}
+console.log(beautyString("aabcb"));
