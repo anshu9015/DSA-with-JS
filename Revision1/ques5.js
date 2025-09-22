@@ -1,5 +1,5 @@
 function selectionSort(arr) {
-  for (let i = 0; i < arr.length - 1; ++i) {
+  for (let i = 0; i < arr.length; ++i) {
     let minIndex = i;
     for (let j = i + 1; j < arr.length; ++j) {
       if (arr[minIndex] > arr[j]) {
@@ -12,8 +12,7 @@ function selectionSort(arr) {
   }
   return arr;
 }
-
-console.log(selectionSort([1, 3, 2, 5, 4]));
+console.log(selectionSort([1, 4, 2, 5, 3]));
 
 function bubbleSort(arr) {
   for (let i = 0; i < arr.length - 1; ++i) {
@@ -30,8 +29,7 @@ function bubbleSort(arr) {
   }
   return arr;
 }
-
-console.log(bubbleSort([1, 3, 2, 5, 4]));
+console.log(bubbleSort([1, 4, 2, 5, 3]));
 
 function insertionSort(arr) {
   for (let i = 0; i < arr.length; ++i) {
@@ -43,46 +41,47 @@ function insertionSort(arr) {
   }
   return arr;
 }
-console.log(insertionSort([1, 3, 2, 5, 4]));
+console.log(insertionSort([1, 4, 2, 5, 3]));
 
 function mergeSort(arr) {
-  if (arr.length <= 1) return arr;
-  let mid = Math.floor(arr.length / 2);
+  if (arr.length <= 1) {
+    return arr;
+  }
+  let mid = arr.length / 2;
   let left = mergeSort(arr.slice(0, mid));
   let right = mergeSort(arr.slice(mid));
   return merge(left, right);
 }
-//O(nlogn) time complexity and O(n) space complexity
-
 function merge(left, right) {
   let i = 0;
   let j = 0;
-  let result = [];
+  let res = [];
   while (i < left.length && j < right.length) {
     if (left[i] < right[j]) {
-      result.push(left[i++]);
+      res.push(left[i++]);
     } else {
-      result.push(right[j++]);
+      res.push(right[j++]);
     }
   }
   while (i < left.length) {
-    result.push(left[i++]);
+    res.push(left[i++]);
   }
   while (j < right.length) {
-    result.push(right[j++]);
+    res.push(right[j++]);
   }
-  return result;
+  return res;
 }
-
-console.log(mergeSort([1, 3, 2, 5, 4]));
+console.log(mergeSort([1, 4, 2, 5, 3]));
 
 function quickSort(arr) {
-  if (arr.length <= 1) return arr;
-  let pivot = arr[0];
+  if (arr.length <= 1) {
+    return arr;
+  }
   let left = [];
   let right = [];
+  let pivot = arr[0];
   for (let i = 1; i < arr.length; ++i) {
-    if (pivot > arr[i]) {
+    if (arr[i] < pivot) {
       left.push(arr[i]);
     } else {
       right.push(arr[i]);
@@ -90,26 +89,4 @@ function quickSort(arr) {
   }
   return [...quickSort(left), pivot, ...quickSort(right)];
 }
-console.log(quickSort([1, 3, 2, 5, 4]));
-
-function recursiveBubbleSort(arr, n) {
-  if (n === 1) return arr;
-  for (let i = 0; i < arr.length; ++i) {
-    if (arr[i] > arr[i + 1]) {
-      [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
-    }
-  }
-  return recursiveBubbleSort(arr, n - 1);
-}
-console.log(recursiveBubbleSort([1, 3, 2, 5, 4], 5));
-
-function recursiveInsertionSort(arr, n) {
-  if (n === arr.length) return arr;
-  for (let i = n; i < arr.length; ++i) {
-    if (arr[i - 1] > arr[i]) {
-      [arr[i - 1], arr[i]] = [arr[i], arr[i - 1]];
-    }
-  }
-  return recursiveInsertionSort(arr, n + 1);
-}
-console.log(recursiveInsertionSort([1, 3, 2, 5, 4], 1));
+console.log(quickSort([1, 4, 2, 5, 3]));
