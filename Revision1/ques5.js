@@ -90,3 +90,25 @@ function quickSort(arr) {
   return [...quickSort(left), pivot, ...quickSort(right)];
 }
 console.log(quickSort([1, 4, 2, 5, 3]));
+
+function recursiveBubbleSort(arr, n) {
+  if (n === 1) return arr;
+  for (let i = 0; i < arr.length; ++i) {
+    if (arr[i] > arr[i + 1]) {
+      [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
+    }
+  }
+  return recursiveBubbleSort(arr, n - 1);
+}
+console.log(recursiveBubbleSort([1, 4, 2, 5, 3], 5));
+
+function recursiveInsertionSort(arr, n) {
+  if (n === arr.length) return arr;
+  for (let i = n; i < arr.length; ++i) {
+    if (arr[i - 1] > arr[i]) {
+      [arr[i - 1], arr[i]] = [arr[i], arr[i - 1]];
+    }
+  }
+  return recursiveInsertionSort(arr, n + 1);
+}
+console.log(recursiveInsertionSort([1, 4, 2, 5, 3], 1));
