@@ -232,3 +232,70 @@ function countSubString(str) {
   return (n * (n + 1)) / 2;
 }
 console.log(countSubString("tree"));
+
+function implementAtoi(str) {
+  let num = 0;
+  let i = 0;
+  let sign = 1;
+  const INT_MAX = 2147483647;
+  const INT_MIN = -2147483648;
+  while (i < str.length && str.charAt(i) === " ") {
+    i = i + 1;
+  }
+  if (i < str.length) {
+    if (str.charAt(i) === "-") {
+      sign = -1;
+      i = i + 1;
+    } else if (str.charAt(i) === "+") {
+      i = i + 1;
+    }
+  }
+  while (i < str.length && str.charCodeAt(i) >= 48 && str.charCodeAt(i) <= 57) {
+    let digit = Number(str.charAt(i));
+    if (num === Math.floor(INT_MAX / 10)) {
+      if (sign === 1 && digit >= 7) {
+        return INT_MAX;
+      }
+      if (sign === -1 && digit >= 8) {
+        return INT_MIN;
+      }
+    }
+    if (num > Math.floor(INT_MAX / 10)) {
+      if (sign === 1) {
+        return INT_MAX;
+      } else {
+        return INT_MIN;
+      }
+    }
+    num = num * 10 + digit;
+    i = i + 1;
+  }
+  return num * sign;
+}
+console.log(implementAtoi(" -000012345fg"));
+
+function sumBeauty(str) {
+  let ans = 0;
+  for (let i = 0; i < str.length; ++i) {
+    let freq = new Array(26).fill(0);
+    for (let j = i; j < str.length; ++j) {
+      let c = str.charCodeAt(j) - 97;
+      freq[c]++;
+      let maxFrequency = 0;
+      let minFrequency = Infinity;
+      for (let k = 0; k < 26; ++k) {
+        if (freq[k] > 0) {
+          if (freq[k] > maxFrequency) {
+            maxFrequency = freq[k];
+          }
+          if (freq[k] < minFrequency) {
+            minFrequency = freq[k];
+          }
+        }
+      }
+      ans += maxFrequency - minFrequency;
+    }
+  }
+  return ans;
+}
+console.log(sumBeauty("aabcbaa"));
