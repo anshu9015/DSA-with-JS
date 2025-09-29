@@ -491,3 +491,10 @@ function abx() {
   console.log("sghdjvsxc");
 }
 console.log("abb", abx())
+
+function macbook(){
+  console.log("macbook pe chalaying code--->>>");
+}
+macbook();
+
+console.log("anshu kumar");
