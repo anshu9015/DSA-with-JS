@@ -492,7 +492,7 @@ function abx() {
 }
 console.log("abb", abx())
 
-function macbook(){
+function macbook() {
   console.log("macbook pe chalaying code--->>>");
 }
 macbook();
