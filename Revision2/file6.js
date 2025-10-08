@@ -132,6 +132,24 @@ console.log(ques13({ a: 1 }, { b: 2, a: 3 }));
 // Convert object values to uppercase (if string)                                                               done
 // Input: { name: 'anshu', age: 25 }
 // Output: { name: 'ANSHU', age: 25 }
+function upperCase(obj){
+  for(let key in obj){
+    if(typeof obj[key] === "string"){
+      let newString = "";
+      for(let i = 0;i<obj[key].length;++i){
+        if(obj[key].charCodeAt(i)>=97 && obj[key].charCodeAt(i)<=122){
+          newString += String.fromCharCode(obj[key].charCodeAt(i)-32);
+        }
+        else{
+          newString += obj[key][i];
+        }
+      }
+      obj[key] = newString;
+    }
+  }
+  return obj;
+}
+console.log(upperCase({ name: 'anshu', age: 25 }))
 
 function ques11(obj, arr) {
   const obj1 = {};
