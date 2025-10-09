@@ -63,11 +63,53 @@ console.log(ques6({ a: 1, b: 2, c: 3 }));
 // Flatten a nested object (1-level depth)                                                        done
 // Input: { a: 1, b: { c: 2, d: 3 } }
 // Output: { a: 1, 'b.c': 2, 'b.d': 3 }
-
+function flattenObject(obj) {
+  let result = {};
+  for (let key in obj) {
+    if (typeof obj[key] === "object") {
+      for (let ele in obj[key]) {
+        result[`${key}.${ele}`] = obj[key][ele];
+      }
+    } else {
+      result[key] = obj[key];
+    }
+  }
+  return result;
+}
+console.log(
+  "flattenObject------>>>>>",
+  flattenObject({ a: 1, b: { c: 2, d: 3 } })
+);
+function flattenArray(arr) {
+  let result = [];
+  for (let ele of arr) {
+    if (Array.isArray(ele)) {
+      let flatArray = flattenArray(ele);
+      result.push(...flatArray);
+    } else {
+      result.push(ele);
+    }
+  }
+  return result;
+}
+console.log(flattenArray([1, 2, [3, 4, 5]]));
 // Deep clone an object (without using JSON.parse/stringify)                                        done
 // Asked in: Google, Amazon
 // Input: { a: 1, b: { c: 2 } }
 // Output: Deep copy without losing methods or Date objects
+function deepCloning(obj) {
+  if (typeof obj !== "object" || obj === null) {
+    return obj;
+  }
+  const result = {};
+  for (let key in obj) {
+    if (obj[key]) {
+      result[key] = deepCloning(obj[key]);
+    }
+  }
+  return result;
+}
+console.log(deepCloning({ a: 1, b: { c: 2 } }));
 
 // Group array of objects by a key                                                                                             done
 // Asked in: Flipkart, Zomato
@@ -76,7 +118,30 @@ console.log(ques6({ a: 1, b: 2, c: 3 }));
 //   fruit: [{...}, {...}],
 //   vegetable: [{...}]
 // }
-
+function arrayObject(arr, key1) {
+  let result = {};
+  for (let i = 0; i < arr.length; ++i) {
+    let key = arr[i][key1];
+    if (result[key]) {
+      result[key].push(arr[i]);
+    } else {
+      let newArray = [];
+      newArray.push(arr[i]);
+      result[key] = newArray;
+    }
+  }
+  return result;
+}
+console.log(
+  arrayObject(
+    [
+      { type: "fruit", name: "apple" },
+      { type: "vegetable", name: "carrot" },
+      { type: "fruit", name: "banana" },
+    ],
+    "type"
+  )
+);
 function ques7(obj) {
   let highestFrequency = -Infinity;
   let maxElement;
@@ -129,18 +194,14 @@ function ques13(obj1, obj2) {
 }
 console.log(ques13({ a: 1 }, { b: 2, a: 3 }));
 
-// Convert object values to uppercase (if string)                                                               done
-// Input: { name: 'anshu', age: 25 }
-// Output: { name: 'ANSHU', age: 25 }
-function upperCase(obj){
-  for(let key in obj){
-    if(typeof obj[key] === "string"){
+function upperCase(obj) {
+  for (let key in obj) {
+    if (typeof obj[key] === "string") {
       let newString = "";
-      for(let i = 0;i<obj[key].length;++i){
-        if(obj[key].charCodeAt(i)>=97 && obj[key].charCodeAt(i)<=122){
-          newString += String.fromCharCode(obj[key].charCodeAt(i)-32);
-        }
-        else{
+      for (let i = 0; i < obj[key].length; ++i) {
+        if (obj[key].charCodeAt(i) >= 97 && obj[key].charCodeAt(i) <= 122) {
+          newString += String.fromCharCode(obj[key].charCodeAt(i) - 32);
+        } else {
           newString += obj[key][i];
         }
       }
@@ -149,7 +210,7 @@ function upperCase(obj){
   }
   return obj;
 }
-console.log(upperCase({ name: 'anshu', age: 25 }))
+console.log(upperCase({ name: "anshu", age: 25 }));
 
 function ques11(obj, arr) {
   const obj1 = {};
