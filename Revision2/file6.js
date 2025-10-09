@@ -244,3 +244,16 @@ console.log(ques10({ name: "Anshu", age: 25, city: "Delhi" }, ["age"]));
 // Asked in: Adobe, PhonePe
 // Input: { a: 1, b: { c: 2 } } and { a: 1, b: { c: 2 } }
 // Output: true
+function cloneDeep(obj) {
+  if (typeof obj !== "object" || obj === null) {
+    return obj;
+  }
+  let result = {};
+  for (let key in obj) {
+    if (obj[key]) {
+      result[key] = cloneDeep(obj[key]);
+    }
+  }
+  return result;
+}
+console.log(cloneDeep({ a: 1, b: { c: 2 } }));
