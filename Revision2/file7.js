@@ -95,15 +95,62 @@ function countWord(str) {
 }
 console.log(countWord("anshu"));
 // Capitalize the first letter of each word                                                         DONE
+function Capitalize(str) {
+  let res = "";
+  if (str.charCodeAt(0) >= 97 && str.charCodeAt(0) <= 122) {
+    res += String.fromCharCode(str.charCodeAt(0) - 32);
+  }
+  for (let i = 1; i < str.length; ++i) {
+    res += str[i];
+  }
+  return res;
+}
+console.log(Capitalize("anshu"));
 
 // Convert a string to a character array                                                            done
+function characterArray(str) {
+  let result = [];
+  for (let i = 0; i < str.length; ++i) {
+    result.push(str[i]);
+  }
+  return result;
+}
+console.log(characterArray("anshu"));
 
 // Count the frequency of each character in a string                                                  done
+function countFrequency(str) {
+  const obj = {};
+  for (let ele of str) {
+    obj[ele] = (obj[ele] || 0) + 1;
+  }
+  return obj;
+}
+console.log(countFrequency("anshu"));
 
 // Replace all spaces in a string with %20                                                            done
-
+function replace(str) {
+  let newString = "";
+  for (let ele of str) {
+    if (ele === " ") {
+      newString += "%20";
+    } else {
+      newString += ele;
+    }
+  }
+  return newString;
+}
+console.log(replace("this is anshu"));
 // Check if a string contains only digits                                                           done
-
+function checkDigit(str) {
+  for (let i = 0; i < str.length; ++i) {
+    let code = str.charCodeAt(i);
+    if (!(code >= 48 && code <= 57)) {
+      return false;
+    }
+  }
+  return true;
+}
+console.log(checkDigit("12345d"));
 // Remove all occurrences of a given character from string                                             done
 
 // Toggle case of each character in a string                                                            DONE
