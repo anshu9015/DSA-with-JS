@@ -67,8 +67,8 @@ function flattenObject(obj) {
   let result = {};
   for (let key in obj) {
     if (typeof obj[key] === "object") {
-      for (let ele in obj[key]) {
-        result[`${key}.${ele}`] = obj[key][ele];
+      for (let key1 in obj[key]) {
+        result[`${key}.${key1}`] = obj[key][key1];
       }
     } else {
       result[key] = obj[key];
@@ -76,10 +76,7 @@ function flattenObject(obj) {
   }
   return result;
 }
-console.log(
-  "flattenObject------>>>>>",
-  flattenObject({ a: 1, b: { c: 2, d: 3 } })
-);
+console.log("fgdfghwerte----+++>", flattenObject({ a: 1, b: { c: 2, d: 3 } }));
 function flattenArray(arr) {
   let result = [];
   for (let ele of arr) {
@@ -101,7 +98,7 @@ function deepCloning(obj) {
   if (typeof obj !== "object" || obj === null) {
     return obj;
   }
-  const result = {};
+  let result = {};
   for (let key in obj) {
     if (obj[key]) {
       result[key] = deepCloning(obj[key]);
@@ -109,8 +106,7 @@ function deepCloning(obj) {
   }
   return result;
 }
-console.log(deepCloning({ a: 1, b: { c: 2 } }));
-
+console.log("ttttttt=====>>", deepCloning({ a: 1, b: { c: 2 } }));
 // Group array of objects by a key                                                                                             done
 // Asked in: Flipkart, Zomato
 // Input: [{type: 'fruit', name: 'apple'}, {type: 'vegetable', name: 'carrot'}, {type: 'fruit', name: 'banana'}]
