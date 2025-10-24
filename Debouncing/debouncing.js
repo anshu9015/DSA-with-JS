@@ -15,4 +15,4 @@ function add(a, b) {
 }
 
 const debouncedAdd = debouncing(add, 2000);
-console.log("second", debouncedAdd(2, 3));
+console.log("second", debouncedAdd(2, 5));
