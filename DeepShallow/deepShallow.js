@@ -65,3 +65,10 @@ console.log(obj1);
 // | ---------------- | ----------- | -------------- |
 // | **Shallow copy** | Different   | Same reference |
 // | **Deep copy**    | Different   | Different      |
+
+let cop = [1, 2, 3, [6, 7, 8], 5];
+
+// let cop2 = cop;
+// cop2[3].pop();
+
+console.log("cop", cop);
