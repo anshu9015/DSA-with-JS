@@ -1,60 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      h1 {
-        box-sizing: border-box;
-        border: 5px solid rgba(47, 10, 168, 0.297);
-        border-top-right-radius: 20px;
-        padding: 20px;
-        width: 630px;
-        height: 80px;
-        margin: auto;
-      }
-      #firstPara {
-        font-size: larger;
-        font-family: cursive;
-        font-weight: 300;
-        /* font-style: italic; */
-        line-height: normal;
-        background-color: aquamarine;
-        border: 5px solid green;
-        padding: 20px;
-      }
-      #secondPara {
-        font-size: larger;
-        font-family: cursive;
-        font-weight: 300;
-        /* font-style: italic; */
-        line-height: normal;
-        background-color: beige;
-        border: 5px solid green;
-        padding: 20px;
-      }
-      #thirdPara {
-        font-size: larger;
-        font-family: cursive;
-        font-weight: 300;
-        /* font-style: italic; */
-        line-height: normal;
-        background-color: rgb(52, 10, 105, 0.2);
-        border: 5px solid green;
-        padding: 20px;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>BASIC CASCADING CSS LEARN</h1>
-    <!-- cascading means which styling algorithm are apply to particular html element if various css apply on same element -->
-    <!-- it depend on 4 factor
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    h1 {
+      box-sizing: border-box;
+      border: 5px solid rgba(47, 10, 168, 0.297);
+      border-top-right-radius: 20px;
+      padding: 20px;
+      width: 630px;
+      height: 80px;
+      margin: auto;
+    }
+
+    #firstPara {
+      font-size: larger;
+      font-family: cursive;
+      font-weight: 300;
+      line-height: normal;
+      background-color: aquamarine;
+      border: 5px solid green;
+      padding: 20px;
+    }
+
+    #secondPara {
+      font-size: larger;
+      font-family: cursive;
+      font-weight: 300;
+      /* font-style: italic; */
+      line-height: normal;
+      background-color: beige;
+      border: 5px solid green;
+      padding: 20px;
+    }
+
+    #thirdPara {
+      font-size: larger;
+      font-family: cursive;
+      font-weight: 300;
+      /* font-style: italic; */
+      line-height: normal;
+      background-color: rgb(52, 10, 105, 0.2);
+      border: 5px solid green;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>BASIC CASCADING CSS LEARN</h1>
+  <!-- cascading means which styling algorithm are apply to particular html element if various css apply on same element -->
+  <!-- it depend on 4 factor
      type of css inline internal or extrnal inline have  more preference internal and external have same
      specificity id selector > class selector > element selector 
      ! important have more preference
      order preference last one are more prefer because it override the above process -->
-    <!-- font
+  <!-- font
      font-size
      font-weight
      font-family
@@ -67,24 +71,25 @@
      hexadecimal code
      hsl(hue,saturation,lightness) hue lies between 0 and 360 0 means red 120 means green 360 means blue
     saturation lies between 0% and 100% 100% means gray lightness lies between 0% and 100% 0%means black and 100%means white   -->
-    <!-- border border-style border-width border-color border-radius border : solid
+  <!-- border border-style border-width border-color border-radius border : solid
     black 2px; every thing written in html contain rectangular box and they have
     padding border and margin padding is between content and border and margin
     is between box 1 and another box. -->
-    <p id="firstPara">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos obcaecati
-      omnis libero tempora suscipit consequuntur ad dolorum laboriosam,
-      repellendus iste dolor consectetur quidem debitis eum doloribus recusandae
-      repudiandae.
-    </p>
-    <p id="secondPara">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, veritatis?
-    </p>
-    <p id="thirdPara">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, quae. Amet,
-      accusamus assumenda at illo molestiae recusandae! Enim aspernatur nulla
-      maiores doloremque vel reprehenderit, quae exercitationem asperiores
-      aperiam officia voluptatum, dolores perferendis eos velit earum?
-    </p>
-  </body>
+  <p id="firstPara">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos obcaecati
+    omnis libero tempora suscipit consequuntur ad dolorum laboriosam,
+    repellendus iste dolor consectetur quidem debitis eum doloribus recusandae
+    repudiandae.
+  </p>
+  <p id="secondPara">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, veritatis?
+  </p>
+  <p id="thirdPara">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, quae. Amet,
+    accusamus assumenda at illo molestiae recusandae! Enim aspernatur nulla
+    maiores doloremque vel reprehenderit, quae exercitationem asperiores
+    aperiam officia voluptatum, dolores perferendis eos velit earum?
+  </p>
+</body>
+
 </html>
