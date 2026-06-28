@@ -323,3 +323,38 @@ function ques18(n) {
   return str;
 }
 console.log(ques18(5));
+
+function ques19(n) {
+  let str = "";
+  for (let i = 0; i < n; ++i) {
+    for (let j = 0; j < n; ++j) {
+      if (i === 0 || j === 0 || i === n - 1 || j === n - 1) {
+        str += "*";
+      } else {
+        str += " ";
+      }
+    }
+    str += "\n";
+  }
+  return str;
+}
+console.log(ques19(5));
+
+function ques20(n) {
+  let str = "";
+  let start;
+  for (let i = 0; i < n; ++i) {
+    if (i % 2 === 0) {
+      start = 1;
+    } else {
+      start = 0;
+    }
+    for (let j = 0; j < i + 1; ++j) {
+      str += start;
+      start = 1 - start;
+    }
+    str += "\n";
+  }
+  return str;
+}
+console.log(ques20(4));
