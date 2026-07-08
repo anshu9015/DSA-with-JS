@@ -358,3 +358,36 @@ function ques20(n) {
   return str;
 }
 console.log(ques20(4));
+
+function oneZero(n) {
+  let start;
+  let str = "";
+  for (let i = 0; i < n; ++i) {
+    if (i % 2 === 0) {
+      start = 1;
+    }
+    for (let j = 0; j < i + 1; ++j) {
+      str += start;
+      start = 1 - start;
+    }
+    str += "\n";
+  }
+  return str;
+}
+console.log(oneZero(4));
+
+function square(n) {
+  let str = "";
+  for (let i = 0; i < n; ++i) {
+    for (let j = 0; j < n; ++j) {
+      if (i === 0 || j === 0 || i === n - 1 || j === n - 1) {
+        str += "*";
+      } else {
+        str += " ";
+      }
+    }
+    str += "\n";
+  }
+  return str;
+}
+console.log(square(5));

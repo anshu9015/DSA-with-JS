@@ -1,33 +1,33 @@
 // ✅ Easy Level (1–15)
-// Check if a number is even or odd.
+// Check if a number is even or odd.   done
 
-// Find the sum of first N natural numbers.
+// Find the sum of first N natural numbers. done
 
-// Find the factorial of a number.
+// Find the factorial of a number.  done
 
-// Check if a number is prime.
+// Check if a number is prime. done
 
-// Find the greatest common divisor (GCD) of two numbers.
+// Find the greatest common divisor (GCD) of two numbers. done
 
-// Find the least common multiple (LCM) of two numbers.
+// Find the least common multiple (LCM) of two numbers.   done
 
-// Check if a number is a perfect square.
+// Check if a number is a perfect square.   done
 
-// Check if a number is Armstrong (e.g., 153 = 1³ + 5³ + 3³).
+// Check if a number is Armstrong (e.g., 153 = 1³ + 5³ + 3³).   done
 
-// Find the reverse of a number.
+// Find the reverse of a number.  done
 
-// Count the number of digits in a number.
+// Count the number of digits in a number.  done
 
-// Find the sum of digits of a number.
+// Find the sum of digits of a number.   done
 
-// Find the largest digit in a number.
+// Find the largest digit in a number.   done
 
-// Check if a number is palindrome.
+// Check if a number is palindrome.  done
 
-// Print the first N prime numbers.
+// Print the first N prime numbers.   done
 
-// Print the multiplication table of a number.
+// Print the multiplication table of a number.   done
 
 // ⚙️ Medium Level (16–30)
 
