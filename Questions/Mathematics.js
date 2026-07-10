@@ -35,7 +35,7 @@
 
 // Print all the factors of a number.   done
 
-// Check whether two numbers are coprime.
+// Check whether two numbers are coprime.   done
 
 // Convert a decimal to binary.
 
