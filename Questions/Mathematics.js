@@ -45,17 +45,17 @@
 
 // Check if a number is a Harshad Number (divisible by sum of its digits).
 
-// Find all prime numbers in a range.
+// Find all prime numbers in a range.   done
 
 // Print a number pyramid using math logic (e.g., Pascal’s triangle).
 
-// Calculate the power of a number (xⁿ) without using Math.pow().
+// Calculate the power of a number (xⁿ) without using Math.pow().   done
 
 // Count the number of set bits in binary of a number.
 
-// Find the sum of an arithmetic progression (AP).
+// Find the sum of an arithmetic progression (AP).   done
 
-// Find the sum of a geometric progression (GP).
+// Find the sum of a geometric progression (GP).   done
 
 // Count how many times a digit appears between 1 and N.
 

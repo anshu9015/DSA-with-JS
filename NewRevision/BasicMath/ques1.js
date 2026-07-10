@@ -216,3 +216,125 @@ function perfectSquare(n) {
 }
 console.log(perfectSquare(49));
 console.log(perfectSquare(50));
+
+function subString1(str) {
+  return str.slice(0, 5);
+}
+console.log(subString1("satyamkumar"));
+
+// Input: s = "10203004", queries = [[0,7],[1,3],[4,6]]
+
+// Output: [12340, 4, 9]
+
+// Explanation:
+
+// s[0..7] = "10203004"
+// x = 1234
+// sum = 1 + 2 + 3 + 4 = 10
+// Therefore, answer is 1234 * 10 = 12340.
+// s[1..3] = "020"
+// x = 2
+// sum = 2
+// Therefore, the answer is 2 * 2 = 4.
+// s[4..6] = "300"
+// x = 3
+// sum = 3
+// Therefore, the answer is 3 * 3 = 9.
+
+function leetcode2(str, queries) {
+  let arr = [];
+  const MOD = 1000000007;
+  for (let i = 0; i < queries.length; ++i) {
+    let str1 = 0;
+    let sum = 0;
+    let word = str.slice(queries[i][0], queries[i][1] + 1);
+    for (let j = 0; j < word.length; ++j) {
+      if (word[j] !== "0") {
+        str1 = (str1 * 10 + Number(word[j])) % MOD;
+        sum += Number(word[j]);
+      }
+    }
+    arr.push((str1 * sum) % MOD);
+  }
+  return arr;
+}
+console.log(
+  leetcode2("10203004", [
+    [0, 7],
+    [1, 3],
+    [4, 6],
+  ]),
+);
+console.log(leetcode2("9876543210", [[0, 9]]));
+
+function sum2(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; ++i) {
+    sum += arr[i];
+  }
+  let result = 0;
+  while (sum !== 0) {
+    let r = sum % 10;
+    result += r;
+    sum = Math.floor(sum / 10);
+  }
+  return result;
+}
+console.log(sum2([9, 9, 8, 7]));
+
+function checkPrime1(num) {
+  if (num < 2) {
+    return false;
+  }
+  for (let i = 2; i <= Math.sqrt(num); ++i) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+console.log(checkPrime1(7));
+
+function allPrimeBetween(l, r) {
+  let arr = [];
+  for (let i = l + 1; i < r; ++i) {
+    if (checkPrime1(i)) {
+      arr.push(i);
+    }
+  }
+  return arr;
+}
+console.log(allPrimeBetween(3, 21));
+
+function powerNumber(x, n) {
+  if (n === 0) {
+    return 1;
+  }
+  let result = 1;
+  for (let i = 1; i <= n; ++i) {
+    result *= x;
+  }
+  return result;
+}
+console.log(powerNumber(21, 205));
+
+function sumAP(arr) {
+  let n = arr.length;
+  let d = arr[1] - arr[0];
+  let a = arr[0];
+  return (n / 2) * (2 * a + (n - 1) * d);
+}
+console.log(sumAP([1, 3, 5, 7]));
+
+function sumGP(arr) {
+  let n = arr.length;
+  let r = arr[1] / arr[0];
+  let a = arr[0];
+  if (r === 1) {
+    return a * n;
+  }
+  let power = powerNumber(r, n);
+  return (a * (power - 1)) / (r - 1);
+}
+console.log(sumGP([2, 4, 8]));
+console.log(sumGP([5, 5, 5, 5]));
