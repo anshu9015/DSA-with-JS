@@ -31,9 +31,9 @@
 
 // ⚙️ Medium Level (16–30)
 
-// Find the nth Fibonacci number (both recursive and iterative).
+// Find the nth Fibonacci number (both recursive and iterative).   done
 
-// Print all the factors of a number.
+// Print all the factors of a number.   done
 
 // Check whether two numbers are coprime.
 

@@ -338,3 +338,106 @@ function sumGP(arr) {
 }
 console.log(sumGP([2, 4, 8]));
 console.log(sumGP([5, 5, 5, 5]));
+
+function printAllDivisor(n) {
+  let arr = [];
+  for (let i = 1; i <= n; ++i) {
+    if (n % i === 0) {
+      arr.push(i);
+    }
+  }
+  return arr;
+}
+console.log(printAllDivisor(36));
+
+function optimizePrintAllDivisor(n) {
+  let res = [];
+  for (let i = 1; i <= Math.sqrt(n); ++i) {
+    if (n % i === 0) {
+      res.push(i);
+      if (i != n / i) {
+        res.push(n / i);
+      }
+    }
+  }
+  return res;
+}
+console.log(optimizePrintAllDivisor(36));
+
+function fibonacciNumber(n) {
+  if (n === 0) return [0];
+  if (n === 1) return [0, 1];
+  let fib = new Array(n + 1).fill(0);
+  fib[0] = 0;
+  fib[1] = 1;
+  for (let i = 2; i <= n; ++i) {
+    fib[i] = fib[i - 2] + fib[i - 1];
+  }
+  return fib;
+}
+console.log(fibonacciNumber(6));
+
+function fibonacciNumberGet(n) {
+  let a = 0;
+  let b = 1;
+  if (n === 0) {
+    return a;
+  }
+  if (n === 1) {
+    return b;
+  }
+  for (let i = 2; i <= n; ++i) {
+    let c = a + b;
+    a = b;
+    b = c;
+  }
+  return b;
+}
+console.log(fibonacciNumberGet(6));
+
+function factorNumber(n) {
+  let arr = [];
+  for (let i = 1; i <= Math.sqrt(n); ++i) {
+    if (n % i === 0) {
+      arr.push(i);
+      if (i != n / i) {
+        arr.push(n / i);
+      }
+    }
+  }
+  return arr;
+}
+console.log(factorNumber(6));
+
+function coPrime(a, b) {
+  let count = 0;
+  let factorA = factorNumber(a);
+  let factorB = factorNumber(b);
+  for (let i = 0; i < factorA.length; ++i) {
+    if (factorB.includes(factorA[i])) {
+      count++;
+    }
+  }
+  if (count === 1) {
+    return true;
+  }
+  return false;
+}
+console.log(coPrime(8, 9));
+
+function gcd3(a, b) {
+  while (a !== 0) {
+    let r = b % a;
+    b = a;
+    a = r;
+  }
+  return b;
+}
+
+function coPrimeCheck(a, b) {
+  if (gcd3(a, b) === 1) {
+    return true;
+  }
+  return false;
+}
+console.log(coPrimeCheck(8, 9));
