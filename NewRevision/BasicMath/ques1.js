@@ -441,3 +441,35 @@ function coPrimeCheck(a, b) {
   return false;
 }
 console.log(coPrimeCheck(8, 9));
+
+function sortArray(arr) {
+  return arr.sort((a, b) => a - b);
+}
+console.log(sortArray([40, 10, 30, 20]));
+
+function findIndexOnSorting(arr) {
+  let arr4 = [...arr];
+  let arr1 = sortArray(arr);
+
+  let arr3 = [];
+  for (let i = 0; i < arr4.length; ++i) {
+    arr3.push(arr1.indexOf(arr4[i]) + 1);
+  }
+  return arr3;
+}
+console.log(findIndexOnSorting([40, 10, 20, 30]));
+
+function countDigit(N, digit) {
+  let count = 0;
+  for (let i = 1; i <= N; ++i) {
+    let num = i;
+    while (num > 0) {
+      if (num % 10 === digit) {
+        count++;
+      }
+      num = Math.floor(num / 10);
+    }
+  }
+  return count;
+}
+console.log(countDigit(25, 2));

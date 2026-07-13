@@ -57,6 +57,6 @@
 
 // Find the sum of a geometric progression (GP).   done
 
-// Count how many times a digit appears between 1 and N.
+// Count how many times a digit appears between 1 and N.   done
 
 // Find the digital root (repeated sum of digits until 1 digit remains).
