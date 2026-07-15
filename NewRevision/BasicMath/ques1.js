@@ -473,3 +473,27 @@ function countDigit(N, digit) {
   return count;
 }
 console.log(countDigit(25, 2));
+
+function sumOdd(n) {
+  let a = 1;
+  let d = 2;
+  return (n / 2) * (2 * a + (n - 1) * d);
+}
+console.log(sumOdd(4));
+
+function sumEven(n) {
+  let a = 2;
+  let d = 2;
+  return (n / 2) * (2 * a + (n - 1) * d);
+}
+console.log(sumEven(4));
+
+function gcd5(a, b) {
+  while (a !== 0) {
+    let r = b % a;
+    b = a;
+    a = r;
+  }
+  return b;
+}
+console.log(gcd5(16, 20));
