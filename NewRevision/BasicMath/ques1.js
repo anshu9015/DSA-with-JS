@@ -496,4 +496,35 @@ function gcd5(a, b) {
   }
   return b;
 }
-console.log(gcd5(16, 20));
+console.log("gcd---->>>>", gcd5(16, 0));
+
+function prefixGcd(arr) {
+  let max = -1;
+  for (let i = 0; i < arr.length; ++i) {
+    max = Math.max(max, arr[i]);
+  }
+  return max;
+}
+console.log(prefixGcd([2, 4, 6, 8, 3]));
+
+function prefixGcd1(arr) {
+  let gcd1;
+  let result = [];
+  let max = arr[0];
+  for (let i = 0; i < arr.length; ++i) {
+    max = Math.max(max, arr[i]);
+    gcd1 = gcd5(arr[i], max);
+    result.push(gcd1);
+  }
+  result.sort((a, b) => a - b);
+  let gcd6;
+  let sum = 0;
+  for (let i = 0; i < Math.floor(result.length / 2); ++i) {
+    gcd6 = gcd5(result[i], result[result.length - 1 - i]);
+    sum += gcd6;
+  }
+  return sum;
+}
+
+console.log(prefixGcd1([2, 6, 4]));
+console.log(prefixGcd1([3, 6, 2, 8]));
