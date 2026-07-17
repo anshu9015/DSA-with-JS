@@ -528,3 +528,41 @@ function prefixGcd1(arr) {
 
 console.log(prefixGcd1([2, 6, 4]));
 console.log(prefixGcd1([3, 6, 2, 8]));
+
+function gcdPairQueries(arr, queries) {
+  let gcdPairs = [];
+  for (let i = 0; i < arr.length; ++i) {
+    for (let j = i + 1; j < arr.length; ++j) {
+      gcdPairs.push(gcd(arr[i], arr[j]));
+    }
+  }
+  gcdPairs.sort((a, b) => a - b);
+  let finalResult = [];
+  for (let i = 0; i < queries.length; ++i) {
+    finalResult.push(gcdPairs[queries[i]]);
+  }
+  return finalResult;
+}
+console.log(gcdPairQueries([4, 4, 2, 1], [5, 3, 1, 0]));
+
+function toSecond(time) {
+  const variable = time.split(":");
+  return variable.map(Number);
+}
+console.log(toSecond("12:34:56"));
+
+function minimumTotalCost(arr, k) {
+  let count = 0;
+  let result = 0;
+  let check = k;
+  for (let i = 0; i < arr.length; ++i) {
+    while (check < arr[i]) {
+      check += k;
+      count++;
+      result += count;
+    }
+    check = check - arr[i];
+  }
+  return result;
+}
+console.log(minimumTotalCost([1, 1, 7, 14], 4));
