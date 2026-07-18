@@ -566,3 +566,11 @@ function minimumTotalCost(arr, k) {
   return result;
 }
 console.log(minimumTotalCost([1, 1, 7, 14], 4));
+
+function findGcd(arr) {
+  let max = Math.max(...arr);
+  let min = Math.min(...arr);
+  let gcd = gcd5(min, max);
+  return gcd;
+}
+console.log(findGcd([7, 5, 6, 8, 3]));
