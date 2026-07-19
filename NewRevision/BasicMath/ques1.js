@@ -574,3 +574,29 @@ function findGcd(arr) {
   return gcd;
 }
 console.log(findGcd([7, 5, 6, 8, 3]));
+
+function swap(a, b) {
+  [a, b] = [b, a];
+  return { a, b };
+}
+console.log(swap(3, 5));
+
+function removeDuplicate(str) {
+  let result = "";
+  for (let ch of str) {
+    if (!result.includes(ch)) {
+      result += ch;
+    }
+  }
+  let arr = [];
+  for (let i = 0; i < result.length; ++i) {
+    arr.push(result.charCodeAt(i));
+  }
+  arr.sort((a, b) => a - b);
+  let finalResult = "";
+  for (let i = 0; i < arr.length; ++i) {
+    finalResult += String.fromCharCode(arr[i]);
+  }
+  return finalResult;
+}
+console.log(removeDuplicate("bcabc"));
