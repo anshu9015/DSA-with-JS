@@ -600,3 +600,35 @@ function removeDuplicate(str) {
   return finalResult;
 }
 console.log(removeDuplicate("bcabc"));
+
+function arrMove(arr, k) {
+  let n = arr.length;
+  let result = new Array(n);
+  k = k % n;
+  for (let i = 0; i < arr.length; ++i) {
+    result[(i + k) % n] = arr[i];
+  }
+  return result;
+}
+console.log(arrMove([1, 2, 3, 4], 2));
+
+function gridMove(grid, k) {
+  let m = grid.length;
+  let n = grid[0].length;
+  const arr = grid.flat();
+  let result = arrMove(arr, k);
+  let finalResult = [];
+  for (let i = 0; i < m; ++i) {
+    finalResult.push(result.slice(i * n, (i + 1) * n));
+  }
+  return finalResult;
+}
+console.log(
+  gridMove(
+    [
+      [1, 2, 3],
+      [4, 5, 6],
+    ],
+    1,
+  ),
+);
