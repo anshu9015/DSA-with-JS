@@ -4,6 +4,60 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script>
+   var abc = "anshu1"
+  function parent(){
+    let abc = "inner function"
+
+    const person2={
+      abc :"object inner function"
+    }
+    const person1 = {
+      abc: "anshu",
+      greet: 
+      // function(){
+        // let abc = "inner"
+        // return(
+          () => {
+            console.log(this)
+        console.log(this.abc);
+      }
+    // )
+    // }
+    }
+    person1.greet();
+  }
+    console.log(parent())
+    // console.log(window.abc)
+
+  // function abc() {
+  //     console.log(arguments)
+  //           console.log(arguments[0])
+
+  //   }
+  //   abc(1, 2, 3, 4, 5);
+
+    const demo = (...args) =>{
+      let sum = 0
+for(let i = 0;i<args.length;++i){
+  sum +=args[i]
+}
+return sum
+    }
+    console.log(demo(1,2,3))
+
+    function callCheck(){
+      console.log(this.name)
+    }
+    const checkkaro = () => {
+      console.log(this.abc)
+    }
+    const callcheck = {
+      abc : "hii",
+    }
+    console.log("checkkaro----",checkkaro.call(callcheck))
+    console.log(callCheck.call(callcheck))
+    </script>
   </head>
   <body>
     <table border="1">

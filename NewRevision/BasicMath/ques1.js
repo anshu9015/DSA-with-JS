@@ -632,3 +632,12 @@ console.log(
     1,
   ),
 );
+
+function maximizeActive(str) {
+  let result = "1" + str + "1";
+  return result;
+}
+console.log(maximizeActive("0100"));
+
+var abc = "dsgdfg";
+console.log(window.abc);

@@ -1,4 +1,6 @@
 // What is JavaScript?
+//js is highly typed language , single threaded language which is used to add the interactivity into the website .
+
 // Why is JavaScript called a single-threaded language?
 // What are the different data types in JavaScript?
 // What is the difference between primitive and non-primitive data types?
