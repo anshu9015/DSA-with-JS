@@ -639,5 +639,68 @@ function maximizeActive(str) {
 }
 console.log(maximizeActive("0100"));
 
-var abc = "dsgdfg";
-console.log(window.abc);
+// var abc = "dsgdfg";
+// console.log(window.abc);
+
+function permutation(arr) {
+  const result = new Set();
+  for (let i = 0; i < arr.length; ++i) {
+    for (let j = i; j < arr.length; ++j) {
+      for (let k = j; k < arr.length; ++k) {
+        result.add(arr[i] ^ arr[j] ^ arr[k]);
+      }
+    }
+  }
+  const finalResult = [...result];
+  return finalResult.length;
+}
+console.log(permutation([1, 2]));
+
+function length(num) {
+  let count = 0;
+  while (num !== 0) {
+    num = Math.floor(num / 10);
+    count++;
+  }
+  return count;
+}
+console.log(length(345));
+function armstongNumber(num) {
+  let result = num;
+  let r;
+  let numLength = length(num);
+  let sum = 0;
+  while (num !== 0) {
+    r = num % 10;
+    num = Math.floor(num / 10);
+    sum += Math.pow(r, numLength);
+  }
+  if (sum === result) {
+    return true;
+  }
+  return false;
+}
+console.log(armstongNumber(152));
+
+function shortTest(num) {
+  let value = num.toString().split("");
+  let sum = 0;
+  for (let i of value) {
+    sum += Number(i) * Number(i) * Number(i);
+  }
+  console.log(sum);
+}
+
+shortTest(1534);
+
+function shortTest2(num) {
+  let value = String(num).split("");
+  let sum = 0;
+  let n = value.length;
+  for (let i = 0; i < n; ++i) {
+    sum += Math.pow(Number(value[i]), n);
+  }
+  console.log(sum);
+  // return sum;
+}
+shortTest2(153);
