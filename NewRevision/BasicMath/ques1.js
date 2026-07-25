@@ -704,3 +704,54 @@ function shortTest2(num) {
   // return sum;
 }
 shortTest2(153);
+
+function largestElement(arr) {
+  let largest = -1;
+  for (let i = 0; i < arr.length; ++i) {
+    if (arr[i] > largest) {
+      largest = arr[i];
+    }
+  }
+  return largest;
+}
+
+function findSecondLargest(arr) {
+  let secondLargestElement = -1;
+  let largest = largestElement(arr);
+  for (let i = 0; i < arr.length; ++i) {
+    if (secondLargestElement < arr[i] && arr[i] !== largest) {
+      secondLargestElement = arr[i];
+    }
+  }
+  return secondLargestElement;
+}
+
+function maximumProduct(n) {
+  let value = String(n).split("");
+  let arr = [];
+  for (let i = 0; i < value.length; ++i) {
+    arr.push(Number(value[i]));
+  }
+  if (arr.length === 2) {
+    return arr[0] * arr[1];
+  }
+  let largest = largestElement(arr);
+  let count = 0;
+  for (let i = 0; i < arr.length; ++i) {
+    if (largest == arr[i]) {
+      count++;
+    }
+  }
+  if (count >= 2) {
+    return largest * largest;
+  }
+  let secondLargestElement = findSecondLargest(arr);
+  return largest * secondLargestElement;
+}
+console.log(maximumProduct(767));
+console.log(maximumProduct(124));
+console.log(maximumProduct(22));
+
+const obj1 = Object.create(null);
+obj1.name = "anshu";
+console.log(obj1.hasOwnProperty("name"));

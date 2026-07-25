@@ -36,6 +36,20 @@
 // What are arrow functions?
 // Difference between normal functions and arrow functions.
 // object all methods
+// Object.keys
+// Object.values
+// Object.entries
+// Object.fromEntries
+// Object.assign
+// Object.freeze
+// Object.seal
+// Object.preventExtensions
+// Object.create
+// Object.defineProperties
+// Object.getOwnPropertyDescriptor
+// Object.groupBy
+// Object.hasOwn
+// objectname.hasOwnProperty()
 // array all methods
 // es6 new functionality
 // why functions are called first class citizen

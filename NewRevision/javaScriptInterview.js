@@ -121,3 +121,10 @@ Object.defineProperties(defineProperties, {
 });
 console.log("defineproperties", defineProperties);
 console.log(Object.getOwnPropertyDescriptor(defineProperties, "fullName"));
+
+let iilegal = "sdsdf";
+{
+  var illegal = "fgfg";
+  console.log(illegal);
+}
+console.log(illegal);
