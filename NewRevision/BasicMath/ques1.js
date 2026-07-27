@@ -752,6 +752,96 @@ console.log(maximumProduct(767));
 console.log(maximumProduct(124));
 console.log(maximumProduct(22));
 
-const obj1 = Object.create(null);
-obj1.name = "anshu";
-console.log(obj1.hasOwnProperty("name"));
+// const obj1 = Object.create(null);
+// obj1.name = "anshu";
+// console.log(obj1.hasOwnProperty("name"));
+
+const obj2 = {
+  name: "anshu",
+  age: 25,
+};
+// console.log(Object.keys(obj2));
+
+// console.log(Object.values(obj2));
+// console.log(Object.entries(obj2));
+// // const arr = [1, 2, 3, 4];[;]
+// const arr = [["name", "anshu"]];
+// console.log(Object.fromEntries(arr));
+// const obj3 = Object.assign(obj2, { age: 25 });
+// console.log(obj3);
+// Object.preventExtensions(obj2);
+// delete obj2.age;
+// console.log(obj2);
+
+// const obj3 = Object.create(obj2);
+// console.log(obj3.name);
+
+const obj = {};
+Object.defineProperty(obj, "name", {
+  value: "anshu",
+});
+console.log(obj.name);
+console.log(Object.getOwnPropertyDescriptor(obj, "name"));
+
+Object.defineProperties(obj, {
+  fullName: {
+    value: "anshu kumar",
+  },
+  address: {
+    value: "patna",
+  },
+});
+console.log(obj.fullName, obj.address);
+
+function maximumProductThree(nums) {
+  nums.sort((a, b) => a - b);
+
+  const n = nums.length;
+
+  const option1 = nums[n - 1] * nums[n - 2] * nums[n - 3];
+  const option2 = nums[0] * nums[1] * nums[n - 1];
+
+  return Math.max(option1, option2);
+}
+console.log(maximumProductThree([-100, -98, 2, 3, 4]));
+
+const arr3 = [2, [3, [4, 5]]];
+const newArray = arr3.flat(2);
+console.log(arr3);
+console.log(newArray);
+console.log(arr3.indexOf(2));
+console.log(arr3.find((x) => x % 2 === 0));
+console.log(arr3.findIndex((x) => x % 2 === 0));
+console.log(arr3.toString());
+console.log(arr3.join("*"));
+
+const obj4 = {
+  name: "anshu",
+  greet: function () {
+    let name = "shivani";
+    // console.log(`hi ${this.name}`);
+    return () => {
+      console.log(this.name);
+    };
+  },
+};
+obj4.greet()();
+
+function maxThreeProduct(arr) {
+  if (arr.length === 2) {
+    return (arr[0] - 1) * (arr[1] - 1);
+  }
+  let largest = largestElement(arr);
+  let count = 0;
+  for (let i = 0; i < arr.length; ++i) {
+    if (largest == arr[i]) {
+      count++;
+    }
+  }
+  if (count >= 2) {
+    return (largest - 1) * (largest - 1);
+  }
+  let secondLargestElement = findSecondLargest(arr);
+  return (largest - 1) * (secondLargestElement - 1);
+}
+console.log(maxThreeProduct([1, 5, 4, 5]));

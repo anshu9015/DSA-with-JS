@@ -51,7 +51,33 @@
 // Object.hasOwn
 // objectname.hasOwnProperty()
 // array all methods
+// arr.length
+// arr.push
+// arr.pop
+// arr.shift
+// arr.unshift
+// arr.splice
+// arr.slice
+// arr.concat
+// arr.flat
+// arr.indexOf
+// arr.find
+// arr.findIndex
+// arr.findLast
+// arr.findLastIndex
+// arr.toString
+// arr.join
+// string1.split //convert string into array
 // es6 new functionality
+// let and const
+// arrow function
+// template literals
+// destructuring
+// default parameters
+// classes
+// promises
+// rest and spread
+// ternary operator
 // why functions are called first class citizen
 // What is the this keyword?
 // How does this work inside arrow functions?
@@ -84,6 +110,7 @@
 // Difference between concat() and spread operator.
 // Difference between push() and unshift().
 // Difference between pop() and shift().
+//Difference between rest and spread operator
 // How do you remove duplicates from an array?
 // Flatten a nested array.
 // Difference between some() and every().
