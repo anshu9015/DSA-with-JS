@@ -101,6 +101,9 @@
 // Difference between Map and Object.
 // Difference between Set and Array.
 // What are Symbols?
+//what is class in js
+//what is proptotype
+//is js have oops concept if yes and how??
 // What is Object.create()?
 // What is Object.defineProperty()?
 // Explain property descriptors.

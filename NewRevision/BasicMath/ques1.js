@@ -845,3 +845,105 @@ function maxThreeProduct(arr) {
   return (largest - 1) * (secondLargestElement - 1);
 }
 console.log(maxThreeProduct([1, 5, 4, 5]));
+
+function reverse(s) {
+  let left = 0;
+  let right = s.length - 1;
+  let str = s.split("");
+  while (left < right) {
+    [str[left], str[right]] = [str[right], str[left]];
+    left++;
+    right--;
+  }
+  return str.join("");
+}
+function smallestPallindromic(str) {
+  let n = str.length;
+  if (n === 1) {
+    return str;
+  }
+  let arr = [];
+  for (let i = 0; i < Math.floor(n / 2); ++i) {
+    arr.push(str[i]);
+  }
+  let reverseString = "";
+  let string1 = sortString(arr.join(""));
+  console.log("string1", string1);
+  let reversed = reverse(string1);
+  console.log("reversed", reversed);
+  console.log("middlestring", str[n / 2]);
+  if (n % 2 === 0) {
+    reverseString += string1 + reversed;
+  } else if (n % 2 !== 0) {
+    reverseString += string1 + str[Math.floor(n / 2)] + reversed;
+  }
+  console.log("reverseString", reverseString);
+  return reverseString;
+}
+console.log(smallestPallindromic("babab"));
+console.log(smallestPallindromic("daccad"));
+function sortString(str) {
+  let value = str.split("");
+  let arr = [];
+  let arr3 = [];
+  for (let i = 0; i < value.length; ++i) {
+    arr.push(value[i].charCodeAt());
+  }
+  arr.sort((a, b) => a - b);
+  for (let i = 0; i < arr.length; ++i) {
+    arr3.push(String.fromCharCode(arr[i]));
+  }
+  return arr3.join("");
+}
+console.log(sortString("zanshu"));
+
+function sortStringDescending(str) {
+  let value = str.split("");
+  let arr = [];
+  let arr3 = [];
+  for (let i = 0; i < value.length; ++i) {
+    arr.push(value[i].charCodeAt());
+  }
+  arr.sort((a, b) => b - a);
+  for (let i = 0; i < arr.length; ++i) {
+    arr3.push(String.fromCharCode(arr[i]));
+  }
+  return arr3.join("");
+}
+console.log(sortStringDescending("anshuzb"));
+
+function smallPallindrome(str, k) {
+  let n = str.length;
+  let arr = [];
+  for (let i = 0; i < Math.floor(n / 2); ++i) {
+    arr.push(str[i]);
+  }
+  let reverseString = "";
+  let reverseString2 = "";
+  let string1 = sortString(arr.join(""));
+  let reversed = reverse(string1);
+  if (n % 2 === 0) {
+    reverseString += string1 + reversed;
+  } else if (n % 2 !== 0) {
+    reverseString += string1 + str[Math.floor(n / 2)] + reversed;
+  }
+
+  let set = new Set();
+  set.add(reverseString);
+  let string2 = sortStringDescending(arr.join(""));
+  let reversed2 = reverse(string2);
+  if (n % 2 === 0) {
+    reverseString2 += string2 + reversed2;
+  } else if (n % 2 !== 0) {
+    reverseString2 += string2 + str[Math.floor(n / 2)] + reversed2;
+  }
+  set.add(reverseString2);
+  let arr5 = [...set];
+  if (k > arr5.length) {
+    return "";
+  }
+  return arr5[k - 1];
+}
+console.log(smallPallindrome("abba", 2));
+console.log(smallPallindrome("aa", 2));
+console.log(smallPallindrome("bacab", 1));
