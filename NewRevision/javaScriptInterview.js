@@ -351,3 +351,87 @@ const obj10 = {
 };
 Object.setPrototypeOf(obj10, object8);
 console.log("obj10,,,,", obj10.name);
+
+function objectPrototype() {
+  console.log("hii");
+}
+objectPrototype.prototype.greet = function () {
+  console.log("hii, i am here");
+  return "i am here too";
+};
+console.log(objectPrototype.prototype.greet());
+
+const obj100 = {
+  name: "anshu",
+};
+
+const numArray = [
+  ["a", 1],
+  ["b", 2],
+  [1, 2, 3, 4, 5, 6, 8],
+];
+console.log(Object.fromEntries(numArray));
+
+// const nums = [1, 2, 3];
+// nums.forEach((num) => {
+//   console.log(num * 2);
+// });
+// console.log(nums);
+const nums = [1, 2, 3];
+
+nums.forEach((num, index) => {
+  nums[index] = num * 2;
+});
+console.log("nums--->>>", nums);
+const names = ["Rahul", "Anshu", "Amit"];
+
+names.sort();
+
+console.log(names);
+
+const users = [
+  { name: "anshu" },
+  { name: "anubhav" },
+  { name: "prince" },
+  { name: "arun" },
+];
+users.sort((a, b) => a.name.localeCompare(b.name));
+console.log(users);
+
+function sumArray(arr) {
+  let resultSum1 = 0;
+  for (let i = 0; i < arr.length; ++i) {
+    if (i < 8) {
+      resultSum1 += arr[i];
+    } else if (i < 16 && i >= 8) {
+      resultSum1 += arr[i] * 2;
+    } else if (i < 24 && i >= 16) {
+      resultSum1 += arr[i] * 3;
+    } else {
+      resultSum1 += arr[i] * 4;
+    }
+  }
+  return resultSum1;
+}
+
+function mapWords(str) {
+  const map = new Map();
+  for (let i = 0; i < str.length; ++i) {
+    map.set(str[i], (map.get(str[i]) || 0) + 1);
+  }
+  console.log("map---->>>", map);
+
+  let arr = [];
+  for (let [key, value] of map.entries()) {
+    arr.push(value);
+  }
+  arr.sort((a, b) => b - a);
+  console.log(arr);
+  let result = sumArray(arr);
+  return result;
+}
+// console.log(mapWords("abcde"));
+console.log(mapWords("aabbccddeeffgghhiiiiii"));
+
+const arr100 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// console.log(sumArray(arr100));
