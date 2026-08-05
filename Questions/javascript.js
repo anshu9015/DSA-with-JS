@@ -1,6 +1,4 @@
 // What is JavaScript?
-//js is highly typed language , single threaded language which is used to add the interactivity into the website .
-
 // Why is JavaScript called a single-threaded language?
 // What are the different data types in JavaScript?
 // What is the difference between primitive and non-primitive data types?
@@ -146,6 +144,7 @@
 // What is event bubbling?
 // What is event capturing?
 // What is event delegation?
+//what is memoization?
 // Difference between preventDefault() and stopPropagation().
 // Predict the output:
 // console.log(1);
@@ -156,3 +155,13 @@
 
 // console.log(4);
 //DOM Manpulation
+//PURE FUNCTION
+// function abcd() {
+//   console.log(name);
+// }
+// abcd();
+
+// setTimeout(() => {}, 2000, 2, 2, 2, 2, 2);
+// what is 2 ?
+
+// what is "||"

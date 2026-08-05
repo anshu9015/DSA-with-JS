@@ -947,3 +947,47 @@ function smallPallindrome(str, k) {
 console.log(smallPallindrome("abba", 2));
 console.log(smallPallindrome("aa", 2));
 console.log(smallPallindrome("bacab", 1));
+
+function missingNumber(arr) {
+  let min = Math.min(...arr);
+  let max = Math.max(...arr);
+  let result = [];
+  for (let i = min; i <= max; ++i) {
+    if (!arr.includes(i)) {
+      result.push(i);
+    }
+  }
+  return result;
+}
+console.log(missingNumber([1, 2, 3]));
+
+let user300 = {
+  name: "Anshu",
+};
+
+const weak = new WeakRef(user300);
+console.log(weak);
+console.log(weak.deref());
+
+const map = new Map();
+
+let user = {};
+
+map.set(user, "Admin");
+
+console.log(map);
+
+console.log(user);
+
+function remainingMethods(n, k, arr) {
+  let obj = new Map(arr);
+  return obj;
+}
+console.log(
+  remainingMethods(4, 0, [
+    [1, 2],
+    [0, 2],
+    [0, 1],
+    [3, 4],
+  ]),
+);
