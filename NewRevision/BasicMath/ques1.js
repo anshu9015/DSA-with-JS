@@ -991,3 +991,26 @@ console.log(
     [3, 4],
   ]),
 );
+
+function productNumber(n) {
+  let product = 1;
+  while (n !== 0) {
+    let r = n % 10;
+    product = product * r;
+    n = Math.floor(n / 10);
+  }
+  return product;
+}
+console.log(productNumber(23));
+
+function smallestNumber(n, t) {
+  let smallNumber;
+  for (let i = n; i < n + 10; ++i) {
+    smallNumber = productNumber(i);
+    if (smallNumber % t === 0) {
+      return i;
+    }
+  }
+}
+console.log(smallestNumber(10, 2));
+console.log(smallestNumber(15, 3));
