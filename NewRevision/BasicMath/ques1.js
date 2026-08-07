@@ -1014,3 +1014,22 @@ function smallestNumber(n, t) {
 }
 console.log(smallestNumber(10, 2));
 console.log(smallestNumber(15, 3));
+
+function add() {
+  let sum = 0;
+  for (let i = 0; i < arguments.length; ++i) {
+    sum += arguments[i];
+  }
+  function inner() {
+    if (arguments.length === 0) {
+      return sum;
+    }
+    for (let i = 0; i < arguments.length; ++i) {
+      sum += arguments[i];
+    }
+    return inner;
+  }
+  return inner;
+}
+console.log(add(1)(2)(3)(1)(2)(3)(1)(2)(3)());
+console.log(Object.is(NaN, NaN));
