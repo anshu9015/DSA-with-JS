@@ -165,3 +165,5 @@
 // what is 2 ?
 
 // what is "||"
+
+//what is web worker
