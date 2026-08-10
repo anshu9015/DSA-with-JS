@@ -1033,3 +1033,61 @@ function add() {
 }
 console.log(add(1)(2)(3)(1)(2)(3)(1)(2)(3)());
 console.log(Object.is(NaN, NaN));
+
+// const obj = {
+//     name:"anshu",
+
+// }
+// const obj1 = {...obj}
+// console.log(obj1);
+// console.log("name" in obj)
+// console.log("age" in obj)
+// for(let key of Object.values(obj)){
+//     console.log(key)
+// }
+// for(let key in obj){
+//     console.log(key)
+// }
+// for(let value in obj){
+//     console.log(value)
+// }
+// for(let value of obj){
+//     console.log(value)
+// }
+
+class Animal {
+  speak() {
+    console.log("animal speak");
+  }
+}
+class Dog extends Animal {
+  bark() {
+    console.log("dog barks");
+  }
+}
+const dog = new Dog();
+dog.speak();
+dog.bark();
+
+class vehicle {
+  constructor(name) {
+    this.name = name;
+  }
+}
+class bike extends vehicle {
+  constructor(name, brand) {
+    super(name);
+    this.brand = brand;
+  }
+}
+const pulsarBike = new bike("pulsar", "250");
+console.log(pulsarBike);
+
+function person(name) {
+  this.name = name;
+}
+person.prototype.greet = function () {
+  console.log(`hi ${this.name}`);
+};
+const p = new person("anshu");
+p.greet();
