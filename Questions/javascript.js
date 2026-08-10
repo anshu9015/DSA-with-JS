@@ -139,6 +139,8 @@
 // Difference between Map and WeakMap.
 // Difference between Set and WeakSet.
 // How do closures cause memory leaks?
+
+// still pending from this ------------------------------------------------>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // Difference between DOMContentLoaded and load.
 // Difference between async and defer.
 // What is event bubbling?
