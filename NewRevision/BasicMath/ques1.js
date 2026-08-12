@@ -1091,3 +1091,60 @@ person.prototype.greet = function () {
 };
 const p = new person("anshu");
 p.greet();
+
+function smallestMissingNumber(arr) {
+  let sum = arr[0];
+
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] === arr[i - 1] + 1) {
+      sum += arr[i];
+    } else {
+      break;
+    }
+  }
+  while (arr.includes(sum)) {
+    sum++;
+  }
+
+  return sum;
+}
+
+console.log(smallestMissingNumber([1, 2, 3, 4, 6, 7, 10]));
+
+function frequencyArray(arr, k) {
+  let map = new Map();
+  let res = [];
+  for (let i = 0; i < arr.length; ++i) {
+    map.set(arr[i], (map.get(arr[i]) || 0) + 1);
+  }
+  for (let [key, value] of map.entries()) {
+    if (value <= k) {
+      res.push(key);
+    }
+  }
+
+  return res.length * k;
+}
+console.log(frequencyArray([1, 2, 3, 1, 2, 3, 1, 2], 2));
+function frequencyArray2(arr, k) {
+  let map = new Map();
+  let left = 0;
+  let maxLength = 0;
+
+  for (let i = 0; i < arr.length; ++i) {
+    map.set(arr[i], (map.get(arr[i]) || 0) + 1);
+
+    while (map.get(arr[i]) > k) {
+      map.set(arr[left], map.get(arr[left]) - 1);
+
+      left++;
+    }
+
+    let currentLength = i - left + 1;
+
+    maxLength = Math.max(maxLength, currentLength);
+  }
+
+  return maxLength;
+}
+console.log(frequencyArray2([1, 100000], 2));
