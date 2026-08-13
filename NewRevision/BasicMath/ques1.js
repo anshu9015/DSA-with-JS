@@ -1148,3 +1148,25 @@ function frequencyArray2(arr, k) {
   return maxLength;
 }
 console.log(frequencyArray2([1, 100000], 2));
+
+function checkRepeatedSubString(s, ch, arr) {
+  let res = [];
+  const str = s.split("");
+  for (let i = 0; i < arr.length; ++i) {
+    str[arr[i]] = ch[i];
+    let maxLength = 1;
+    let currentLength = 1;
+    for (let j = 1; j < str.length; ++j) {
+      if (str[j] === str[j - 1]) {
+        currentLength++;
+        maxLength = Math.max(currentLength, maxLength);
+      } else {
+        currentLength = 1;
+      }
+    }
+    res.push(maxLength);
+  }
+  return res;
+}
+console.log(checkRepeatedSubString("babacc", "bcb", [1, 3, 3]));
+console.log(checkRepeatedSubString("abyzz", "aa", [2, 1]));
