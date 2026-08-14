@@ -1204,3 +1204,4 @@ function maximumSubStringLength(s) {
   return max;
 }
 console.log(maximumSubStringLength("anshu"));
+console.log(maximumSubStringLength("aaaa"));
