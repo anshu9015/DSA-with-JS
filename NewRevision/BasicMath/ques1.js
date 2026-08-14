@@ -1170,3 +1170,37 @@ function checkRepeatedSubString(s, ch, arr) {
 }
 console.log(checkRepeatedSubString("babacc", "bcb", [1, 3, 3]));
 console.log(checkRepeatedSubString("abyzz", "aa", [2, 1]));
+
+function subString(str) {
+  let res = [];
+  for (let i = 0; i < str.length; ++i) {
+    for (let j = i; j < str.length; ++j) {
+      res.push(str.slice(i, j + 1));
+    }
+  }
+  return res;
+}
+console.log(subString("anshu"));
+
+function maximumSubStringLength(s) {
+  let max = 0;
+
+  for (let i = 0; i < s.length; i++) {
+    let count = {};
+
+    for (let j = i; j < s.length; j++) {
+      count[s[j]] = (count[s[j]] || 0) + 1;
+
+      if (count[s[j]] > 2) {
+        break;
+      }
+
+      if (j - i + 1 > max) {
+        max = j - i + 1;
+      }
+    }
+  }
+
+  return max;
+}
+console.log(maximumSubStringLength("anshu"));
