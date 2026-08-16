@@ -1205,3 +1205,21 @@ function maximumSubStringLength(s) {
 }
 console.log(maximumSubStringLength("anshu"));
 console.log(maximumSubStringLength("aaaa"));
+
+function longestBitwise(arr) {
+  let xor = 0;
+  let n = arr.length;
+  let allZeros = true;
+  for (const x of arr) {
+    xor ^= x;
+    if (x > 0) {
+      allZeros = false;
+    }
+  }
+  if (xor > 0) {
+    return n;
+  }
+  return allZeros ? 0 : n - 1;
+}
+console.log(longestBitwise([1, 2, 3]));
+console.log(longestBitwise([2, 3, 4]));
