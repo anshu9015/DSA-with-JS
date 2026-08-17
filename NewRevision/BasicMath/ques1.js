@@ -1223,3 +1223,20 @@ function longestBitwise(arr) {
 }
 console.log(longestBitwise([1, 2, 3]));
 console.log(longestBitwise([2, 3, 4]));
+
+var ashu = "name";
+// console.log(window.ashu);
+
+const user450 = {
+  name: "anshu",
+};
+for (let key of Object.keys(user450)) {
+  console.log("key---->>>>", key);
+}
+const arr350 = [
+  [1, 2],
+  [3, 4],
+];
+console.log(Object.fromEntries(arr350));
+const obj460 = Object.create(user450);
+console.log(obj460.name);
