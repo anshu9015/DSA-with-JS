@@ -1240,3 +1240,19 @@ const arr350 = [
 console.log(Object.fromEntries(arr350));
 const obj460 = Object.create(user450);
 console.log(obj460.name);
+
+(function add() {
+  console.log(2 + 3);
+})();
+
+// let user = {
+//   name: "ashu",
+// };
+// let anotherObject = user;
+// user = null;
+// anotherObject = null;
+
+function abcd() {
+  console.log(name);
+}
+abcd();
