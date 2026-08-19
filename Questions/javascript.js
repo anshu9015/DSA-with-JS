@@ -140,6 +140,8 @@
 // Difference between Set and WeakSet.
 // How do closures cause memory leaks?
 
+const { useState } = require("react");
+
 // still pending from this ------------------------------------------------>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // Difference between DOMContentLoaded and load.
 // Difference between async and defer.
@@ -183,3 +185,8 @@
 //         }
 //     }
 // })
+
+// const [data,setData] = useState(0);
+// setData(data+1)
+// setData(data + 1);
+// console.log(data)
