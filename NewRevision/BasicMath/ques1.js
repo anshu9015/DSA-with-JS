@@ -1252,7 +1252,53 @@ console.log(obj460.name);
 // user = null;
 // anotherObject = null;
 
-function abcd() {
-  console.log(name);
+// function abcd() {
+//   console.log(name);
+// }
+// abcd();
+
+const flat = [2, [3, [4, 7]], 6];
+function flatArray(arr) {
+  let result = [];
+  for (let i = 0; i < arr.length; ++i) {
+    if (Array.isArray(arr[i])) {
+      const flattened = flatArray(arr[i]);
+      for (let j = 0; j < flattened.length; ++j) {
+        result.push(flattened[j]);
+      }
+    } else {
+      result.push(arr[i]);
+    }
+  }
+  return result;
 }
-abcd();
+console.log(flatArray(flat));
+
+// dsa striver sheet
+// operating system
+//js
+//reactjs
+//command line interface
+//java backend
+//python
+
+// 2 hours apply morning 9 to 11
+// 11 to 12 leetcode question
+// 2 hour any topic
+//7:30 to 10:00 any topic
+
+function resultArray(arr) {
+  let arr1 = [];
+  let arr2 = [];
+  arr1.push(arr[0]);
+  arr2.push(arr[1]);
+  for (let i = 2; i < arr.length; ++i) {
+    if (arr1[arr1.length - 1] > arr2[arr2.length - 1]) {
+      arr1.push(arr[i]);
+    } else {
+      arr2.push(arr[i]);
+    }
+  }
+  return arr1.concat(arr2);
+}
+console.log(resultArray([2, 1, 3]));
