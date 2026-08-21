@@ -1302,3 +1302,18 @@ function resultArray(arr) {
   return arr1.concat(arr2);
 }
 console.log(resultArray([2, 1, 3]));
+
+function findKthSmallest(coins, k) {
+  const set = new Set();
+  for (let i = 0; i < coins.length; ++i) {
+    for (let j = 1; j <= k; ++j) {
+      set.add(coins[i] * j);
+    }
+  }
+  const result = [...set];
+  result.sort((a, b) => a - b);
+  return result[k - 1];
+}
+console.log(findKthSmallest([3, 6, 9], 3));
+console.log(findKthSmallest([5, 2], 7));
+console.log(findKthSmallest([5], 7));

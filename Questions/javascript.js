@@ -169,6 +169,7 @@
 // what is "||"
 
 //what is web worker
+//throttling and debouncing
 
 // const [data,setData] = useState([]);
 // const[loading,setLoading] = useState(false);
