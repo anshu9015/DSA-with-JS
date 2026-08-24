@@ -1317,3 +1317,74 @@ function findKthSmallest(coins, k) {
 console.log(findKthSmallest([3, 6, 9], 3));
 console.log(findKthSmallest([5, 2], 7));
 console.log(findKthSmallest([5], 7));
+
+function debounce(fn, delay) {
+  let timer;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      fn.apply(this, args);
+    }, delay);
+  };
+}
+
+function throttle(fn, delay) {
+  let lastCall = 0;
+  return function (...args) {
+    const now = Date.now();
+    if (now - lastCall >= delay) {
+      lastCall = now;
+      fn.apply(this, args);
+    }
+  };
+}
+
+function digitSum(num) {
+  let sum = 0;
+  while (num !== 0) {
+    let r = num % 10;
+    sum += r;
+    num = Math.floor(num / 10);
+  }
+  return sum;
+}
+console.log(digitSum(99999));
+
+function digitProduct(num) {
+  let result = 1;
+  while (num !== 0) {
+    let r = num % 10;
+    result *= r;
+    num = Math.floor(num / 10);
+  }
+  return result;
+}
+console.log(digitProduct(99));
+
+function checkDivisibility(num) {
+  let sum = digitSum(num);
+  let multiply = digitProduct(num);
+  let total = sum + multiply;
+  if (num % total === 0) {
+    return true;
+  }
+  return false;
+}
+console.log(checkDivisibility(99));
+
+function asciiString(str) {
+  return str.charCodeAt(0);
+}
+console.log(asciiString("f"));
+
+function convertDecToBinary(num) {
+  const bin = [];
+  while (num !== 0) {
+    let r = num % 2;
+    bin.push(String(r));
+    num = Math.floor(num / 10);
+  }
+  bin.reverse();
+  return bin.join("");
+}
+console.log(convertDecToBinary(102));
