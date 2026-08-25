@@ -1388,3 +1388,18 @@ function convertDecToBinary(num) {
   return bin.join("");
 }
 console.log(convertDecToBinary(102));
+
+function missingNumberTable(nums, k) {
+  nums.sort((a, b) => a - b);
+  let res = [];
+  for (let i = 1; i <= nums.length + 1; ++i) {
+    res.push(k * i);
+  }
+  for (let j = 0; j < res.length; ++j) {
+    if (!nums.includes(res[j])) {
+      return res[j];
+    }
+  }
+}
+console.log(missingNumberTable([8, 2, 3, 4, 6], 2));
+console.log(missingNumberTable([99], 99));
