@@ -1170,6 +1170,7 @@ function checkRepeatedSubString(s, ch, arr) {
 }
 console.log(checkRepeatedSubString("babacc", "bcb", [1, 3, 3]));
 console.log(checkRepeatedSubString("abyzz", "aa", [2, 1]));
+console.log("anshu---->>>>>>>")
 
 function subString(str) {
   let res = [];
