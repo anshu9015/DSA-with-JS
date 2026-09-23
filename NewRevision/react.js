@@ -16,6 +16,7 @@
 // // Lazy loading/code splitting
 // // Error boundaries
 // // API handling
+//hi, i have to restart
 // // Performance optimization
 // // React security/common frontend vulnerabilities
 // [11/08/26, 3:37:28 PM] Atul Kumar: Use effect padh lena sare......
